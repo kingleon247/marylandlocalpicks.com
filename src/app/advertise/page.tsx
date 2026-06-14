@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { AdvertiserContact } from "@/components/advertiser-contact";
 import { InquiryForm } from "@/components/inquiry-form";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -146,8 +147,9 @@ export default function AdvertisePage() {
             <h2>Tell us what you would like Catonsville to know.</h2>
             <p>
               Share a few details and we will follow up about your business,
-              timing, and offer.
+              timing, and offer. Prefer to talk now? Call or text directly.
             </p>
+            <AdvertiserContact />
           </div>
           <InquiryForm />
         </div>

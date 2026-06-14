@@ -1318,6 +1318,27 @@ p {
   color: var(--muted);
 }
 
+.advertiser-contact {
+  max-width: 500px;
+  margin-top: 40px;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.advertiser-contact > p:not(.eyebrow) {
+  margin-top: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.advertiser-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
 .inquiry-form {
   padding: 38px;
   background: var(--paper);
