@@ -2875,6 +2875,10 @@ p {
   line-height: 1.6;
 }
 
+.intake-panel {
+  padding: 38px 44px 40px 48px;
+}
+
 .intake-panel > h2 {
   margin: 8px 0 12px;
   color: var(--ink);
@@ -3093,7 +3097,7 @@ p {
   }
 
   .intake-panel {
-    padding: 26px 20px;
+    padding: 28px 24px 32px;
   }
 }
 
