@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Maryland Local Picks
 
-## Getting Started
+Maryland Local Picks is a print-and-digital local advertising concept built
+around curated city editions. The Phase 1 MVP presents a statewide brand page,
+the first Catonsville edition, advertiser information, and conversion-focused
+business landing page templates.
 
-First, run the development server:
+Tagline: **Local businesses, offers, and places worth knowing.**
+
+## Phase 1 Scope
+
+This repository intentionally contains a public marketing and directory MVP,
+not the full operating platform.
+
+Included:
+
+- Responsive Maryland Local Picks brand homepage
+- Catonsville city edition with categories, offers, and Pick of the Week
+- Advertiser information and a front-end inquiry form placeholder
+- Static business landing pages with direct contact actions
+- Typed mock data for cities, categories, businesses, offers, and weekly picks
+- Drizzle/PostgreSQL schema preparation with no live database requirement
+- Business, technical, and print operations notes
+
+Not included:
+
+- Authentication or user accounts
+- Admin or advertiser dashboards
+- Database-backed CRUD
+- Stripe or payment processing
+- SignalWire or real call tracking
+- QR scan analytics
+- AI answering services
+
+## Routes
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Maryland Local Picks brand and city edition overview |
+| `/catonsville` | First city directory, offers, weekly pick, and opt-in |
+| `/advertise` | Print-and-digital advertiser proposition and inquiry form |
+| `/catonsville/[slug]` | Static business conversion landing page template |
+
+Example business route:
+`/catonsville/frederick-road-coffee`
+
+## Local Setup
+
+Requirements:
+
+- Node.js 20 or newer
+- npm
+
+Install and run:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Quality checks:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
 
-## Learn More
+## Data and Database Preparation
 
-To learn more about Next.js, take a look at the following resources:
+The public MVP reads from [`src/data/mock-data.ts`](src/data/mock-data.ts).
+Drizzle table definitions live in [`src/db/schema.ts`](src/db/schema.ts), and
+the project includes a [`drizzle.config.ts`](drizzle.config.ts) configuration
+for future PostgreSQL migrations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+No database or `DATABASE_URL` is required to develop, typecheck, lint, build,
+or browse Phase 1. The schema is not connected to application routes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```text
+src/
+  app/                    Next.js App Router pages
+  components/             Shared server and focused client components
+  data/mock-data.ts       Static Phase 1 content
+  db/schema.ts            Prepared Drizzle/PostgreSQL schema
+docs/                     Concise project planning documents
+_docs/                    Supplemental internal business and operations plans
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Phase Plan
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Phase 1: Public MVP
+
+Sell and demonstrate the first Catonsville edition with static content and
+working page templates.
+
+### Phase 2: Data-Backed Operations
+
+Add PostgreSQL records for cities, editions, businesses, placements, offers,
+picks, subscribers, advertiser leads, and QR short codes.
+
+### Phase 3: Advertiser Value
+
+Add event tracking, QR reports, digital-only listings, Pick of the Week
+scheduling, renewal workflows, and an internal admin surface.
+
+### Phase 4: Recurring Revenue
+
+Add Stripe subscriptions and prepaid packages, advertiser billing views,
+placement inventory, and self-service profile updates.
+
+### Phase 5: Call and Service Layer
+
+Add SignalWire tracking numbers, compliant call reporting, and later AI
+answering and missed-call follow-up products.
+
+## Documentation
+
+- [`docs/BUSINESS_PLAN.md`](docs/BUSINESS_PLAN.md)
+- [`docs/TECHNICAL_PLAN.md`](docs/TECHNICAL_PLAN.md)
+- [`docs/OPERATIONS_NOTES.md`](docs/OPERATIONS_NOTES.md)
+
+All businesses, offers, testimonials, addresses, and contact details currently
+shown in the product are fictional placeholder content.
