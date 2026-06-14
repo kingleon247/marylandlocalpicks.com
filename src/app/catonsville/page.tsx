@@ -210,9 +210,14 @@ export default function CatonsvillePage() {
             Print placement, a focused digital page, QR traffic, and an offer
             customers can act on.
           </p>
-          <Link className="button button-light" href="/advertise">
-            Advertise with us
-          </Link>
+          <div className="button-row">
+            <Link className="button button-light" href="/reserve">
+              Reserve a spot
+            </Link>
+            <Link className="button button-secondary" href="/advertise">
+              Advertise with us
+            </Link>
+          </div>
         </div>
       </section>
     </>

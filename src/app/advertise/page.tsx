@@ -63,6 +63,9 @@ export default function AdvertisePage() {
               <p className="advertise-hero-phone-numeric">
                 {ADVERTISER_PHONE_NUMERIC}
               </p>
+              <Link className="button button-light" href="/reserve">
+                Reserve a spot
+              </Link>
               <a className="button button-light" href="#inquiry">
                 Send an inquiry
               </a>

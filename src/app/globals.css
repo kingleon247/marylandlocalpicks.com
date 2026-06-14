@@ -2309,3 +2309,288 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Reserve page */
+.reserve-package-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.reserve-package-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 34px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.reserve-package-card h3 {
+  font-size: 1.55rem;
+}
+
+.reserve-package-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reserve-package-label {
+  color: var(--clay-text);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reserve-prepay-section {
+  background: var(--cream);
+}
+
+.reserve-prepay-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.reserve-prepay-card {
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.reserve-prepay-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.reserve-bonus-panel {
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.reserve-addon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.reserve-addon-card {
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.reserve-addon-card h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.reserve-future-tag {
+  padding: 4px 10px;
+  color: var(--clay-text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+
+.reserve-policy-section {
+  background: var(--cream);
+}
+
+.reserve-policy-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 28px;
+  padding: 38px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.reserve-policy-note {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.reserve-next-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.reserve-contact-card {
+  padding: 38px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+/* Advertiser intake form */
+.intake-form {
+  padding: 38px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.intake-form-loading {
+  color: var(--muted);
+}
+
+.intake-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 0 28px;
+  padding: 0 0 24px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.intake-fieldset:last-of-type {
+  border-bottom: 0;
+}
+
+.intake-fieldset legend {
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.intake-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.intake-form input,
+.intake-form textarea,
+.intake-form select {
+  width: 100%;
+  padding: 14px 15px;
+  color: var(--text);
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: normal;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 0;
+}
+
+.intake-form input:focus,
+.intake-form textarea:focus,
+.intake-form select:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 2px rgba(23, 53, 47, 0.1);
+  outline: none;
+}
+
+.intake-checkbox {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.intake-checkbox input {
+  width: auto;
+  margin-top: 4px;
+}
+
+.intake-checkbox span {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.intake-file-note,
+.intake-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.intake-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.field-error,
+.form-error {
+  color: var(--clay-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.form-error {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: rgba(217, 108, 79, 0.08);
+  border: 1px solid rgba(217, 108, 79, 0.25);
+}
+
+.thank-you-section {
+  padding-top: 120px;
+}
+
+.thank-you-panel {
+  max-width: 760px;
+  padding: 48px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.thank-you-panel h1 {
+  margin: 18px 0;
+}
+
+.thank-you-panel p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.thank-you-reference {
+  padding: 14px 16px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .reserve-package-grid,
+  .reserve-prepay-grid,
+  .reserve-addon-grid,
+  .reserve-policy-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .intake-form {
+    padding: 26px 20px;
+  }
+}

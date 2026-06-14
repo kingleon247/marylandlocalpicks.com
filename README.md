@@ -10,11 +10,9 @@ Tagline:
 
 ## Current Phase
 
-This repository is currently in **Phase 1: Public MVP**.
+This repository is currently in **Phase 1.5: Sales Operations**.
 
-The goal is not to build the full operating platform yet.
-
-The goal is to create a clean public site that helps sell and fulfill the first Catonsville card.
+Phase 1 public MVP is complete. Phase 1.5 adds reservation and intake flows needed to start selling and fulfilling Catonsville placements without building the full future platform.
 
 ## Phase 1 Scope
 
@@ -25,6 +23,10 @@ Included:
 * responsive Maryland Local Picks brand homepage
 * Catonsville city edition page
 * advertiser information page
+* `/reserve` packages and payment-policy page
+* `/advertiser-intake` operational intake form with server-side submission
+* local/serverful intake storage in `storage/advertiser-intakes/` (gitignored)
+* Stripe Payment Link config placeholder (`src/data/payment-links.ts`, values null until links are created)
 * front-end inquiry form placeholder
 * static business landing pages with direct contact actions
 * typed mock data for cities, categories, businesses, offers, and weekly picks
@@ -68,12 +70,15 @@ Working principle:
 
 ## Routes
 
-| Route                 | Purpose                                                   |
-| --------------------- | --------------------------------------------------------- |
-| `/`                   | Maryland Local Picks brand and city edition overview      |
-| `/catonsville`        | First city directory, offers, weekly pick, and opt-in     |
-| `/advertise`          | Print-and-digital advertiser proposition and inquiry form |
-| `/catonsville/[slug]` | Static business conversion landing page template          |
+| Route                          | Purpose                                                   |
+| ------------------------------ | --------------------------------------------------------- |
+| `/`                            | Maryland Local Picks brand and city edition overview      |
+| `/catonsville`                 | First city directory, offers, weekly pick, and opt-in     |
+| `/advertise`                   | Print-and-digital advertiser proposition and inquiry form |
+| `/reserve`                     | Catonsville placement packages, prepay options, and payment policy |
+| `/advertiser-intake`           | Operational advertiser intake form (no login required)    |
+| `/advertiser-intake/thank-you` | Post-submission confirmation page                         |
+| `/catonsville/[slug]`          | Static business conversion landing page template          |
 
 Example business route:
 
@@ -153,6 +158,24 @@ drizzle.config.ts
 No database or `DATABASE_URL` is required to develop, typecheck, lint, build, or browse Phase 1 unless a later phase explicitly adds database-backed functionality.
 
 The schema is preparation for future PostgreSQL use and should not force Phase 1 routes to require a live database.
+
+## Advertiser Intake Storage (Phase 1.5)
+
+Intake submissions are saved locally on the server filesystem:
+
+```text
+storage/advertiser-intakes/{submissionId}/submission.json
+storage/advertiser-intakes/{submissionId}/assets/
+```
+
+* `storage/` is gitignored and not public.
+* Uploaded files are stored privately and are not served through public routes.
+* SVG uploads are stored only; they are not rendered directly without review.
+* This storage is intended for local/serverful operation, not Vercel-style serverless file persistence.
+* If deployed later, hosting and storage behavior must be reviewed.
+* Intake submissions do not send email alerts yet. The operator must manually check the storage folder until email or CRM integration is added.
+* Stripe Payment Links are not integrated yet. Payment link config exists in `src/data/payment-links.ts` with null values until real links are created.
+* Online payment is not active on the site yet. `/reserve` explains packages and payment policy; CTAs route to intake or request a payment link.
 
 ## Project Structure
 

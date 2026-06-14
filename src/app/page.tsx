@@ -142,9 +142,14 @@ export default function Home() {
             Pair a tangible neighborhood print placement with a focused digital
             landing page and a clear offer.
           </p>
-          <Link className="button button-light" href="/advertise">
-            See advertiser options
-          </Link>
+          <div className="button-row">
+            <Link className="button button-light" href="/reserve">
+              Reserve a spot
+            </Link>
+            <Link className="button button-secondary" href="/advertise">
+              See advertiser options
+            </Link>
+          </div>
         </div>
       </section>
     </>
