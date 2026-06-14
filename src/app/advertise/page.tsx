@@ -3,8 +3,9 @@ import Link from "next/link";
 
 import {
   AdvertiserContact,
-  ADVERTISER_PHONE_DISPLAY,
   ADVERTISER_PHONE_LINK,
+  ADVERTISER_PHONE_NUMERIC,
+  ADVERTISER_PHONE_VANITY,
 } from "@/components/advertiser-contact";
 import { InquiryForm } from "@/components/inquiry-form";
 import { SectionHeading } from "@/components/section-heading";
@@ -57,8 +58,11 @@ export default function AdvertisePage() {
                 className="button button-hero-call"
                 href={`tel:${ADVERTISER_PHONE_LINK}`}
               >
-                Call {ADVERTISER_PHONE_DISPLAY}
+                Call {ADVERTISER_PHONE_VANITY}
               </a>
+              <p className="advertise-hero-phone-numeric">
+                {ADVERTISER_PHONE_NUMERIC}
+              </p>
               <a className="button button-light" href="#inquiry">
                 Send an inquiry
               </a>

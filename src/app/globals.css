@@ -1154,6 +1154,12 @@ p {
   background: var(--ink-soft);
 }
 
+.advertise-hero-phone-numeric {
+  color: rgba(255, 253, 247, 0.72);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
 .inclusion-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1354,6 +1360,13 @@ p {
   margin-top: 14px;
   color: var(--ink-soft);
   line-height: 1.6;
+}
+
+.contact-number-numeric {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 .advertiser-contact-actions {
