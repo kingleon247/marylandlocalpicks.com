@@ -23,8 +23,7 @@ export function SiteFooter() {
           <Link href="/catonsville#newsletter">Newsletter</Link>
         </div>
         <div className="footer-meta">
-          <p className="footer-label">Phase 1 preview</p>
-          <p>Business names and offers are placeholder content.</p>
+          <p className="footer-label">Catonsville edition</p>
           <p>&copy; {new Date().getFullYear()} Maryland Local Picks</p>
         </div>
       </div>

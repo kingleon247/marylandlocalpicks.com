@@ -13,10 +13,10 @@ export function InquiryForm() {
   if (submitted) {
     return (
       <div className="form-success form-success-light" role="status">
-        <strong>Thanks for raising your hand.</strong>
+        <strong>Thanks for your interest.</strong>
         <span>
-          This Phase 1 form is a working preview. Inquiry delivery will be
-          connected before launch.
+          We will follow up about Catonsville placement availability and next
+          steps.
         </span>
       </div>
     );
@@ -56,9 +56,6 @@ export function InquiryForm() {
       <button className="button button-primary button-wide" type="submit">
         Request advertiser details
       </button>
-      <p className="form-disclaimer">
-        Preview form only. No inquiry is sent or stored yet.
-      </p>
     </form>
   );
 }

@@ -111,7 +111,7 @@ export default function AdvertisePage() {
       <section className="section package-section">
         <div className="shell package-grid">
           <div className="package-card">
-            <p className="eyebrow">Phase 1 format</p>
+            <p className="eyebrow">Launch placement</p>
             <h2>Catonsville launch placement</h2>
             <ul className="check-list">
               <li>Placement on the printed Catonsville card</li>
@@ -133,7 +133,7 @@ export default function AdvertisePage() {
               right nearby people to notice, remember, and act.
             </p>
             <Link className="text-link text-link-light" href="/catonsville">
-              See the Catonsville preview <span aria-hidden="true">-&gt;</span>
+              See the Catonsville edition <span aria-hidden="true">-&gt;</span>
             </Link>
           </div>
         </div>
@@ -145,8 +145,8 @@ export default function AdvertisePage() {
             <p className="eyebrow">Advertiser inquiry</p>
             <h2>Tell us what you would like Catonsville to know.</h2>
             <p>
-              Share a few details and we will shape the eventual advertiser
-              conversation around your business, timing, and offer.
+              Share a few details and we will follow up about your business,
+              timing, and offer.
             </p>
           </div>
           <InquiryForm />

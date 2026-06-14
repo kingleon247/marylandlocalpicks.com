@@ -121,7 +121,7 @@ export const businesses: Business[] = [
       "Small event catering",
     ],
     about:
-      "Frederick Road Coffee is a fictional neighborhood cafe created for this preview. The concept is simple: thoughtful coffee, warm service, and a room that feels easy to return to.",
+      "A neighborhood cafe built around thoughtful coffee, warm service, and a room that feels easy to return to.",
     testimonials: [
       {
         quote:
@@ -159,7 +159,7 @@ export const businesses: Business[] = [
       "Picnic baskets",
     ],
     about:
-      "Patapsco Provisions is a fictional specialty market built around local makers, practical meals, and the pleasure of a properly packed picnic.",
+      "A specialty market built around local makers, practical meals, and the pleasure of a properly packed picnic.",
     testimonials: [
       {
         quote: "My first stop before a trail day and my backup plan for dinner.",
@@ -196,7 +196,7 @@ export const businesses: Business[] = [
       "Seasonal cocktails",
     ],
     about:
-      "Main Street Hearth is a fictional restaurant inspired by the generous, locally rooted dining rooms that make a town feel like home.",
+      "A restaurant inspired by the generous, locally rooted dining rooms that make a town feel like home.",
     testimonials: [
       {
         quote:
@@ -234,7 +234,7 @@ export const businesses: Business[] = [
       "Local sourcing",
     ],
     about:
-      "Bloomsbury Home Co. is a fictional small design studio focused on useful rooms, durable choices, and homes that reflect the people living in them.",
+      "A small design studio focused on useful rooms, durable choices, and homes that reflect the people living in them.",
     testimonials: [
       {
         quote:
@@ -272,7 +272,7 @@ export const businesses: Business[] = [
       "Local route guidance",
     ],
     about:
-      "Catonsville Cycle & Trail is a fictional independent bike shop for first rides, daily commuters, and experienced trail regulars alike.",
+      "An independent bike shop for first rides, daily commuters, and experienced trail regulars alike.",
     testimonials: [
       {
         quote:
@@ -310,7 +310,7 @@ export const businesses: Business[] = [
       "Book clubs",
     ],
     about:
-      "Beltway Bookshop is a fictional independent bookstore with a lively front table, deep backlist shelves, and recommendations worth trusting.",
+      "An independent bookstore with a lively front table, deep backlist shelves, and recommendations worth trusting.",
     testimonials: [
       {
         quote:

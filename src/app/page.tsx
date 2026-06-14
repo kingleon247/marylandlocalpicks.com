@@ -31,7 +31,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-card-scene" aria-label="Preview of a local picks card">
+          <div className="hero-card-scene" aria-label="Illustration of a local picks card">
             <div className="sun-shape" />
             <div className="guide-card guide-card-back">
               <span>Maryland edition</span>

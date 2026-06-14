@@ -17,7 +17,7 @@ export function NewsletterForm({ compact = false }: NewsletterFormProps) {
   if (submitted) {
     return (
       <div className="form-success" role="status">
-        <strong>You are on the preview list.</strong>
+        <strong>You are on the list.</strong>
         <span>We will send the next round of Catonsville picks your way.</span>
       </div>
     );

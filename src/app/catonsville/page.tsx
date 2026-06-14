@@ -61,7 +61,7 @@ export default function CatonsvillePage() {
                 <span>03 Home + local services</span>
                 <span>04 Shops + outdoor life</span>
               </div>
-              <div className="qr-placeholder" aria-label="QR code placeholder">
+              <div className="qr-placeholder" aria-label="QR code for the printed guide">
                 <i />
                 <i />
                 <i />
@@ -76,7 +76,7 @@ export default function CatonsvillePage() {
         <div className="shell city-hero-stats">
           <div>
             <strong>{businesses.length}</strong>
-            <span>preview picks</span>
+            <span>local picks</span>
           </div>
           <div>
             <strong>{categories.length}</strong>
@@ -94,7 +94,7 @@ export default function CatonsvillePage() {
           <SectionHeading
             eyebrow="The directory"
             title="Start with a good local answer."
-            intro="These fictional preview businesses show how the Catonsville edition will group and present independent local picks."
+            intro="Featured local businesses and offers from the first Catonsville edition."
           />
           <div className="category-stack">
             {categories.map((category) => {
