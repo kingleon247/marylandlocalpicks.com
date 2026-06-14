@@ -100,7 +100,7 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
                 <span>{business.initials}</span>
                 <p>{business.name}</p>
               </div>
-              <p className="image-note">Hero image / logo area</p>
+              <p className="image-note">Featured in Catonsville Local Picks</p>
             </div>
           </div>
         </div>
@@ -138,8 +138,8 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
                     <span>Local Picks visitor</span>
                     <h2>Ask about the current local offer.</h2>
                     <p>
-                      This placeholder is ready for a timely promotion,
-                      seasonal package, or new-customer incentive.
+                      Ask about seasonal specials, new-customer offers, and
+                      timely promotions when you visit or call.
                     </p>
                   </div>
                 </div>
@@ -186,7 +186,9 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
                   <p className="eyebrow">A closer look</p>
                   <h2>Gallery</h2>
                 </div>
-                <p>Photography placeholders for the advertiser launch page.</p>
+                <p>
+                  Storefront, service, and team photos from this local pick.
+                </p>
               </div>
               <div className="gallery-grid">
                 {business.galleryLabels.map((label, index) => (
@@ -219,9 +221,7 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
             </div>
             <div className="sidebar-pick-note">
               <span>Maryland Local Picks</span>
-              <p>
-                Selected for the Catonsville preview edition.
-              </p>
+              <p>Featured in Catonsville Local Picks.</p>
             </div>
           </aside>
         </div>
