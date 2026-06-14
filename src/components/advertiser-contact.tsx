@@ -1,7 +1,7 @@
 // TODO: add contactEmail when the project inbox is configured.
 
-const ADVERTISER_PHONE_DISPLAY = "(443) 702-5366";
-const ADVERTISER_PHONE_LINK = "+14437025366";
+export const ADVERTISER_PHONE_DISPLAY = "(443) 702-5366";
+export const ADVERTISER_PHONE_LINK = "+14437025366";
 
 export function AdvertiserContact() {
   return (

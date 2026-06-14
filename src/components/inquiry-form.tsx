@@ -27,21 +27,38 @@ export function InquiryForm() {
       <div className="field-row">
         <label>
           Your name
-          <input name="name" type="text" autoComplete="name" required />
+          <input
+            name="name"
+            type="text"
+            autoComplete="name"
+            placeholder="Your name"
+            required
+          />
         </label>
         <label>
           Business name
-          <input name="business" type="text" required />
+          <input name="business" type="text" placeholder="Business name" required />
         </label>
       </div>
       <div className="field-row">
         <label>
           Email
-          <input name="email" type="email" autoComplete="email" required />
+          <input
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="Email address"
+            required
+          />
         </label>
         <label>
           Phone
-          <input name="phone" type="tel" autoComplete="tel" />
+          <input
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="Phone number"
+          />
         </label>
       </div>
       <label>

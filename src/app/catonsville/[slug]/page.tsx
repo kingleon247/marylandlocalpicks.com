@@ -159,12 +159,17 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
               </div>
             </section>
 
-            <section className="business-section about-grid">
-              <div>
-                <p className="eyebrow">About</p>
-                <h2>A local business worth knowing.</h2>
+            <section className="business-section business-section-about">
+              <div className="about-grid">
+                <div className="about-intro">
+                  <p className="eyebrow">About</p>
+                  <h2>A local business worth knowing.</h2>
+                  <p className="about-lede">{business.shortDescription}</p>
+                </div>
+                <div className="about-panel">
+                  <p>{business.about}</p>
+                </div>
               </div>
-              <p>{business.about}</p>
             </section>
 
             <section className="business-section">
@@ -180,25 +185,26 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
               </div>
             </section>
 
-            <section className="business-section">
+            <section className="business-section business-section-gallery">
               <div className="gallery-heading">
                 <div>
-                  <p className="eyebrow">A closer look</p>
-                  <h2>Gallery</h2>
+                  <p className="eyebrow">Visual highlights</p>
+                  <h2>Storefront, work, and team</h2>
                 </div>
                 <p>
-                  Storefront, service, and team photos from this local pick.
+                  Photos from this business — storefront, service, and team —
+                  appear on each advertiser page.
                 </p>
               </div>
               <div className="gallery-grid">
                 {business.galleryLabels.map((label, index) => (
-                  <div
-                    className={`gallery-placeholder gallery-${index + 1} art-${business.accent}`}
+                  <figure
+                    className={`gallery-frame gallery-${index + 1} art-${business.accent}`}
                     key={label}
                   >
-                    <span>0{index + 1}</span>
-                    <p>{label}</p>
-                  </div>
+                    <span className="gallery-frame-index">0{index + 1}</span>
+                    <figcaption>{label}</figcaption>
+                  </figure>
                 ))}
               </div>
             </section>

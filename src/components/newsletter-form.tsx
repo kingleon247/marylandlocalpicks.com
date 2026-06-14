@@ -35,7 +35,7 @@ export function NewsletterForm({ compact = false }: NewsletterFormProps) {
         id={compact ? "footer-email" : "email"}
         type="email"
         name="email"
-        placeholder="you@example.com"
+        placeholder="Email address"
         autoComplete="email"
         required
       />

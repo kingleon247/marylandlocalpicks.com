@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { AdvertiserContact } from "@/components/advertiser-contact";
+import {
+  AdvertiserContact,
+  ADVERTISER_PHONE_DISPLAY,
+  ADVERTISER_PHONE_LINK,
+} from "@/components/advertiser-contact";
 import { InquiryForm } from "@/components/inquiry-form";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -48,9 +52,17 @@ export default function AdvertisePage() {
               Maryland Local Picks pairs a curated printed card with a
               conversion-focused digital page for each participating business.
             </p>
-            <a className="button button-light" href="#inquiry">
-              Ask about Catonsville
-            </a>
+            <div className="advertise-hero-actions">
+              <a
+                className="button button-hero-call"
+                href={`tel:${ADVERTISER_PHONE_LINK}`}
+              >
+                Call {ADVERTISER_PHONE_DISPLAY}
+              </a>
+              <a className="button button-light" href="#inquiry">
+                Send an inquiry
+              </a>
+            </div>
           </div>
         </div>
       </section>
