@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#efe7d6;font-family:'Source Serif 4',Georgia,serif;color:#463f33;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#c25e3a;color:#fbf8ef;}
+  summary{list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  details[open] .faq-icon{transform:rotate(45deg);}
+  details[open] .faq-q{color:#c25e3a;}
+</style>
+</helmet>
+
+<div style="max-width:1280px;margin:0 auto;padding:64px 40px 96px;">
+
+  <!-- ============ PAGE HEADER ============ -->
+  <header style="border-bottom:1px solid #d8ccb2;padding-bottom:40px;margin-bottom:64px;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#c25e3a;font-weight:500;margin-bottom:18px;">Maryland Local Picks · Design Reference</div>
+    <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(40px,5.2vw,68px);line-height:1.02;letter-spacing:-0.01em;color:#1e3a30;margin:0 0 22px;max-width:18ch;text-wrap:balance;">Polished enough to sell premium placement.</h1>
+    <p style="font-size:19px;line-height:1.6;color:#5b5341;max-width:60ch;margin:0;">A working reference for the refined direction — same warm, editorial, local feel, tightened into a system a developer can match in Next.js with plain CSS. Real photography slots, credible fallbacks, priced packages, concierge intake.</p>
+  </header>
+
+  <!-- ============ TOKEN LEGEND ============ -->
+  <section style="margin-bottom:88px;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9a8f76;font-weight:500;margin-bottom:26px;">The system</div>
+    <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;align-items:start;">
+
+      <!-- colors -->
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d735c;margin-bottom:16px;">Palette</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <div><div style="height:54px;border-radius:8px;background:#1e3a30;border:1px solid rgba(0,0,0,.06);"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d735c;margin-top:8px;">Ink<br>#1E3A30</div></div>
+          <div><div style="height:54px;border-radius:8px;background:#c25e3a;"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d735c;margin-top:8px;">Terracotta<br>#C25E3A</div></div>
+          <div><div style="height:54px;border-radius:8px;background:#dca52e;"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d735c;margin-top:8px;">Gold<br>#DCA52E</div></div>
+          <div><div style="height:54px;border-radius:8px;background:#8a6076;"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d735c;margin-top:8px;">Plum<br>#8A6076</div></div>
+          <div><div style="height:54px;border-radius:8px;background:#7c8a6a;"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d735c;margin-top:8px;">Sage<br>#7C8A6A</div></div>
+          <div><div style="height:54px;border-radius:8px;background:#fbf8ef;border:1px solid #ddd2bb;"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d735c;margin-top:8px;">Paper<br>#FBF8EF</div></div>
+        </div>
+      </div>
+
+      <!-- type -->
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d735c;margin-bottom:16px;">Type scale</div>
+        <div style="font-family:'Newsreader',serif;color:#1e3a30;line-height:1.05;">
+          <div style="font-size:40px;font-weight:500;">Display 64<span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9a8f76;vertical-align:super;">  Newsreader 500</span></div>
+          <div style="font-size:28px;font-weight:500;margin-top:12px;">Section head 34</div>
+          <div style="font-size:22px;font-weight:500;font-style:italic;margin-top:12px;">Italic accent</div>
+        </div>
+        <div style="border-top:1px solid #e1d7c0;margin-top:18px;padding-top:16px;">
+          <div style="font-size:18px;line-height:1.6;color:#463f33;">Body 17–18 · Source Serif 4, line-height 1.6, measure ≤ 64ch.</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c25e3a;margin-top:12px;">Eyebrow · IBM Plex Mono 11 / .16em</div>
+        </div>
+      </div>
+
+      <!-- spacing/radius -->
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d735c;margin-bottom:16px;">Shape &amp; rhythm</div>
+        <div style="display:flex;gap:14px;align-items:flex-end;margin-bottom:20px;">
+          <div style="text-align:center;"><div style="width:52px;height:52px;background:#fbf8ef;border:1px solid #ddd2bb;border-radius:8px;"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#7d735c;margin-top:7px;">btn r8</div></div>
+          <div style="text-align:center;"><div style="width:52px;height:52px;background:#fbf8ef;border:1px solid #ddd2bb;border-radius:10px;"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#7d735c;margin-top:7px;">card r10</div></div>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.9;color:#5b5341;">
+          <li>8px base · space 8/16/24/32/48</li>
+          <li>section gap 88–96px</li>
+          <li>card pad 24 · field 12 / 14</li>
+          <li>shadow 0 14px 34px -18px rgba(30,58,48,.28)</li>
+          <li>1px hairline #DDD2BB</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 · BUSINESS CARD ============ -->
+  <section style="margin-bottom:92px;">
+    <div style="margin-bottom:32px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c25e3a;font-weight:500;margin-bottom:12px;">01 · Local business card</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;line-height:1.05;color:#1e3a30;margin:0 0 12px;letter-spacing:-0.01em;">A listing that feels like a feature, not a fake.</h2>
+      <p style="font-size:18px;line-height:1.6;color:#5b5341;max-width:64ch;margin:0;">Photo-led card with a category accent, editorial blurb, a tasteful offer block, and one action. Where a photo isn't ready, a <em>branded fallback</em> sets the name in the display serif — never a monogram circle.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch;">
+
+      <!-- CARD 1: photo, terracotta -->
+      <article style="background:#fbf8ef;border:1px solid #e1d7c0;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 34px -22px rgba(30,58,48,.4);">
+        <div style="height:5px;background:#c25e3a;"></div>
+        <div style="position:relative;aspect-ratio:4/3;background:linear-gradient(150deg,#c8663f,#a8482a);overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 2px,transparent 2px 10px);"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.82);text-align:center;border:1px dashed rgba(255,255,255,.4);border-radius:6px;padding:10px 14px;line-height:1.6;">PHOTO 4:3<br>storefront · daylight</div>
+          </div>
+          <span style="position:absolute;bottom:12px;right:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.22);padding:5px 9px;border-radius:4px;">Local Pick</span>
+        </div>
+        <div style="padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#c25e3a;margin-bottom:8px;">Eat &amp; Drink</div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:25px;line-height:1.1;color:#1e3a30;margin:0 0 10px;">Frederick Road Coffee</h3>
+          <p style="font-size:15.5px;line-height:1.6;color:#5b5341;margin:0 0 18px;">Small-batch coffee, flaky pastries, and a sunny corner made for lingering.</p>
+          <div style="border:1px dashed #d8ae6a;background:#fbf3df;border-radius:8px;padding:13px 15px;margin-bottom:20px;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#b07d27;margin-bottom:5px;">Current offer</div>
+            <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:500;color:#1e3a30;line-height:1.2;">Pastry on us</div>
+            <div style="font-size:13.5px;color:#6b6353;line-height:1.5;margin-top:3px;">Complimentary pastry with any two specialty drinks.</div>
+          </div>
+          <a href="#" style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#1e3a30;text-decoration:none;border-bottom:1.5px solid #1e3a30;padding-bottom:3px;align-self:flex-start;" style-hover="gap:12px;color:#c25e3a;border-color:#c25e3a;">View local pick →</a>
+        </div>
+      </article>
+
+      <!-- CARD 2: branded fallback, sage -->
+      <article style="background:#fbf8ef;border:1px solid #e1d7c0;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 34px -22px rgba(30,58,48,.4);">
+        <div style="height:5px;background:#7c8a6a;"></div>
+        <div style="position:relative;aspect-ratio:4/3;background:#f1ecdb;border-bottom:1px solid #e6dcc4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:18px;">
+          <div style="width:34px;height:1px;background:#bcae8e;"></div>
+          <div style="font-family:'Newsreader',serif;font-weight:500;font-size:27px;line-height:1.05;color:#3f5a4a;text-align:center;">Bloomsbury<br>Home Co.</div>
+          <div style="width:34px;height:1px;background:#bcae8e;"></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#9a8f76;">Photography for print edition</div>
+          <span style="position:absolute;bottom:12px;right:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#5b6b4e;border:1px solid #c3cbb3;padding:4px 9px;border-radius:4px;">Local Pick</span>
+        </div>
+        <div style="padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5f7150;margin-bottom:8px;">Home &amp; Services</div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:25px;line-height:1.1;color:#1e3a30;margin:0 0 10px;">Bloomsbury Home Co.</h3>
+          <p style="font-size:15.5px;line-height:1.6;color:#5b5341;margin:0 0 18px;">Practical interior styling, color consultations, and rooms that still feel like you.</p>
+          <div style="border:1px dashed #b3c09f;background:#f2f4ea;border-radius:8px;padding:13px 15px;margin-bottom:20px;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#5f7150;margin-bottom:5px;">Current offer</div>
+            <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:500;color:#1e3a30;line-height:1.2;">$40 off a color consultation</div>
+            <div style="font-size:13.5px;color:#6b6353;line-height:1.5;margin-top:3px;">A focused, in-home session to make the next paint decision easier.</div>
+          </div>
+          <a href="#" style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#1e3a30;text-decoration:none;border-bottom:1.5px solid #1e3a30;padding-bottom:3px;align-self:flex-start;" style-hover="gap:12px;color:#5f7150;border-color:#5f7150;">View local pick →</a>
+        </div>
+      </article>
+
+      <!-- CARD 3: photo, plum -->
+      <article style="background:#fbf8ef;border:1px solid #e1d7c0;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 34px -22px rgba(30,58,48,.4);">
+        <div style="height:5px;background:#8a6076;"></div>
+        <div style="position:relative;aspect-ratio:4/3;background:linear-gradient(150deg,#946a82,#71506a);overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 2px,transparent 2px 10px);"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.82);text-align:center;border:1px dashed rgba(255,255,255,.4);border-radius:6px;padding:10px 14px;line-height:1.6;">PHOTO 4:3<br>shop interior</div>
+          </div>
+          <span style="position:absolute;bottom:12px;right:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.22);padding:5px 9px;border-radius:4px;">Local Pick</span>
+        </div>
+        <div style="padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8a6076;margin-bottom:8px;">Shop &amp; Explore</div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:25px;line-height:1.1;color:#1e3a30;margin:0 0 10px;">Catonsville Cycle &amp; Trail</h3>
+          <p style="font-size:15.5px;line-height:1.6;color:#5b5341;margin:0 0 18px;">Friendly bike service, useful gear, and local trail advice without the hard sell.</p>
+          <div style="border:1px dashed #c6a9b8;background:#f6eef2;border-radius:8px;padding:13px 15px;margin-bottom:20px;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8a6076;margin-bottom:5px;">Current offer</div>
+            <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:500;color:#1e3a30;line-height:1.2;">Free safety check</div>
+            <div style="font-size:13.5px;color:#6b6353;line-height:1.5;margin-top:3px;">A quick brake, tire, and drivetrain check before your next ride.</div>
+          </div>
+          <a href="#" style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#1e3a30;text-decoration:none;border-bottom:1.5px solid #1e3a30;padding-bottom:3px;align-self:flex-start;" style-hover="gap:12px;color:#8a6076;border-color:#8a6076;">View local pick →</a>
+        </div>
+      </article>
+    </div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.8;color:#9a8f76;margin-top:22px;border-top:1px solid #e1d7c0;padding-top:14px;">DEV · card #FBF8EF, 1px #E1D7C0, radius 10, 5px category accent bar. Image = next/image, 4:3. Offer = 1px dashed accent on tinted bg. CTA = underlined text link, real → glyph. Fallback replaces photo only — never a monogram circle.</div>
+  </section>
+
+  <!-- ============ 02 · PRICING ROW ============ -->
+  <section style="margin-bottom:92px;">
+    <div style="margin-bottom:28px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c25e3a;font-weight:500;margin-bottom:12px;">02 · Placement packages</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;line-height:1.05;color:#1e3a30;margin:0 0 12px;letter-spacing:-0.01em;">Price the spot. Anchor the value.</h2>
+      <p style="font-size:18px;line-height:1.6;color:#5b5341;max-width:64ch;margin:0;">Four sizes, a clear price anchor, and one recommended tier. The distribution facts sit above as confident truth, not fine print.</p>
+    </div>
+
+    <!-- distribution strip -->
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;background:#1e3a30;color:#f0e8d6;border-radius:10px;padding:16px 24px;margin-bottom:24px;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#dca52e;">The Catonsville edition</span>
+      <span style="opacity:.4;">·</span>
+      <span style="font-size:15px;">9×12 printed guide</span>
+      <span style="opacity:.4;">·</span>
+      <span style="font-size:15px;">Mailed to 2,500 homes</span>
+      <span style="opacity:.4;">·</span>
+      <span style="font-size:15px;">Digital landing page included with every spot</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch;">
+
+      <!-- HALF SPOT -->
+      <article style="background:#fbf8ef;border:1px solid #e1d7c0;border-radius:10px;padding:26px 22px;display:flex;flex-direction:column;">
+        <div style="font-family:'Newsreader',serif;font-weight:500;font-size:23px;color:#1e3a30;margin-bottom:4px;">Half Spot</div>
+        <div style="font-size:13.5px;color:#6b6353;line-height:1.5;margin-bottom:18px;min-height:42px;">Best for a first local placement.</div>
+        <div style="margin-bottom:18px;"><span style="font-size:13px;color:#9a8f76;">from</span> <span style="font-family:'Newsreader',serif;font-size:32px;font-weight:600;color:#1e3a30;">$295</span><span style="font-size:13px;color:#9a8f76;"> / mailing</span></div>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;font-size:14px;line-height:1.5;color:#5b5341;display:flex;flex-direction:column;gap:10px;flex:1;">
+          <li style="display:flex;gap:9px;"><span style="color:#7c8a6a;font-weight:600;">✓</span>Half-card placement</li>
+          <li style="display:flex;gap:9px;"><span style="color:#7c8a6a;font-weight:600;">✓</span>One category listing</li>
+          <li style="display:flex;gap:9px;"><span style="color:#7c8a6a;font-weight:600;">✓</span>Digital landing page</li>
+          <li style="display:flex;gap:9px;"><span style="color:#7c8a6a;font-weight:600;">✓</span>One local offer</li>
+        </ul>
+        <a href="#" style="display:block;text-align:center;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#1e3a30;text-decoration:none;border:1.5px solid #1e3a30;border-radius:8px;padding:12px;" style-hover="background:#1e3a30;color:#fbf8ef;">Reserve a spot</a>
+      </article>
+
+      <!-- SINGLE SPOT — RECOMMENDED -->
+      <article style="background:#fbf8ef;border:2px solid #c25e3a;border-radius:10px;padding:0;display:flex;flex-direction:column;box-shadow:0 18px 40px -20px rgba(194,94,58,.5);transform:translateY(-14px);position:relative;overflow:hidden;">
+        <div style="background:#c25e3a;color:#fbf8ef;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;padding:8px;">Most popular</div>
+        <div style="padding:26px 22px;display:flex;flex-direction:column;flex:1;">
+          <div style="font-family:'Newsreader',serif;font-weight:500;font-size:23px;color:#1e3a30;margin-bottom:4px;">Single Spot</div>
+          <div style="font-size:13.5px;color:#6b6353;line-height:1.5;margin-bottom:18px;min-height:42px;">Best for steady neighborhood visibility.</div>
+          <div style="margin-bottom:18px;"><span style="font-size:13px;color:#9a8f76;">from</span> <span style="font-family:'Newsreader',serif;font-size:32px;font-weight:600;color:#c25e3a;">$495</span><span style="font-size:13px;color:#9a8f76;"> / mailing</span></div>
+          <ul style="list-style:none;padding:0;margin:0 0 24px;font-size:14px;line-height:1.5;color:#5b5341;display:flex;flex-direction:column;gap:10px;flex:1;">
+            <li style="display:flex;gap:9px;"><span style="color:#c25e3a;font-weight:600;">✓</span>Full single-spot placement</li>
+            <li style="display:flex;gap:9px;"><span style="color:#c25e3a;font-weight:600;">✓</span>Priority category listing</li>
+            <li style="display:flex;gap:9px;"><span style="color:#c25e3a;font-weight:600;">✓</span>Landing page + featured offer</li>
+            <li style="display:flex;gap:9px;"><span style="color:#c25e3a;font-weight:600;">✓</span>QR-connected traffic</li>
+          </ul>
+          <a href="#" style="display:block;text-align:center;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#fbf8ef;text-decoration:none;background:#c25e3a;border:2px solid #c25e3a;border-radius:8px;padding:12px;" style-hover="background:#a84e2d;border-color:#a84e2d;">Reserve a spot</a>
+        </div>
+      </article>
+
+      <!-- DOUBLE SPOT -->
+      <article style="background:#fbf8ef;border:1px solid #e1d7c0;border-radius:10px;padding:26px 22px;display:flex;flex-direction:column;">
+        <div style="font-family:'Newsreader',serif;font-weight:500;font-size:23px;color:#1e3a30;margin-bottom:4px;">Double Spot</div>
+        <div style="font-size:13.5px;color:#6b6353;line-height:1.5;margin-bottom:18px;min-height:42px;">Best for a standout, can't-miss presence.</div>
+        <div style="margin-bottom:18px;"><span style="font-size:13px;color:#9a8f76;">from</span> <span style="font-family:'Newsreader',serif;font-size:32px;font-weight:600;color:#1e3a30;">$850</span><span style="font-size:13px;color:#9a8f76;"> / mailing</span></div>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;font-size:14px;line-height:1.5;color:#5b5341;display:flex;flex-direction:column;gap:10px;flex:1;">
+          <li style="display:flex;gap:9px;"><span style="color:#7c8a6a;font-weight:600;">✓</span>Double-size feature placement</li>
+          <li style="display:flex;gap:9px;"><span style="color:#7c8a6a;font-weight:600;">✓</span>Top-of-category priority</li>
+          <li style="display:flex;gap:9px;"><span style="color:#7c8a6a;font-weight:600;">✓</span>Enhanced landing page</li>
+          <li style="display:flex;gap:9px;"><span style="color:#7c8a6a;font-weight:600;">✓</span>Pick of the Week eligibility</li>
+        </ul>
+        <a href="#" style="display:block;text-align:center;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#1e3a30;text-decoration:none;border:1.5px solid #1e3a30;border-radius:8px;padding:12px;" style-hover="background:#1e3a30;color:#fbf8ef;">Reserve a spot</a>
+      </article>
+
+      <!-- QUAD SPONSOR -->
+      <article style="background:#1e3a30;border:1px solid #1e3a30;border-radius:10px;padding:26px 22px;display:flex;flex-direction:column;color:#f0e8d6;">
+        <div style="font-family:'Newsreader',serif;font-weight:500;font-size:23px;color:#fbf8ef;margin-bottom:4px;">Quad Sponsor</div>
+        <div style="font-size:13.5px;color:#bcc6b3;line-height:1.5;margin-bottom:18px;min-height:42px;">Best for owning the edition.</div>
+        <div style="margin-bottom:18px;"><span style="font-size:13px;color:#a3ad96;">from</span> <span style="font-family:'Newsreader',serif;font-size:32px;font-weight:600;color:#dca52e;">$1,800</span><span style="font-size:13px;color:#a3ad96;"> / mailing</span></div>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;font-size:14px;line-height:1.5;color:#d8d0bd;display:flex;flex-direction:column;gap:10px;flex:1;">
+          <li style="display:flex;gap:9px;"><span style="color:#dca52e;font-weight:600;">✓</span>Premium cover-adjacent quad</li>
+          <li style="display:flex;gap:9px;"><span style="color:#dca52e;font-weight:600;">✓</span>Category exclusivity</li>
+          <li style="display:flex;gap:9px;"><span style="color:#dca52e;font-weight:600;">✓</span>Featured in digital + social</li>
+          <li style="display:flex;gap:9px;"><span style="color:#dca52e;font-weight:600;">✓</span>First right of renewal</li>
+        </ul>
+        <a href="#" style="display:block;text-align:center;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#1e3a30;text-decoration:none;background:#dca52e;border:1.5px solid #dca52e;border-radius:8px;padding:12px;" style-hover="background:#c8901f;border-color:#c8901f;">Reserve a spot</a>
+      </article>
+    </div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.8;color:#9a8f76;margin-top:30px;border-top:1px solid #e1d7c0;padding-top:14px;">DEV · 4-col grid, gap 18. Recommended = 2px terracotta border + badge + translateY(-14px) + lift shadow (drop the transform on mobile, stack 1-col). Quad inverts to ink bg. Real → glyph in CTAs. "from" anchor keeps pricing flexible.</div>
+  </section>
+
+  <!-- ============ 03 · INTAKE FORM ============ -->
+  <section style="margin-bottom:92px;">
+    <div style="margin-bottom:32px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c25e3a;font-weight:500;margin-bottom:12px;">03 · Advertiser intake</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;line-height:1.05;color:#1e3a30;margin:0 0 12px;letter-spacing:-0.01em;">Onboarding, not a form dump.</h2>
+      <p style="font-size:18px;line-height:1.6;color:#5b5341;max-width:64ch;margin:0;">Six grouped steps, a calm sidebar that reassures, and field styling that matches the brand. One step shown expanded with every control type.</p>
+    </div>
+
+    <div style="background:#fbf8ef;border:1px solid #e1d7c0;border-radius:14px;overflow:hidden;display:grid;grid-template-columns:300px 1fr;box-shadow:0 18px 44px -26px rgba(30,58,48,.5);">
+
+      <!-- sidebar -->
+      <aside style="background:#1e3a30;color:#e8e0cd;padding:34px 30px;display:flex;flex-direction:column;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#dca52e;margin-bottom:26px;">Reserve · Catonsville</div>
+        <ol style="list-style:none;padding:0;margin:0 0 30px;display:flex;flex-direction:column;gap:2px;">
+          <!-- done -->
+          <li style="display:flex;align-items:center;gap:14px;padding:10px 0;">
+            <span style="flex:none;width:28px;height:28px;border-radius:50%;background:#7c8a6a;color:#1e3a30;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">✓</span>
+            <span style="font-size:15.5px;color:#bcc6b3;">Contact</span>
+          </li>
+          <!-- active -->
+          <li style="display:flex;align-items:center;gap:14px;padding:12px 14px;margin:2px -14px;background:rgba(220,165,46,.14);border-left:3px solid #dca52e;border-radius:0 8px 8px 0;">
+            <span style="flex:none;width:28px;height:28px;border-radius:50%;background:#dca52e;color:#1e3a30;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;">2</span>
+            <span style="font-size:15.5px;color:#fbf8ef;font-weight:600;">Business &amp; offer</span>
+          </li>
+          <li style="display:flex;align-items:center;gap:14px;padding:10px 0;">
+            <span style="flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid #5a7064;color:#9fae9d;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">3</span>
+            <span style="font-size:15.5px;color:#9fae9d;">Placement</span>
+          </li>
+          <li style="display:flex;align-items:center;gap:14px;padding:10px 0;">
+            <span style="flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid #5a7064;color:#9fae9d;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">4</span>
+            <span style="font-size:15.5px;color:#9fae9d;">Offer details</span>
+          </li>
+          <li style="display:flex;align-items:center;gap:14px;padding:10px 0;">
+            <span style="flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid #5a7064;color:#9fae9d;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">5</span>
+            <span style="font-size:15.5px;color:#9fae9d;">Assets</span>
+          </li>
+          <li style="display:flex;align-items:center;gap:14px;padding:10px 0;">
+            <span style="flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid #5a7064;color:#9fae9d;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">6</span>
+            <span style="font-size:15.5px;color:#9fae9d;">Approval</span>
+          </li>
+        </ol>
+        <div style="margin-top:auto;border-top:1px solid #2f4a3f;padding-top:22px;">
+          <div style="font-family:'Newsreader',serif;font-style:italic;font-size:18px;color:#f0e8d6;line-height:1.4;margin-bottom:10px;">A real person reviews every submission.</div>
+          <p style="font-size:13.5px;line-height:1.6;color:#a3ad96;margin:0;">We check fit and category availability, then send proof and a payment link — typically within two business days.</p>
+        </div>
+      </aside>
+
+      <!-- form panel -->
+      <div style="padding:38px 40px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#c25e3a;margin-bottom:8px;">Step 2 of 6</div>
+        <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:27px;color:#1e3a30;margin:0 0 28px;">Tell us about the business and offer.</h3>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 22px;">
+          <!-- text -->
+          <div>
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7d735c;margin-bottom:7px;">Business name</label>
+            <input type="text" value="Frederick Road Coffee" style="width:100%;font-family:'Source Serif 4',serif;font-size:15px;color:#1e3a30;background:#fffdf7;border:1px solid #d8ccb2;border-radius:8px;padding:12px 14px;outline:none;" style-focus="border-color:#c25e3a;box-shadow:0 0 0 3px rgba(194,94,58,.16);" />
+          </div>
+          <!-- select -->
+          <div>
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7d735c;margin-bottom:7px;">Category</label>
+            <select style="width:100%;font-family:'Source Serif 4',serif;font-size:15px;color:#1e3a30;background-color:#fffdf7;border:1px solid #d8ccb2;border-radius:8px;padding:12px 14px;outline:none;appearance:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231e3a30' stroke-width='1.5' fill='none'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 14px center;" style-focus="border-color:#c25e3a;box-shadow:0 0 0 3px rgba(194,94,58,.16);">
+              <option>Eat &amp; Drink</option>
+              <option>Home &amp; Services</option>
+              <option>Shop &amp; Explore</option>
+            </select>
+          </div>
+          <!-- text -->
+          <div>
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7d735c;margin-bottom:7px;">Email</label>
+            <input type="email" placeholder="hello@business.com" style="width:100%;font-family:'Source Serif 4',serif;font-size:15px;color:#1e3a30;background:#fffdf7;border:1px solid #d8ccb2;border-radius:8px;padding:12px 14px;outline:none;" style-focus="border-color:#c25e3a;box-shadow:0 0 0 3px rgba(194,94,58,.16);" />
+          </div>
+          <!-- text -->
+          <div>
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7d735c;margin-bottom:7px;">Phone</label>
+            <input type="tel" placeholder="(443) 000-0000" style="width:100%;font-family:'Source Serif 4',serif;font-size:15px;color:#1e3a30;background:#fffdf7;border:1px solid #d8ccb2;border-radius:8px;padding:12px 14px;outline:none;" style-focus="border-color:#c25e3a;box-shadow:0 0 0 3px rgba(194,94,58,.16);" />
+          </div>
+          <!-- offer headline full -->
+          <div style="grid-column:1 / -1;">
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7d735c;margin-bottom:7px;">Offer headline</label>
+            <input type="text" value="Pastry on us" style="width:100%;font-family:'Source Serif 4',serif;font-size:15px;color:#1e3a30;background:#fffdf7;border:1px solid #d8ccb2;border-radius:8px;padding:12px 14px;outline:none;" style-focus="border-color:#c25e3a;box-shadow:0 0 0 3px rgba(194,94,58,.16);" />
+          </div>
+          <!-- textarea full -->
+          <div style="grid-column:1 / -1;">
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7d735c;margin-bottom:7px;">Offer details</label>
+            <textarea rows="3" style="width:100%;font-family:'Source Serif 4',serif;font-size:15px;color:#1e3a30;background:#fffdf7;border:1px solid #d8ccb2;border-radius:8px;padding:12px 14px;outline:none;resize:vertical;line-height:1.5;" style-focus="border-color:#c25e3a;box-shadow:0 0 0 3px rgba(194,94,58,.16);">Complimentary pastry with any two specialty drinks. Valid through the Catonsville edition.</textarea>
+          </div>
+          <!-- file drop full -->
+          <div style="grid-column:1 / -1;">
+            <label style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#7d735c;margin-bottom:7px;">Logo &amp; photos</label>
+            <div style="border:1.5px dashed #c9bd9f;background:#fbf6ea;border-radius:10px;padding:26px;text-align:center;" style-hover="border-color:#c25e3a;background:#fbf3df;">
+              <div style="font-family:'Newsreader',serif;font-size:17px;color:#1e3a30;margin-bottom:5px;">Drag a logo or photo here</div>
+              <div style="font-size:13.5px;color:#7d735c;margin-bottom:16px;">or browse — JPG, PNG, PDF · up to 10MB each</div>
+              <span style="display:inline-block;font-family:'Source Serif 4',serif;font-weight:600;font-size:14px;color:#1e3a30;border:1.5px solid #1e3a30;border-radius:8px;padding:9px 18px;">Browse files</span>
+            </div>
+          </div>
+          <!-- approval checkbox full -->
+          <div style="grid-column:1 / -1;display:flex;align-items:flex-start;gap:13px;background:#f3f4ec;border:1px solid #dde0d0;border-radius:8px;padding:16px 18px;">
+            <span style="flex:none;width:22px;height:22px;border-radius:5px;background:#7c8a6a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px;">✓</span>
+            <span style="font-size:14.5px;line-height:1.55;color:#4a5240;">I confirm I have the right to submit these logos, photos, and assets, and that the offer details are accurate.</span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:30px;border-top:1px solid #e6dcc4;padding-top:24px;">
+          <a href="#" style="font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#7d735c;text-decoration:none;" style-hover="color:#1e3a30;">← Back</a>
+          <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#fbf8ef;background:#1e3a30;border-radius:8px;padding:13px 26px;text-decoration:none;" style-hover="background:#16312a;gap:13px;">Save &amp; continue →</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.8;color:#9a8f76;margin-top:22px;border-top:1px solid #e1d7c0;padding-top:14px;">DEV · 300px ink sidebar + fluid panel; collapse sidebar to a horizontal stepper on mobile. Inputs #FFFDF7, 1px #D8CCB2, radius 8, focus = terracotta ring. Native select restyled (appearance:none + SVG caret). Custom file drop zone replaces "Choose File". No system/dev copy ever rendered.</div>
+  </section>
+
+  <!-- ============ 04 · CTA + FOOTER ============ -->
+  <section>
+    <div style="margin-bottom:28px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c25e3a;font-weight:500;margin-bottom:12px;">04 · Close &amp; footer</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;line-height:1.05;color:#1e3a30;margin:0;letter-spacing:-0.01em;">A warm, local sign-off.</h2>
+    </div>
+
+    <!-- CTA band -->
+    <div style="background:#c25e3a;border-radius:14px 14px 0 0;padding:54px 48px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#f6dcc9;margin-bottom:16px;">For local businesses</div>
+        <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,3.4vw,42px);line-height:1.05;color:#fbf2e9;margin:0 0 16px;max-width:16ch;text-wrap:balance;">Reserve your spot in the Catonsville edition.</h3>
+        <p style="font-size:17px;line-height:1.6;color:#f6dcc9;margin:0;max-width:48ch;">A neighborhood print placement, a focused digital landing page, and a clear offer — mailed to the doors that matter.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+        <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#1e3a30;background:#fbf8ef;border-radius:8px;padding:15px 28px;text-decoration:none;" style-hover="background:#fff;gap:13px;">Reserve a spot →</a>
+        <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#fbf2e9;border:1.5px solid rgba(251,242,233,.55);border-radius:8px;padding:14px 26px;text-decoration:none;" style-hover="border-color:#fbf2e9;background:rgba(255,255,255,.08);">Call or text 443-94-PICKS</a>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#f6dcc9;opacity:.85;margin-top:2px;">(443) 947-4257 · example only</div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer style="background:#16312a;border-radius:0 0 14px 14px;padding:48px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:36px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+          <div style="width:46px;height:46px;border-radius:50%;background:#dca52e;color:#16312a;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.04em;">MLP</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#f0e8d6;line-height:1.5;">Maryland<br>Local Picks</div>
+        </div>
+        <p style="font-size:15px;line-height:1.6;color:#9fae9d;margin:0;max-width:34ch;">Local businesses, offers, and places worth knowing — printed, mailed, and made to be kept.</p>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#dca52e;margin-bottom:16px;">Explore</div>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px;">
+          <li><a href="#" style="font-size:15px;color:#d8d0bd;text-decoration:none;" style-hover="color:#fff;">Catonsville edition</a></li>
+          <li><a href="#" style="font-size:15px;color:#d8d0bd;text-decoration:none;" style-hover="color:#fff;">Advertise with us</a></li>
+          <li><a href="#" style="font-size:15px;color:#d8d0bd;text-decoration:none;" style-hover="color:#fff;">Reserve a spot</a></li>
+          <li><a href="#" style="font-size:15px;color:#d8d0bd;text-decoration:none;" style-hover="color:#fff;">Newsletter</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#dca52e;margin-bottom:16px;">Catonsville edition</div>
+        <p style="font-size:15px;line-height:1.7;color:#9fae9d;margin:0 0 18px;">Call or text<br><span style="color:#f0e8d6;font-size:17px;">443-94-PICKS</span></p>
+        <p style="font-size:13px;color:#7d8a7b;margin:0;">© 2026 Maryland Local Picks</p>
+      </div>
+    </footer>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.8;color:#9a8f76;margin-top:22px;border-top:1px solid #e1d7c0;padding-top:14px;">DEV · CTA = terracotta band, cream primary + outline secondary, single accent. Footer = ink #16312A, gold eyebrows, brand mark is the only circle on the site. Phone shown as display example. Stack to 1-col on mobile; CTA buttons go full-width.</div>
+  </section>
+
+  <!-- ============ 05 · TESTIMONIALS (borrowed from Radiant/Pocket, reskinned) ============ -->
+  <section style="margin-bottom:92px;">
+    <div style="margin-bottom:32px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c25e3a;font-weight:500;margin-bottom:12px;">05 · Local voices</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;line-height:1.05;color:#1e3a30;margin:0 0 12px;letter-spacing:-0.01em;">What people say is the proof.</h2>
+      <p style="font-size:18px;line-height:1.6;color:#5b5341;max-width:64ch;margin:0;">Owner and resident quotes do more for premium pricing than any feature list. Tailwind Plus's testimonial pattern, reskinned editorial — big serif, no avatar circles. <span style="color:#9a8f76;">(Sample copy.)</span></p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.08fr .92fr;gap:24px;align-items:stretch;">
+
+      <!-- featured -->
+      <figure style="margin:0;background:#1e3a30;border-radius:12px;padding:46px 44px;color:#f0e8d6;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#dca52e;margin-bottom:22px;">Frederick Road Coffee</div>
+          <div style="font-family:'Newsreader',serif;font-size:52px;line-height:.6;color:#3a5b4d;height:30px;">&ldquo;</div>
+          <blockquote style="font-family:'Newsreader',serif;font-style:italic;font-weight:500;font-size:28px;line-height:1.32;color:#fbf8ef;margin:0;text-wrap:pretty;">The first weekend after the guide mailed, three new regulars told us they'd kept the card on the fridge.</blockquote>
+        </div>
+        <figcaption style="margin-top:34px;border-top:1px solid #2f4a3f;padding-top:20px;">
+          <div style="font-family:'Newsreader',serif;font-size:19px;color:#fbf8ef;">Maya R.</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#9fae9d;margin-top:3px;">Owner · Frederick Road Coffee</div>
+        </figcaption>
+      </figure>
+
+      <!-- two stacked -->
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <figure style="margin:0;background:#fbf8ef;border:1px solid #e1d7c0;border-radius:12px;padding:30px;flex:1;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 34px -24px rgba(30,58,48,.4);">
+          <blockquote style="font-family:'Newsreader',serif;font-size:21px;line-height:1.4;color:#1e3a30;margin:0;text-wrap:pretty;">It's the rare thing in the mailbox I actually keep — and I've stopped into two places because of it.</blockquote>
+          <figcaption style="margin-top:22px;">
+            <div style="font-family:'Newsreader',serif;font-size:17px;color:#1e3a30;">A Catonsville resident</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#9a8f76;margin-top:3px;">21228</div>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;background:#fbf8ef;border:1px solid #e1d7c0;border-radius:12px;padding:30px;flex:1;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 34px -24px rgba(30,58,48,.4);">
+          <blockquote style="font-family:'Newsreader',serif;font-size:21px;line-height:1.4;color:#1e3a30;margin:0;text-wrap:pretty;">It looks like something we're proud to be in — not a coupon flyer.</blockquote>
+          <figcaption style="margin-top:22px;">
+            <div style="font-family:'Newsreader',serif;font-size:17px;color:#1e3a30;">James P.</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;color:#9a8f76;margin-top:3px;">Owner · Patapsco Provisions</div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.8;color:#9a8f76;margin-top:22px;border-top:1px solid #e1d7c0;padding-top:14px;">DEV · Radiant/Pocket testimonial anatomy: one featured quote (ink panel) + supporting grid. Reskin = serif quote, mono attribution, no avatar circles, brand palette. Drop the SaaS gradient + Framer Motion entrance.</div>
+  </section>
+
+  <!-- ============ 06 · FAQ (borrowed from Pocket, reskinned) ============ -->
+  <section style="margin-bottom:40px;">
+    <div style="margin-bottom:32px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c25e3a;font-weight:500;margin-bottom:12px;">06 · Common questions</div>
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:34px;line-height:1.05;color:#1e3a30;margin:0 0 12px;letter-spacing:-0.01em;">Answer the objection before it's asked.</h2>
+      <p style="font-size:18px;line-height:1.6;color:#5b5341;max-width:64ch;margin:0;">Pocket's two-column FAQ, reskinned. A native <code style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#c25e3a;">&lt;details&gt;</code> accordion — no JS, no library, drops straight into Next.js.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:.78fr 1.22fr;gap:56px;align-items:start;">
+      <!-- aside -->
+      <div>
+        <div style="font-family:'Newsreader',serif;font-style:italic;font-size:24px;line-height:1.35;color:#1e3a30;margin-bottom:16px;text-wrap:pretty;">Still deciding? A real person will walk you through it.</div>
+        <p style="font-size:16px;line-height:1.6;color:#5b5341;margin:0 0 22px;">Call or text with questions about availability, timing, and which spot fits your business.</p>
+        <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#fbf8ef;background:#1e3a30;border-radius:8px;padding:13px 24px;text-decoration:none;" style-hover="background:#16312a;gap:13px;">Call or text 443-94-PICKS</a>
+      </div>
+
+      <!-- accordion -->
+      <div>
+        <details open style="border-top:1px solid #e1d7c0;border-bottom:1px solid #e1d7c0;padding:22px 0;">
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:pointer;">
+            <span class="faq-q" style="font-family:'Newsreader',serif;font-size:21px;font-weight:500;color:#1e3a30;line-height:1.3;">When does the Catonsville edition mail, and how many homes?</span>
+            <span class="faq-icon" style="flex:none;display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#c25e3a;line-height:1;transition:transform .2s ease;">+</span>
+          </summary>
+          <p style="font-size:16.5px;line-height:1.65;color:#5b5341;margin:16px 0 0;max-width:62ch;">Each edition is printed 9×12 and mailed to 2,500 Catonsville homes on a roughly six-week cycle — about eight mailings a year. You can reserve a single mailing or commit across the year.</p>
+        </details>
+        <details style="border-bottom:1px solid #e1d7c0;padding:22px 0;">
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:pointer;">
+            <span class="faq-q" style="font-family:'Newsreader',serif;font-size:21px;font-weight:500;color:#1e3a30;line-height:1.3;">What's included with a placement?</span>
+            <span class="faq-icon" style="flex:none;display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#c25e3a;line-height:1;transition:transform .2s ease;">+</span>
+          </summary>
+          <p style="font-size:16.5px;line-height:1.65;color:#5b5341;margin:16px 0 0;max-width:62ch;">Every spot pairs a printed placement on the card with a focused digital landing page, one local offer, and a QR path from print to your page. Higher tiers add priority listing, more space, and social features.</p>
+        </details>
+        <details open style="border-bottom:1px solid #e1d7c0;padding:22px 0;">
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:pointer;">
+            <span class="faq-q" style="font-family:'Newsreader',serif;font-size:21px;font-weight:500;color:#1e3a30;line-height:1.3;">Do I have to provide my own photography?</span>
+            <span class="faq-icon" style="flex:none;display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#c25e3a;line-height:1;transition:transform .2s ease;">+</span>
+          </summary>
+          <p style="font-size:16.5px;line-height:1.65;color:#5b5341;margin:16px 0 0;max-width:62ch;">Helpful, but not required. Send what you have during intake. Where a photo isn't ready, we set your business name in the guide's editorial style until artwork is in hand — your listing never looks unfinished.</p>
+        </details>
+        <details style="border-bottom:1px solid #e1d7c0;padding:22px 0;">
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:pointer;">
+            <span class="faq-q" style="font-family:'Newsreader',serif;font-size:21px;font-weight:500;color:#1e3a30;line-height:1.3;">How does pricing and payment work?</span>
+            <span class="faq-icon" style="flex:none;display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#c25e3a;line-height:1;transition:transform .2s ease;">+</span>
+          </summary>
+          <p style="font-size:16.5px;line-height:1.65;color:#5b5341;margin:16px 0 0;max-width:62ch;">Spots start at $295 per mailing. After we confirm fit and category availability, we send a proof and a payment link — there's no charge before you've seen and approved your placement.</p>
+        </details>
+        <details style="border-bottom:1px solid #e1d7c0;padding:22px 0;">
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:pointer;">
+            <span class="faq-q" style="font-family:'Newsreader',serif;font-size:21px;font-weight:500;color:#1e3a30;line-height:1.3;">Can I reserve my category so a competitor can't appear?</span>
+            <span class="faq-icon" style="flex:none;display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#c25e3a;line-height:1;transition:transform .2s ease;">+</span>
+          </summary>
+          <p style="font-size:16.5px;line-height:1.65;color:#5b5341;margin:16px 0 0;max-width:62ch;">Quad Sponsors can hold category exclusivity for an edition. Other tiers are first-come within each category, so the earlier you reserve, the better your position.</p>
+        </details>
+      </div>
+    </div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.8;color:#9a8f76;margin-top:30px;border-top:1px solid #e1d7c0;padding-top:14px;">DEV · native &lt;details&gt;/&lt;summary&gt;, hairline dividers, + icon rotates to × on [open] (the only CSS that can't be inline). Two-col on desktop, stack on mobile. Accessible and zero-JS.</div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const init = () => {
+      const ds = document.querySelectorAll('details');
+      if (!ds.length) { setTimeout(init, 60); return; }
+      ds.forEach((d, i) => {
+        const sync = () => {
+          const icon = d.querySelector('.faq-icon');
+          const q = d.querySelector('.faq-q');
+          if (icon) icon.style.transform = d.open ? 'rotate(45deg)' : 'rotate(0deg)';
+          if (q) q.style.color = d.open ? '#c25e3a' : '#1e3a30';
+        };
+        d.addEventListener('toggle', sync);
+        if (i === 0 || i === 2) d.open = true;
+        sync();
+      });
+    };
+    setTimeout(init, 80);
+  }
+}
+</script>
+</body>
+</html>
