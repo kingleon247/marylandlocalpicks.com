@@ -1,34 +1,40 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 import {
+  REVIEW_ACCESS_COOKIE,
+  getRedirectUrl,
   isSiteGateEnabled,
   isValidPasscode,
   reviewAccessCookieOptions,
-  REVIEW_ACCESS_COOKIE,
 } from "@/lib/site-gate";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function getRedirectUrl(request: Request, path: string): URL {
-  return new URL(path, request.url);
+function productionRedirect(path: string): URL {
+  const siteUrl = process.env.SITE_URL || "https://marylandlocalpicks.com";
+  return new URL(path, siteUrl);
 }
 
-export async function POST(request: Request) {
-  if (!isSiteGateEnabled()) {
-    return NextResponse.redirect(getRedirectUrl(request, "/"));
-  }
-
+export async function POST(request: NextRequest) {
   const formData = await request.formData();
-  const passcode = formData.get("passcode");
-  const submitted = typeof passcode === "string" ? passcode : "";
+  const submittedPasscode = String(formData.get("passcode") ?? "");
 
-  if (!isValidPasscode(submitted)) {
-    return NextResponse.redirect(getRedirectUrl(request, "/?preview_error=1"));
+  if (!isSiteGateEnabled()) {
+    return NextResponse.redirect(productionRedirect("/"));
   }
 
-  const response = NextResponse.redirect(getRedirectUrl(request, "/"));
-  response.cookies.set(REVIEW_ACCESS_COOKIE, "1", reviewAccessCookieOptions());
+  if (!submittedPasscode || !isValidPasscode(submittedPasscode)) {
+    return NextResponse.redirect(productionRedirect("/?preview_error=1"));
+  }
+
+  const response = NextResponse.redirect(productionRedirect("/"));
+
+  response.cookies.set(
+    REVIEW_ACCESS_COOKIE,
+    "1",
+    reviewAccessCookieOptions()
+  );
 
   return response;
 }

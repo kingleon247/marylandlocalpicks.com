@@ -43,3 +43,21 @@ export function isValidPasscode(submitted: string): boolean {
 
   return submitted === expected;
 }
+
+export function getRedirectUrl(request: Request, path = "/"): URL {
+  const siteUrl = process.env.SITE_URL;
+
+  if (siteUrl) {
+    return new URL(path, siteUrl);
+  }
+
+  const forwardedProto = request.headers.get("x-forwarded-proto");
+  const forwardedHost = request.headers.get("x-forwarded-host");
+  const host = forwardedHost ?? request.headers.get("host");
+
+  if (forwardedProto && host) {
+    return new URL(path, `${forwardedProto}://${host}`);
+  }
+
+  return new URL(path, request.url);
+}
