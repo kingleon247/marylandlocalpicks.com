@@ -17,6 +17,16 @@ export const metadata: Metadata = {
     "Submit business details and ad assets for a Catonsville Local Picks placement.",
 };
 
+const intakeSections = [
+  "Contact",
+  "Business profile",
+  "Placement interest",
+  "Offer / coupon",
+  "Landing page content",
+  "Assets",
+  "Approval",
+];
+
 export default function AdvertiserIntakePage() {
   return (
     <>
@@ -47,27 +57,46 @@ export default function AdvertiserIntakePage() {
       </section>
 
       <section className="section inquiry-section">
-        <div className="shell inquiry-grid">
-          <div>
-            <p className="eyebrow">What to expect</p>
-            <h2>We review every submission before print.</h2>
-            <p>
-              Submit contact details, business information, offer copy, landing
-              page content, and any logos or photos you want us to use. Maryland
-              Local Picks will follow up after review.
-            </p>
-            <p className="intake-note">
-              Submissions are saved securely on the server. Email alerts are not
-              sent yet — the operator must check the storage folder manually
-              until email or CRM integration is added.
-            </p>
-            <Link className="text-link" href="/reserve">
-              Back to reserve a spot <span aria-hidden="true">-&gt;</span>
-            </Link>
+        <div className="shell">
+          <div className="intake-layout">
+            <aside className="intake-sidebar">
+              <p className="eyebrow">Reserve · Catonsville</p>
+              <ol className="intake-step-list">
+                {intakeSections.map((section, index) => (
+                  <li key={section}>
+                    <span className="intake-step-number">{index + 1}</span>
+                    <span>{section}</span>
+                  </li>
+                ))}
+              </ol>
+              <div className="intake-sidebar-note">
+                <blockquote>
+                  A real person reviews every submission.
+                </blockquote>
+                <p>
+                  We check fit and category availability, then send proof and a
+                  payment link — typically within two business days.
+                </p>
+              </div>
+            </aside>
+            <div className="intake-panel">
+              <p className="eyebrow">Advertiser onboarding</p>
+              <h2>Tell us about your business and offer.</h2>
+              <p className="intake-note">
+                Submit contact details, business information, offer copy,
+                landing page content, and any logos or photos you want us to
+                use.
+              </p>
+              <Suspense fallback={<AdvertiserIntakeFormFallback />}>
+                <AdvertiserIntakeForm />
+              </Suspense>
+              <p className="intake-note intake-back-link">
+                <Link className="text-link" href="/reserve">
+                  Back to reserve a spot <span aria-hidden="true">→</span>
+                </Link>
+              </p>
+            </div>
           </div>
-          <Suspense fallback={<AdvertiserIntakeFormFallback />}>
-            <AdvertiserIntakeForm />
-          </Suspense>
         </div>
       </section>
     </>

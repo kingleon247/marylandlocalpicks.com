@@ -438,15 +438,14 @@ export function AdvertiserIntakeForm() {
         <legend>Assets</legend>
         <p className="intake-file-note">
           Accepted: JPG, PNG, WEBP, SVG, PDF, DOC, DOCX. Max 10MB per file,
-          50MB total. Uploaded files are stored privately and reviewed before
-          use.
+          50MB total. Uploaded files are reviewed before use.
         </p>
-        <label>
+        <label className="intake-file-field">
           Logo
           <input name="logo" type="file" accept=".jpg,.jpeg,.png,.webp,.svg,.pdf,.doc,.docx" />
           {errors.logo ? <span className="field-error">{errors.logo}</span> : null}
         </label>
-        <label>
+        <label className="intake-file-field">
           Hero image
           <input
             name="heroImage"
@@ -457,7 +456,7 @@ export function AdvertiserIntakeForm() {
             <span className="field-error">{errors.heroImage}</span>
           ) : null}
         </label>
-        <label>
+        <label className="intake-file-field">
           Gallery / photos
           <input
             name="galleryPhotos"
@@ -469,7 +468,7 @@ export function AdvertiserIntakeForm() {
             <span className="field-error">{errors.galleryPhotos}</span>
           ) : null}
         </label>
-        <label>
+        <label className="intake-file-field">
           Existing ad / artwork
           <input
             name="existingArtwork"
@@ -480,7 +479,7 @@ export function AdvertiserIntakeForm() {
             <span className="field-error">{errors.existingArtwork}</span>
           ) : null}
         </label>
-        <label>
+        <label className="intake-file-field">
           Other files
           <input
             name="otherFiles"
@@ -530,7 +529,7 @@ export function AdvertiserIntakeForm() {
         disabled={pending}
         type="submit"
       >
-        {pending ? "Submitting..." : "Submit advertiser intake"}
+        {pending ? "Submitting..." : "Submit intake"}
       </button>
     </form>
   );

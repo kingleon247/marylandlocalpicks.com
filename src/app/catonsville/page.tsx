@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { BusinessCard } from "@/components/business-card";
+import { ADVERTISER_PHONE_LINK, ADVERTISER_PHONE_VANITY } from "@/components/advertiser-contact";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { SectionHeading } from "@/components/section-heading";
 import {
@@ -152,7 +153,7 @@ export default function CatonsvillePage() {
                     className="text-link"
                     href={`/catonsville/${business.slug}`}
                   >
-                    Visit {business.name} <span aria-hidden="true">-&gt;</span>
+                    Visit {business.name} <span aria-hidden="true">→</span>
                   </Link>
                 </article>
               );
@@ -204,19 +205,22 @@ export default function CatonsvillePage() {
         <div className="shell business-cta">
           <div>
             <p className="eyebrow">Own a local business?</p>
-            <h2>Put your business in the next local conversation.</h2>
+            <h2>Reserve your spot in the Catonsville edition.</h2>
+            <p>
+              Print placement, a focused digital page, QR traffic, and an offer
+              customers can act on.
+            </p>
           </div>
-          <p>
-            Print placement, a focused digital page, QR traffic, and an offer
-            customers can act on.
-          </p>
-          <div className="button-row">
+          <div className="business-cta-actions">
             <Link className="button button-light" href="/reserve">
-              Reserve a spot
+              Reserve a spot →
             </Link>
             <Link className="button button-secondary" href="/advertise">
               Advertise with us
             </Link>
+            <a className="button button-secondary" href={`tel:${ADVERTISER_PHONE_LINK}`}>
+              Call or text {ADVERTISER_PHONE_VANITY}
+            </a>
           </div>
         </div>
       </section>

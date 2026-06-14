@@ -112,8 +112,8 @@ export default function AdvertisePage() {
               <span>Next</span>
               <h3>Pick of the Week and social promotion</h3>
               <p>
-                Future promotional upgrades will create extra moments of
-                attention beyond the initial print drop.
+                Promotional upgrades create extra moments of attention beyond
+                the initial print drop.
               </p>
             </article>
             <article>
@@ -138,7 +138,7 @@ export default function AdvertisePage() {
               <li>Dedicated business conversion page</li>
               <li>Featured offer or customer incentive</li>
               <li>QR path from print to digital</li>
-              <li>Eligibility for a future weekly feature</li>
+              <li>Eligibility for Pick of the Week</li>
             </ul>
             <p className="package-note">
               Final pricing, print quantity, placement sizes, and drop dates
@@ -153,7 +153,7 @@ export default function AdvertisePage() {
               right nearby people to notice, remember, and act.
             </p>
             <Link className="text-link text-link-light" href="/catonsville">
-              See the Catonsville edition <span aria-hidden="true">-&gt;</span>
+              See the Catonsville edition <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

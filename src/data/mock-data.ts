@@ -32,6 +32,7 @@ export type Business = {
   website: string;
   address: string;
   featured: boolean;
+  photoUrl?: string;
   services: string[];
   about: string;
   testimonials: Testimonial[];
@@ -69,14 +70,14 @@ export const cities: City[] = [
     slug: "ellicott-city",
     state: "MD",
     status: "coming-soon",
-    description: "A future edition for historic Main Street and nearby neighborhoods.",
+    description: "Historic Main Street and nearby neighborhoods.",
   },
   {
     name: "Arbutus",
     slug: "arbutus",
     state: "MD",
     status: "coming-soon",
-    description: "A future edition celebrating local standbys and new favorites.",
+    description: "Local standbys and new favorites.",
   },
 ];
 

@@ -57,7 +57,7 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
       <section className="business-hero">
         <div className="shell">
           <Link className="back-link" href="/catonsville">
-            <span aria-hidden="true">&lt;-</span> Back to Catonsville Local Picks
+            <span aria-hidden="true">←</span> Back to Catonsville Local Picks
           </Link>
           <div className="business-hero-grid">
             <div className="business-hero-copy">
@@ -97,8 +97,10 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
             </div>
             <div className={`business-hero-art art-${business.accent}`}>
               <div className="business-logo-placeholder">
-                <span>{business.initials}</span>
+                <span aria-hidden="true" className="business-logo-placeholder-rule" />
                 <p>{business.name}</p>
+                <span aria-hidden="true" className="business-logo-placeholder-rule" />
+                <span>Photography for print edition</span>
               </div>
               <p className="image-note">Featured in Catonsville Local Picks</p>
             </div>
@@ -222,7 +224,7 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
                 ))}
               </div>
               <a className="text-link" href={`tel:${business.phone}`}>
-                Call to confirm <span aria-hidden="true">-&gt;</span>
+                Call to confirm <span aria-hidden="true">→</span>
               </a>
             </div>
             <div className="sidebar-pick-note">

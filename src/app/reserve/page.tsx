@@ -24,6 +24,65 @@ export const metadata: Metadata = {
     "Reserve a Catonsville Local Picks print and digital placement. Review packages, prepay options, and next steps.",
 };
 
+function PackageCard({
+  pkg,
+}: {
+  pkg: (typeof placementPackages)[number];
+}) {
+  const action = getPackageCtaAction(pkg.key);
+  const isQuad = pkg.key === "quadSponsor";
+  const cardClass = [
+    "reserve-package-card",
+    pkg.recommended ? "reserve-package-card-recommended" : "",
+    isQuad ? "reserve-package-card-quad" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const ctaButton = action.external ? (
+    <a
+      className="button button-primary button-wide"
+      href={action.href}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {action.label}
+    </a>
+  ) : (
+    <Link className="button button-primary button-wide" href={action.href}>
+      {pkg.cta}
+    </Link>
+  );
+
+  const inner = (
+    <>
+      <h3>{pkg.name}</h3>
+      <p className="reserve-package-tagline">{pkg.tagline}</p>
+      <p className="reserve-package-price">
+        {pkg.price}
+        <span className="reserve-package-price-note"> / mailing</span>
+      </p>
+      <ul className="reserve-package-features">
+        {pkg.includes.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      {ctaButton}
+    </>
+  );
+
+  if (pkg.recommended) {
+    return (
+      <article className={cardClass}>
+        <div className="reserve-package-badge">Most popular</div>
+        <div className="reserve-package-card-inner">{inner}</div>
+      </article>
+    );
+  }
+
+  return <article className={cardClass}>{inner}</article>;
+}
+
 export default function ReservePage() {
   return (
     <>
@@ -35,10 +94,9 @@ export default function ReservePage() {
           </div>
           <div className="advertise-hero-aside">
             <p>
-              Spots are limited. Payment reserves placement once availability is
-              confirmed. Every print placement includes a digital landing page.
-              The first edition is Catonsville, with mailings planned
-              approximately every six weeks.
+              Spots are limited. Every print placement includes a digital
+              landing page. The Catonsville edition is a 9×12 guide mailed to
+              2,500 homes on a roughly six-week cycle.
             </p>
             <div className="advertise-hero-actions">
               <a
@@ -63,52 +121,27 @@ export default function ReservePage() {
           <SectionHeading
             eyebrow="Placement packages"
             title="Choose the visibility level that fits your business."
-            intro="Payment links are sent after placement and category availability are confirmed. Online payment is not active on this site yet."
+            intro="After confirming fit and category availability, Maryland Local Picks sends a proof and payment link. Online payment is not active on this site yet."
           />
+          <div className="reserve-distribution-strip">
+            <span className="eyebrow">The Catonsville edition</span>
+            <span className="reserve-distribution-dot" aria-hidden="true">
+              ·
+            </span>
+            <span>9×12 printed guide</span>
+            <span className="reserve-distribution-dot" aria-hidden="true">
+              ·
+            </span>
+            <span>Mailed to 2,500 homes</span>
+            <span className="reserve-distribution-dot" aria-hidden="true">
+              ·
+            </span>
+            <span>Digital landing page included with every spot</span>
+          </div>
           <div className="reserve-package-grid">
-            {placementPackages.map((pkg) => {
-              const action = getPackageCtaAction(pkg.key);
-
-              return (
-                <article className="reserve-package-card" key={pkg.key}>
-                  <p className="eyebrow">{pkg.price}</p>
-                  <h3>{pkg.name}</h3>
-                  <div className="reserve-package-block">
-                    <p className="reserve-package-label">Best for</p>
-                    <ul className="check-list">
-                      {pkg.bestFor.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="reserve-package-block">
-                    <p className="reserve-package-label">Includes</p>
-                    <ul className="check-list">
-                      {pkg.includes.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  {action.external ? (
-                    <a
-                      className="button button-primary button-wide"
-                      href={action.href}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      {action.label}
-                    </a>
-                  ) : (
-                    <Link
-                      className="button button-primary button-wide"
-                      href={action.href}
-                    >
-                      {pkg.cta}
-                    </Link>
-                  )}
-                </article>
-              );
-            })}
+            {placementPackages.map((pkg) => (
+              <PackageCard key={pkg.key} pkg={pkg} />
+            ))}
           </div>
         </div>
       </section>
@@ -147,11 +180,11 @@ export default function ReservePage() {
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      {action.label} <span aria-hidden="true">-&gt;</span>
+                      {action.label} <span aria-hidden="true">→</span>
                     </a>
                   ) : (
                     <Link className="text-link" href={action.href}>
-                      {action.label} <span aria-hidden="true">-&gt;</span>
+                      {action.label} <span aria-hidden="true">→</span>
                     </Link>
                   )}
                 </article>
@@ -174,7 +207,7 @@ export default function ReservePage() {
           <SectionHeading
             eyebrow="Add-ons"
             title="Optional upgrades beyond the core placement."
-            intro="Some services are planned for later phases and are not active yet."
+            intro="Some services are planned for later phases."
           />
           <div className="reserve-addon-grid">
             {addOns.map((addon) => (
@@ -182,7 +215,7 @@ export default function ReservePage() {
                 <h3>
                   {addon.name}
                   {addon.future ? (
-                    <span className="reserve-future-tag">Future</span>
+                    <span className="reserve-future-tag">Planned</span>
                   ) : null}
                 </h3>
                 <p>{addon.description}</p>
@@ -204,8 +237,9 @@ export default function ReservePage() {
             ))}
           </ul>
           <p className="reserve-policy-note">
-            Online payment is not active on this site yet. After confirming fit
-            and inventory, Maryland Local Picks will send a payment link.
+            There is no charge before you have seen and approved your
+            placement. Maryland Local Picks sends a payment link after
+            confirming fit and inventory.
           </p>
         </div>
       </section>
@@ -223,10 +257,10 @@ export default function ReservePage() {
             <AdvertiserContact />
             <div className="reserve-next-links">
               <Link className="text-link" href="/advertiser-intake">
-                Start advertiser intake <span aria-hidden="true">-&gt;</span>
+                Start advertiser intake <span aria-hidden="true">→</span>
               </Link>
               <Link className="text-link" href="/advertise">
-                Back to advertise overview <span aria-hidden="true">-&gt;</span>
+                Back to advertise overview <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>

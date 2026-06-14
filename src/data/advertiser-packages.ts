@@ -7,16 +7,19 @@ export type PlacementPackageKey =
 export type PlacementPackage = {
   key: PlacementPackageKey;
   name: string;
+  tagline: string;
   bestFor: string[];
   includes: string[];
   price: string;
   cta: string;
+  recommended?: boolean;
 };
 
 export const placementPackages: PlacementPackage[] = [
   {
     key: "halfSpot",
     name: "Half Spot",
+    tagline: "Best for a first local placement.",
     bestFor: [
       "restaurants",
       "coffee shops",
@@ -26,19 +29,18 @@ export const placementPackages: PlacementPackage[] = [
       "first-time advertisers",
     ],
     includes: [
-      "smaller print placement",
-      "digital business landing page",
-      "city page listing",
-      "offer/coupon placement",
-      "QR destination",
-      "basic contact-action tracking later",
+      "Half-card placement",
+      "One category listing",
+      "Digital landing page",
+      "One local offer",
     ],
-    price: "Launch price: TBD",
-    cta: "Ask about half spot",
+    price: "Pricing pending",
+    cta: "Reserve a spot",
   },
   {
     key: "singleSpot",
     name: "Single Spot",
+    tagline: "Best for steady neighborhood visibility.",
     bestFor: [
       "standard local advertisers",
       "home services",
@@ -48,37 +50,37 @@ export const placementPackages: PlacementPackage[] = [
       "real estate/homeowner services",
     ],
     includes: [
-      "standard print placement",
-      "digital business landing page",
-      "QR destination",
-      "offer/coupon placement",
-      "city page listing",
-      "renewal option",
+      "Full single-spot placement",
+      "Priority category listing",
+      "Landing page + featured offer",
+      "QR-connected traffic",
     ],
-    price: "Launch price: TBD",
-    cta: "Ask about single spot",
+    price: "Pricing pending",
+    cta: "Reserve a spot",
+    recommended: true,
   },
   {
     key: "doubleSpot",
     name: "Double Spot",
+    tagline: "Best for a standout, can't-miss presence.",
     bestFor: [
       "businesses that want stronger visibility",
       "high-ticket services",
       "businesses with several services or a strong visual offer",
     ],
     includes: [
-      "larger print placement",
-      "expanded design presence",
-      "digital landing page",
-      "offer/coupon placement",
-      "priority consideration",
+      "Double-size feature placement",
+      "Top-of-category priority",
+      "Enhanced landing page",
+      "Pick of the Week eligibility",
     ],
-    price: "Launch price: TBD",
-    cta: "Ask about double spot",
+    price: "Pricing pending",
+    cta: "Reserve a spot",
   },
   {
     key: "quadSponsor",
     name: "Quad Sponsor",
+    tagline: "Best for owning the edition.",
     bestFor: [
       "major sponsors",
       "high-value categories",
@@ -86,15 +88,13 @@ export const placementPackages: PlacementPackage[] = [
       "annual or recurring advertisers",
     ],
     includes: [
-      "premium print placement",
-      "dominant design presence",
-      "digital landing page",
-      "priority position",
-      "possible Pick of the Week credit",
-      "possible social promotion credit",
+      "Premium cover-adjacent quad",
+      "Category exclusivity",
+      "Featured in digital + social",
+      "First right of renewal",
     ],
     price: "Call for availability",
-    cta: "Ask about sponsor spot",
+    cta: "Reserve a spot",
   },
 ];
 

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local intake submissions (serverful storage)
 /storage/
+
+# downloaded design audit assets (canonical copy lives in _docs/design-reference/)
+/_assets/

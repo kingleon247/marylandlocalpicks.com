@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ADVERTISER_PHONE_LINK, ADVERTISER_PHONE_VANITY } from "@/components/advertiser-contact";
 import { SectionHeading } from "@/components/section-heading";
 import { cities } from "@/data/mock-data";
 
@@ -112,7 +113,7 @@ export default function Home() {
                 </div>
                 <h3>{liveCity.description}</h3>
                 <span className="city-arrow" aria-hidden="true">
-                  -&gt;
+                  →
                 </span>
               </Link>
             ) : null}
@@ -125,7 +126,7 @@ export default function Home() {
                   </p>
                 </div>
                 <h3>{city.description}</h3>
-                <span className="coming-soon">Future edition</span>
+                <span className="coming-soon">Coming soon</span>
               </article>
             ))}
           </div>
@@ -136,19 +137,22 @@ export default function Home() {
         <div className="shell advertiser-banner">
           <div>
             <p className="eyebrow">For local businesses</p>
-            <h2>Show up where local decisions happen.</h2>
+            <h2>Reserve your spot in the Catonsville edition.</h2>
+            <p>
+              A neighborhood print placement, a focused digital landing page, and
+              a clear offer — mailed to the doors that matter.
+            </p>
           </div>
-          <p>
-            Pair a tangible neighborhood print placement with a focused digital
-            landing page and a clear offer.
-          </p>
-          <div className="button-row">
+          <div className="advertiser-banner-actions">
             <Link className="button button-light" href="/reserve">
-              Reserve a spot
+              Reserve a spot →
             </Link>
             <Link className="button button-secondary" href="/advertise">
               See advertiser options
             </Link>
+            <a className="button button-secondary" href={`tel:${ADVERTISER_PHONE_LINK}`}>
+              Call or text {ADVERTISER_PHONE_VANITY}
+            </a>
           </div>
         </div>
       </section>
