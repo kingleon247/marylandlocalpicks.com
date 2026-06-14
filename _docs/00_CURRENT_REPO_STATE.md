@@ -10,6 +10,24 @@ Phase 1 public MVP is complete. Phase 1.5 adds reservation and intake flows for 
 
 No database connection, authentication, admin dashboard, Stripe API integration, SignalWire, or email alerts should be assumed yet.
 
+## Private Preview Gate
+
+Before public launch, the site can be hidden behind a coming-soon page controlled by environment variables:
+
+```bash
+SITE_GATE_ENABLED=true
+SITE_GATE_PASSCODE=change-me
+```
+
+* `SITE_GATE_ENABLED=true` shows the gate unless the visitor has an httpOnly review cookie
+* `SITE_GATE_ENABLED=false` makes the full site public
+* `SITE_GATE_PASSCODE` is server-side only — never use `NEXT_PUBLIC_`
+* Passcode submission: `POST /api/site-gate`
+* Clear access: `GET /preview-exit` or `POST /api/site-gate/logout`
+* Gated views set `noindex, nofollow`
+
+Turn the gate off for public launch by setting `SITE_GATE_ENABLED=false`.
+
 ## Current Stack
 
 - Next.js App Router
