@@ -3112,3 +3112,130 @@ p {
     padding: 38px 26px;
   }
 }
+
+/* Private preview gate */
+.site-gate {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 48px 24px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(220, 165, 46, 0.14), transparent 34%),
+    var(--paper-deep);
+}
+
+.site-gate-loading {
+  min-height: 100vh;
+}
+
+.site-gate-panel {
+  width: min(560px, 100%);
+  padding: 48px 44px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-panel);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.site-gate-panel h1 {
+  margin-top: 14px;
+  color: var(--ink);
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.site-gate-lede {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.site-gate-secondary {
+  margin-top: 14px;
+  color: var(--muted-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.site-gate-form {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.site-gate-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--muted-soft);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.site-gate-form input {
+  padding: 12px 14px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-btn);
+}
+
+.site-gate-form input:focus {
+  border-color: var(--clay);
+  box-shadow: 0 0 0 3px rgba(194, 94, 58, 0.16);
+  outline: none;
+}
+
+.site-gate-form .button {
+  margin-top: 18px;
+}
+
+.site-gate-error {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--clay-text);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  background: rgba(194, 94, 58, 0.08);
+  border: 1px solid rgba(194, 94, 58, 0.22);
+  border-radius: var(--radius-btn);
+}
+
+.site-gate-contact {
+  margin-top: 24px;
+  color: var(--muted-soft);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.site-gate-contact a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-preview-exit {
+  margin-top: 18px;
+  font-size: 0.82rem;
+}
+
+.footer-preview-exit a {
+  color: #d8d0bd;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-preview-exit a:hover {
+  color: #fff;
+}

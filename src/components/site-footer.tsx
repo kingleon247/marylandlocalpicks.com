@@ -5,8 +5,11 @@ import {
   ADVERTISER_PHONE_NUMERIC,
   ADVERTISER_PHONE_VANITY,
 } from "@/components/advertiser-contact";
+import { hasReviewAccess, isSiteGateEnabled } from "@/lib/site-gate";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const showPreviewExit = isSiteGateEnabled() && (await hasReviewAccess());
+
   return (
     <footer className="site-footer">
       <div className="shell footer-grid">
@@ -22,6 +25,11 @@ export function SiteFooter() {
             Local businesses, offers, and places worth knowing — printed,
             mailed, and made to be kept.
           </p>
+          {showPreviewExit ? (
+            <p className="footer-preview-exit">
+              <Link href="/preview-exit">Exit preview</Link>
+            </p>
+          ) : null}
         </div>
         <div className="footer-links">
           <p className="footer-label">Explore</p>

@@ -79,6 +79,7 @@ Working principle:
 | `/advertiser-intake`           | Operational advertiser intake form (no login required)    |
 | `/advertiser-intake/thank-you` | Post-submission confirmation page                         |
 | `/catonsville/[slug]`          | Static business conversion landing page template          |
+| `/preview-exit`                | Clears private preview cookie and returns to the gate     |
 
 Example business route:
 
@@ -124,6 +125,26 @@ Open:
 ```text
 http://localhost:3000
 ```
+
+### Private preview gate (optional)
+
+Before public launch, the site can be hidden behind a coming-soon page. Reviewers enter a passcode to browse the full site.
+
+Add to `.env.local` (not committed):
+
+```bash
+SITE_GATE_ENABLED=true
+SITE_GATE_PASSCODE=change-me
+```
+
+Behavior:
+
+* `SITE_GATE_ENABLED=true` — visitors see the coming-soon gate unless they have review access via cookie
+* `SITE_GATE_ENABLED=false` — the full site is public (default for local development)
+* `SITE_GATE_PASSCODE` is read server-side only; do not use `NEXT_PUBLIC_` for the passcode
+* Correct passcode sets an httpOnly cookie (`mlp_review_access`) for about 7 days
+* Reviewers can clear access via `/preview-exit` or `POST /api/site-gate/logout`
+* When the gate is active, gated views use `noindex, nofollow`
 
 Quality checks:
 
