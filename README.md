@@ -1,64 +1,124 @@
 # Maryland Local Picks
 
-Maryland Local Picks is a print-and-digital local advertising concept built
-around curated city editions. The Phase 1 MVP presents a statewide brand page,
-the first Catonsville edition, advertiser information, and conversion-focused
-business landing page templates.
+Maryland Local Picks is a print-and-digital local advertising platform built around curated city editions.
 
-Tagline: **Local businesses, offers, and places worth knowing.**
+The Phase 1 MVP presents a statewide brand page, the first Catonsville edition, advertiser information, and conversion-focused business landing page templates.
+
+Tagline:
+
+**Local businesses, offers, and places worth knowing.**
+
+## Current Phase
+
+This repository is currently in **Phase 1: Public MVP**.
+
+The goal is not to build the full operating platform yet.
+
+The goal is to create a clean public site that helps sell and fulfill the first Catonsville card.
 
 ## Phase 1 Scope
 
-This repository intentionally contains a public marketing and directory MVP,
-not the full operating platform.
+This repository intentionally contains a public marketing and directory MVP, not the full operating platform.
 
 Included:
 
-- Responsive Maryland Local Picks brand homepage
-- Catonsville city edition with categories, offers, and Pick of the Week
-- Advertiser information and a front-end inquiry form placeholder
-- Static business landing pages with direct contact actions
-- Typed mock data for cities, categories, businesses, offers, and weekly picks
-- Drizzle/PostgreSQL schema preparation with no live database requirement
-- Business, technical, and print operations notes
+* responsive Maryland Local Picks brand homepage
+* Catonsville city edition page
+* advertiser information page
+* front-end inquiry form placeholder
+* static business landing pages with direct contact actions
+* typed mock data for cities, categories, businesses, offers, and weekly picks
+* Drizzle/PostgreSQL schema preparation with no live database requirement
+* internal planning documents in `_docs/`
 
 Not included:
 
-- Authentication or user accounts
-- Admin or advertiser dashboards
-- Database-backed CRUD
-- Stripe or payment processing
-- SignalWire or real call tracking
-- QR scan analytics
-- AI answering services
+* authentication or user accounts
+* admin dashboard
+* advertiser dashboard
+* database-backed CRUD
+* Stripe checkout or subscriptions
+* SignalWire call tracking
+* QR scan analytics
+* AI answering services
+* full reporting system
+
+## Core Build Rule
+
+Do not overbuild Phase 1.
+
+The first job is to help sell and demonstrate the first Catonsville edition.
+
+Do not add Phase 2+ features unless specifically requested.
+
+Specifically, do not add these yet:
+
+* database-backed CRUD
+* admin dashboard
+* advertiser dashboard
+* Stripe checkout or subscriptions
+* SignalWire call tracking
+* auth/login
+* AI answering
+* full analytics/reporting
+
+Working principle:
+
+**Design for the full platform. Build only what is needed for the current phase.**
 
 ## Routes
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Maryland Local Picks brand and city edition overview |
-| `/catonsville` | First city directory, offers, weekly pick, and opt-in |
-| `/advertise` | Print-and-digital advertiser proposition and inquiry form |
-| `/catonsville/[slug]` | Static business conversion landing page template |
+| Route                 | Purpose                                                   |
+| --------------------- | --------------------------------------------------------- |
+| `/`                   | Maryland Local Picks brand and city edition overview      |
+| `/catonsville`        | First city directory, offers, weekly pick, and opt-in     |
+| `/advertise`          | Print-and-digital advertiser proposition and inquiry form |
+| `/catonsville/[slug]` | Static business conversion landing page template          |
 
 Example business route:
-`/catonsville/frederick-road-coffee`
+
+```text
+/catonsville/frederick-road-coffee
+```
+
+The current Phase 1 business detail route is:
+
+```text
+/catonsville/[slug]
+```
+
+A future canonical business route may be introduced later:
+
+```text
+/b/[business-slug]
+```
+
+Do not refactor to `/b/[slug]` unless specifically requested.
 
 ## Local Setup
 
 Requirements:
 
-- Node.js 20 or newer
-- npm
+* Node.js 20 or newer
+* npm
 
-Install and run:
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Run development server:
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open:
+
+```text
+http://localhost:3000
+```
 
 Quality checks:
 
@@ -70,15 +130,33 @@ npm run build
 
 ## Data and Database Preparation
 
-The public MVP reads from [`src/data/mock-data.ts`](src/data/mock-data.ts).
-Drizzle table definitions live in [`src/db/schema.ts`](src/db/schema.ts), and
-the project includes a [`drizzle.config.ts`](drizzle.config.ts) configuration
-for future PostgreSQL migrations.
+The Phase 1 public MVP reads from static typed mock data.
 
-No database or `DATABASE_URL` is required to develop, typecheck, lint, build,
-or browse Phase 1. The schema is not connected to application routes.
+Expected mock data location:
+
+```text
+src/data/mock-data.ts
+```
+
+Prepared Drizzle table definitions may live in:
+
+```text
+src/db/schema.ts
+```
+
+The project may include:
+
+```text
+drizzle.config.ts
+```
+
+No database or `DATABASE_URL` is required to develop, typecheck, lint, build, or browse Phase 1 unless a later phase explicitly adds database-backed functionality.
+
+The schema is preparation for future PostgreSQL use and should not force Phase 1 routes to require a live database.
 
 ## Project Structure
+
+Expected structure:
 
 ```text
 src/
@@ -86,42 +164,193 @@ src/
   components/             Shared server and focused client components
   data/mock-data.ts       Static Phase 1 content
   db/schema.ts            Prepared Drizzle/PostgreSQL schema
-docs/                     Concise project planning documents
-_docs/                    Supplemental internal business and operations plans
+
+_docs/                    Canonical internal business, product, technical, sales, and operations plans
+
+public/                   Static assets
+```
+
+If a legacy `docs/` folder exists, it is not the canonical plan.
+
+Use `_docs/` as the source of truth.
+
+## Documentation
+
+Canonical internal planning documents live in:
+
+```text
+_docs/
+```
+
+Start with:
+
+* `_docs/README.md`
+* `_docs/00_CURRENT_REPO_STATE.md`
+* `_docs/01_BUSINESS_PLAN.md`
+* `_docs/02_PRODUCT_WEBSITE_SPEC.md`
+* `_docs/05_TECHNICAL_ARCHITECTURE.md`
+
+Full recommended reading order:
+
+1. `_docs/00_CURRENT_REPO_STATE.md`
+2. `_docs/01_BUSINESS_PLAN.md`
+3. `_docs/02_PRODUCT_WEBSITE_SPEC.md`
+4. `_docs/05_TECHNICAL_ARCHITECTURE.md`
+5. `_docs/06_FIRST_EDITION_LAUNCH_CHECKLIST.md`
+6. `_docs/03_OPERATIONS_PLAYBOOK.md`
+7. `_docs/04_SALES_OFFER_MENU.md`
+8. `_docs/07_SALES_SCRIPTS_OBJECTIONS.md`
+9. `_docs/08_FINANCIAL_MODEL_NOTES.md`
+
+The old `docs/` folder, if present, should be treated as legacy summary material only.
+
+If anything in `docs/` conflicts with `_docs/`, follow `_docs/`.
+
+## Business Concept
+
+Maryland Local Picks combines:
+
+* local print advertising
+* city-specific digital guide pages
+* business landing pages
+* local offers and coupons
+* Pick of the Week promotions
+* email/newsletter opt-ins
+* future advertiser reporting
+* future call tracking
+* future AI answering and marketing services
+
+The first city edition is:
+
+```text
+Catonsville Local Picks
+```
+
+The initial public positioning:
+
+```text
+A printed card and digital guide featuring selected local businesses, offers, and places worth knowing.
 ```
 
 ## Phase Plan
 
 ### Phase 1: Public MVP
 
-Sell and demonstrate the first Catonsville edition with static content and
-working page templates.
+Goal:
+
+Sell and demonstrate the first Catonsville edition with static content and working page templates.
+
+Build:
+
+* homepage
+* Catonsville edition page
+* advertise page
+* mock business landing pages
+* mock/static data
+* basic email opt-in placeholder
+* clean mobile-first design
+* internal documentation
+
+Do not build:
+
+* database CRUD
+* admin dashboard
+* advertiser dashboard
+* Stripe
+* SignalWire
+* auth
+* AI answering
+* full analytics
 
 ### Phase 2: Data-Backed Operations
 
-Add PostgreSQL records for cities, editions, businesses, placements, offers,
-picks, subscribers, advertiser leads, and QR short codes.
+Goal:
 
-### Phase 3: Advertiser Value
+Make real card operations manageable without hardcoding everything.
 
-Add event tracking, QR reports, digital-only listings, Pick of the Week
-scheduling, renewal workflows, and an internal admin surface.
+Future build:
+
+* PostgreSQL records
+* Drizzle migrations
+* cities
+* editions
+* businesses
+* placements
+* offers
+* picks
+* subscribers
+* advertiser leads
+* QR short codes
+* basic tracking API
+
+### Phase 3: Advertiser Value Layer
+
+Goal:
+
+Turn print advertisers into ongoing digital advertisers.
+
+Future build:
+
+* event tracking
+* QR reports
+* digital-only listings
+* Pick of the Week scheduling
+* renewal workflows
+* internal admin surface
+* simple advertiser reporting
 
 ### Phase 4: Recurring Revenue
 
-Add Stripe subscriptions and prepaid packages, advertiser billing views,
-placement inventory, and self-service profile updates.
+Goal:
+
+Create predictable recurring revenue.
+
+Future build:
+
+* Stripe subscriptions
+* prepaid mailing packages
+* advertiser billing views
+* placement inventory
+* recurring digital-only listings
+* recurring print reservations
+* self-service profile updates
 
 ### Phase 5: Call and Service Layer
 
-Add SignalWire tracking numbers, compliant call reporting, and later AI
-answering and missed-call follow-up products.
+Goal:
 
-## Documentation
+Turn Maryland Local Picks into a broader local marketing services platform.
 
-- [`docs/BUSINESS_PLAN.md`](docs/BUSINESS_PLAN.md)
-- [`docs/TECHNICAL_PLAN.md`](docs/TECHNICAL_PLAN.md)
-- [`docs/OPERATIONS_NOTES.md`](docs/OPERATIONS_NOTES.md)
+Future build:
 
-All businesses, offers, testimonials, addresses, and contact details currently
-shown in the product are fictional placeholder content.
+* SignalWire tracking numbers
+* call forwarding
+* compliant call reporting
+* missed-call follow-up
+* future AI answering
+* website upsells
+* reputation/review services
+* digital advertising services
+
+## Current Development Guidance
+
+When using Cursor, Claude, Codex, or any other AI-assisted development tool:
+
+1. Read `_docs/` first.
+2. Treat `_docs/` as the source of truth.
+3. Keep Phase 1 simple.
+4. Do not build future phases unless asked.
+5. Do not create duplicate documentation sources.
+6. Do not assume a live database exists.
+7. Do not refactor current routes unless instructed.
+8. Keep the app serverful and Node-based.
+9. Run typecheck, lint, and build before committing.
+10. Commit working checkpoints.
+
+## Important Notes
+
+All businesses, offers, testimonials, addresses, and contact details currently shown in the product are fictional placeholder content unless explicitly replaced with real advertiser information.
+
+Before any real print drop, verify current USPS EDDM requirements, print specifications, route counts, pricing, bundling, facing slips, and drop-off instructions.
+
+Before using any call recording or AI answering feature, perform a legal and consent review.
