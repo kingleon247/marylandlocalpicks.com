@@ -361,6 +361,10 @@ p {
   color: var(--paper);
 }
 
+.section-heading-inverse .eyebrow {
+  color: rgba(255, 253, 247, 0.72);
+}
+
 .section-heading-inverse .section-heading-row p {
   color: rgba(255, 253, 247, 0.7);
 }
@@ -861,6 +865,14 @@ p {
 
 .city-card h3 {
   font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+}
+
+.city-card-live h3 {
+  color: var(--ink);
+}
+
+.city-card-soon h3 {
+  color: var(--paper);
 }
 
 .city-arrow {
@@ -2876,7 +2888,7 @@ p {
 .footer-note {
   max-width: 34ch;
   margin-top: 18px;
-  color: #9fae9d;
+  color: rgba(255, 253, 247, 0.82);
   font-size: 0.94rem;
   line-height: 1.6;
 }
@@ -2890,20 +2902,20 @@ p {
 }
 
 .footer-links a {
-  color: #d8d0bd;
+  color: rgba(255, 253, 247, 0.9);
 }
 
 .footer-links a:hover {
   color: #fff;
 }
 
-.footer-label {
+.site-footer .footer-label {
   margin-bottom: 16px;
   color: var(--gold);
 }
 
 .footer-meta {
-  color: #9fae9d;
+  color: rgba(255, 253, 247, 0.82);
   font-size: 0.94rem;
   line-height: 1.7;
 }
@@ -2915,6 +2927,11 @@ p {
 .footer-phone {
   color: var(--paper);
   font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.site-footer .contact-number-numeric {
+  color: rgba(255, 253, 247, 0.68);
 }
 
 @media (max-width: 1020px) {
@@ -4082,7 +4099,7 @@ p {
 }
 
 .footer-preview-exit a {
-  color: #d8d0bd;
+  color: rgba(255, 253, 247, 0.82);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
