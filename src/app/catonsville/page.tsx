@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { BusinessCard } from "@/components/business-card";
@@ -104,7 +105,11 @@ export default function CatonsvillePage() {
               );
 
               return (
-                <section className="category-section" key={category.id}>
+                <section
+                  className="category-section"
+                  id={category.id}
+                  key={category.id}
+                >
                   <div className="category-heading">
                     <h3>{category.name}</h3>
                     <p>{category.eyebrow}</p>
@@ -166,6 +171,15 @@ export default function CatonsvillePage() {
         <section className="section weekly-section">
           <div className="shell weekly-grid">
             <div className={`weekly-art art-${weeklyBusiness.accent}`}>
+              {weeklyBusiness.photoUrl ? (
+                <Image
+                  alt={weeklyBusiness.name}
+                  className="weekly-art-photo"
+                  fill
+                  sizes="(max-width: 1020px) 100vw, 50vw"
+                  src={weeklyBusiness.photoUrl}
+                />
+              ) : null}
               <div className="weekly-stamp">
                 <span>Pick</span>
                 <strong>01</strong>

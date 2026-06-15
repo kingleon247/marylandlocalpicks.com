@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 import {
   REVIEW_ACCESS_COOKIE,
-  getRedirectUrl,
   isSiteGateEnabled,
   isValidPasscode,
   reviewAccessCookieOptions,

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Newsreader, Source_Serif_4 } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 import { ComingSoonGate } from "@/components/coming-soon-gate";
 import { SiteFooter } from "@/components/site-footer";
@@ -8,14 +8,13 @@ import { shouldShowSiteGate } from "@/lib/site-gate";
 
 import "./globals.css";
 
-const newsreader = Newsreader({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const sourceSerif = Source_Serif_4({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   weight: ["400", "500", "600"],
@@ -71,7 +70,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${sourceSerif.variable} ${ibmPlexMono.variable}`}
+      className={`${plusJakartaSans.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body>
         {showGate ? (

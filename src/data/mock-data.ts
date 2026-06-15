@@ -10,6 +10,7 @@ export type Category = {
   id: string;
   name: string;
   eyebrow: string;
+  imageUrl?: string;
 };
 
 export type Testimonial = {
@@ -32,6 +33,7 @@ export type Business = {
   website: string;
   address: string;
   featured: boolean;
+  addedOn: string;
   photoUrl?: string;
   services: string[];
   about: string;
@@ -86,16 +88,22 @@ export const categories: Category[] = [
     id: "eat-drink",
     name: "Eat & Drink",
     eyebrow: "Coffee, dinner, and something good to take home",
+    imageUrl:
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=70",
   },
   {
     id: "home-services",
     name: "Home & Services",
     eyebrow: "Trusted help from people who know the neighborhood",
+    imageUrl:
+      "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=70",
   },
   {
     id: "shop-explore",
     name: "Shop & Explore",
     eyebrow: "Independent finds and reasons to get out",
+    imageUrl:
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=70",
   },
 ];
 
@@ -115,6 +123,9 @@ export const businesses: Business[] = [
     website: "https://example.com",
     address: "814 Frederick Road, Catonsville, MD 21228",
     featured: true,
+    addedOn: "2026-05-02",
+    photoUrl:
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=70",
     services: [
       "Espresso and pour-over coffee",
       "Fresh pastries and breakfast",
@@ -153,6 +164,9 @@ export const businesses: Business[] = [
     website: "https://example.com",
     address: "728 Frederick Road, Catonsville, MD 21228",
     featured: false,
+    addedOn: "2026-05-28",
+    photoUrl:
+      "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=70",
     services: [
       "Prepared foods",
       "Maryland-made pantry goods",
@@ -190,6 +204,9 @@ export const businesses: Business[] = [
     website: "https://example.com",
     address: "936 Frederick Road, Catonsville, MD 21228",
     featured: true,
+    addedOn: "2026-04-15",
+    photoUrl:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=70",
     services: [
       "Dinner service",
       "Weekend brunch",
@@ -228,6 +245,9 @@ export const businesses: Business[] = [
     website: "https://example.com",
     address: "Catonsville, MD 21228",
     featured: true,
+    addedOn: "2026-05-20",
+    photoUrl:
+      "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=70",
     services: [
       "In-home consultations",
       "Paint and color plans",
@@ -266,6 +286,9 @@ export const businesses: Business[] = [
     website: "https://example.com",
     address: "650 Frederick Road, Catonsville, MD 21228",
     featured: true,
+    addedOn: "2026-06-08",
+    photoUrl:
+      "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=70",
     services: [
       "Bike tune-ups and repair",
       "Commuter and trail bikes",
@@ -304,6 +327,9 @@ export const businesses: Business[] = [
     website: "https://example.com",
     address: "1012 Frederick Road, Catonsville, MD 21228",
     featured: false,
+    addedOn: "2026-06-11",
+    photoUrl:
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=70",
     services: [
       "New and used books",
       "Special orders",
@@ -368,4 +394,23 @@ export function getBusinessBySlug(slug: string) {
 
 export function getOfferForBusiness(slug: string) {
   return offers.find((offer) => offer.businessSlug === slug);
+}
+
+export function getCategoryById(id: string) {
+  return categories.find((category) => category.id === id);
+}
+
+export function countBusinessesInCategory(categoryId: string) {
+  return businesses.filter((business) => business.categoryId === categoryId)
+    .length;
+}
+
+export function getNewestBusinesses(limit = 3) {
+  return [...businesses]
+    .sort((a, b) => b.addedOn.localeCompare(a.addedOn))
+    .slice(0, limit);
+}
+
+export function getFeaturedBusiness() {
+  return businesses.find((business) => business.featured) ?? businesses[0];
 }

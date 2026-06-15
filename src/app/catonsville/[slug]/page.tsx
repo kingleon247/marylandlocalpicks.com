@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 
 import { NewsletterForm } from "@/components/newsletter-form";
@@ -96,13 +97,35 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
               </div>
             </div>
             <div className={`business-hero-art art-${business.accent}`}>
-              <div className="business-logo-placeholder">
-                <span aria-hidden="true" className="business-logo-placeholder-rule" />
-                <p>{business.name}</p>
-                <span aria-hidden="true" className="business-logo-placeholder-rule" />
-                <span>Photography for print edition</span>
-              </div>
-              <p className="image-note">Featured in Catonsville Local Picks</p>
+              {business.photoUrl ? (
+                <>
+                  <Image
+                    alt=""
+                    aria-hidden="true"
+                    className="business-hero-photo"
+                    fill
+                    priority
+                    sizes="(max-width: 1020px) 100vw, 40vw"
+                    src={business.photoUrl}
+                  />
+                  <span className="business-hero-tag">
+                    {category?.name ?? "Catonsville"}
+                  </span>
+                  <p className="image-note">
+                    Representative imagery · advertiser photos appear here
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="business-logo-placeholder">
+                    <span aria-hidden="true" className="business-logo-placeholder-rule" />
+                    <p>{business.name}</p>
+                    <span aria-hidden="true" className="business-logo-placeholder-rule" />
+                    <span>Your photos appear here</span>
+                  </div>
+                  <p className="image-note">Featured in Catonsville Local Picks</p>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -190,12 +213,12 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
             <section className="business-section business-section-gallery">
               <div className="gallery-heading">
                 <div>
-                  <p className="eyebrow">Visual highlights</p>
-                  <h2>Storefront, work, and team</h2>
+                  <p className="eyebrow">Photo gallery</p>
+                  <h2>Your photos, front and center</h2>
                 </div>
                 <p>
-                  Photos from this business — storefront, service, and team —
-                  appear on each advertiser page.
+                  These slots are reserved for real photos from {business.name} —
+                  storefront, service, and team — on your advertiser page.
                 </p>
               </div>
               <div className="gallery-grid">
@@ -204,8 +227,16 @@ export default async function BusinessPage({ params }: BusinessPageProps) {
                     className={`gallery-frame gallery-${index + 1} art-${business.accent}`}
                     key={label}
                   >
-                    <span className="gallery-frame-index">0{index + 1}</span>
-                    <figcaption>{label}</figcaption>
+                    <span className="gallery-frame-tag">
+                      <span aria-hidden="true" className="gallery-frame-tag-dot" />
+                      Your photo
+                    </span>
+                    <figcaption>
+                      <span className="gallery-frame-index">
+                        Suggested · 0{index + 1}
+                      </span>
+                      {label}
+                    </figcaption>
                   </figure>
                 ))}
               </div>
