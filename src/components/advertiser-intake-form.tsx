@@ -7,21 +7,17 @@ import { FIELD_MAX_LENGTHS } from "@/lib/intake-validation";
 
 const PLACEMENT_OPTIONS = [
   "halfSpot",
-  "singleSpot",
+  "standardSpot",
   "doubleSpot",
-  "quadSponsor",
-  "digitalOnly",
-  "pickOfTheWeek",
   "notSure",
 ] as const;
 
-const COMMITMENT_OPTIONS = [
-  "oneMailing",
-  "threeMailings",
-  "sixMailings",
-  "annual",
-  "notSure",
-] as const;
+const PLACEMENT_LABELS: Record<(typeof PLACEMENT_OPTIONS)[number], string> = {
+  halfSpot: "Half Spot — $350",
+  standardSpot: "Standard Spot — $600",
+  doubleSpot: "Double Spot — $1,100",
+  notSure: "Not sure yet",
+};
 
 const CTA_OPTIONS = [
   "call",
@@ -298,18 +294,7 @@ export function AdvertiserIntakeForm() {
               <option value="">Select one</option>
               {PLACEMENT_OPTIONS.map((option) => (
                 <option key={option} value={option}>
-                  {formatOptionLabel(option)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Interested commitment
-            <select name="interestedCommitment" defaultValue="">
-              <option value="">Select one</option>
-              {COMMITMENT_OPTIONS.map((option) => (
-                <option key={option} value={option}>
-                  {formatOptionLabel(option)}
+                  {PLACEMENT_LABELS[option]}
                 </option>
               ))}
             </select>

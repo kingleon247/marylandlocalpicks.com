@@ -1,13 +1,7 @@
 export const paymentLinks = {
   halfSpot: null,
-  singleSpot: null,
+  standardSpot: null,
   doubleSpot: null,
-  quadSponsor: null,
-  digitalOnly: null,
-  pickOfTheWeek: null,
-  threeMailingPackage: null,
-  sixMailingPackage: null,
-  annualPackage: null,
 } as const;
 
 export type PaymentLinkKey = keyof typeof paymentLinks;

@@ -28,11 +28,11 @@ Avoid sounding like a generic marketing agency.
 
 Use this whenever someone asks what it is.
 
-**“Maryland Local Picks is a local print-and-digital guide featuring selected local businesses, offers, and places worth knowing.”**
+**"Maryland Local Picks sells premium shared 9x12 postcard advertising mailed to 10,000 local households. Only one business per category is accepted whenever possible."**
 
 City version:
 
-**“Catonsville Local Picks is a printed card and digital guide featuring selected Catonsville businesses, offers, and places worth knowing.”**
+**"Catonsville Local Picks features local businesses on a premium shared 9x12 postcard mailed directly to 10,000 households in the area."**
 
 ### 3. 15-Second Walk-In Opener
 
@@ -109,15 +109,11 @@ Use when print is too expensive or the business is not ready.
 
 ### 14. Renewal Script
 
-**“I’m starting the next Catonsville Local Picks edition and wanted to give you first option to keep your spot before I open the category back up. We’re planning to mail roughly every six weeks, so this is where the repetition starts to build.”**
+**"I'm filling the next 10,000-home mailing and wanted to give you first option to keep your category before I open it back up. Spots are limited and only one business per category is accepted whenever possible."**
 
-### 15. Prepay Script
+### 15. Exposure-Not-Leads Script
 
-**“If you already know you want to stay visible, we can lock you in for the next three mailings. That gives you repetition, keeps your rate locked, and I can include a Pick of the Week feature as a bonus.”**
-
-Annual version:
-
-**“The annual option is for businesses that want to own their local category and not worry about each card filling up. It covers the planned eight mailings for the year, keeps your page active, and gives you priority before new advertisers.”**
+**"Maryland Local Picks sells local exposure and visibility. We don't promise a specific number of calls, leads, sales, or redemptions. Results depend on your offer, timing, and follow-up."**
 
 ### 16. Call Tracking Add-On Script
 
@@ -131,9 +127,9 @@ Annual version:
 
 **“I get it. The print spot includes the mailed exposure, digital landing page, QR code, and your offer online. If the print placement is too much for this round, the lower-cost option is digital-only, where we keep your page and offer live without the mailed card.”**
 
-### 19. Objection: “Does this guarantee leads?”
+### 19. Objection: "Does this guarantee leads?"
 
-**“No. I’m not going to promise a specific number of leads. What I can promise is the placement, the mailing, the digital page, QR code, and tracking. The goal is visibility, local awareness, and making it easy for people to contact you.”**
+**"No. Maryland Local Picks sells local exposure and visibility. We don't promise a specific number of calls, leads, sales, or redemptions. What we deliver is category-exclusive placement on a premium 9x12 postcard mailed to 10,000 local households, plus ad layout help."**
 
 ### 20. Objection: “Do people read mail anymore?”
 
@@ -165,7 +161,7 @@ Use simple closes.
 
 **“Do you want to grab one of the available spots for this first Catonsville edition?”**
 
-**“Would a half spot or single spot make more sense to start?”**
+**“Would a half spot or standard spot make more sense to start?”**
 
 **“Do you want to try one edition first, or would you rather lock in a few mailings?”**
 

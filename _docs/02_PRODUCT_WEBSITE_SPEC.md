@@ -3,7 +3,7 @@
 
 > **Document role:** Product behavior, public routes, user flows, website feature requirements, and platform roadmap.
 >
-> **Cursor/Codex/Claude usage:** This file is intended to be read from `_docs/` as project context. Follow the phase boundaries. Do not build later-phase features unless explicitly requested.
+> **Current locked offer (live site):** Premium shared 9x12 postcard mailed to **10,000 local households**. Firm prices: Half Spot $350, Standard Spot $600 (recommended), Double Spot $1,100. Legacy cadence/prepay content in this doc is not the current live offer.
 
 ## Page 2: Website Structure, Features, User Flows, and Platform Roadmap
 
@@ -397,7 +397,7 @@ This short code might represent:
 * business: ABC Plumbing
 * city: Catonsville
 * edition: Drop 1
-* placement: single spot
+* placement: standard spot
 * QR source: printed card
 
 This lets Maryland Local Picks report:
@@ -660,7 +660,7 @@ A business can appear in:
 * one ZIP
 * multiple ZIPs
 
-A business that wants 5,000 households could be placed on two 2,500-household card editions.
+A business that wants broader reach should reserve a larger spot (Double Spot) on the 10,000-household mailing rather than buying multiple smaller runs.
 
 This should not require duplicate business pages.
 

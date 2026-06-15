@@ -15,8 +15,8 @@ export function InquiryForm() {
       <div className="form-success form-success-light" role="status">
         <strong>Thanks for your interest.</strong>
         <span>
-          We will follow up about Catonsville placement availability and next
-          steps.
+          We will follow up about category availability and next steps for the
+          next 10,000-home mailing.
         </span>
       </div>
     );

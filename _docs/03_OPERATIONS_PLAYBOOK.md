@@ -3,7 +3,7 @@
 
 > **Document role:** Repeatable workflow for selling, producing, mailing, reporting, and renewing each card.
 >
-> **Cursor/Codex/Claude usage:** This file is intended to be read from `_docs/` as project context. Follow the phase boundaries. Do not build later-phase features unless explicitly requested.
+> **Current locked offer (live site):** Premium shared 9x12 postcard mailed to **10,000 local households**. Firm prices: Half Spot $350, Standard Spot $600 (recommended), Double Spot $1,100. USPS/logistics sections referencing 2,500/5,000 runs need manual recomputation for 10,000.
 
 ## Page 3: How to Sell, Build, Print, Mail, Report, and Renew Each Local Card
 
@@ -277,9 +277,9 @@ EDDM does not allow choosing an exact arbitrary number of households. You select
 
 Before selling the card, choose a likely target range:
 
-* roughly 2,500 households for launch
-* possibly 5,000 households after validation
-* multiple 2,500-card editions if splitting by ZIP/area
+* 10,000 local households for launch
+* possibly 10,000 local households after validation
+* multiple 10,000-home postcard editions if splitting by ZIP/area
 
 A 2,500-household launch is useful because:
 
@@ -317,7 +317,7 @@ Possible models:
 Example:
 
 * Catonsville only
-* 2,500 households
+* 10,000 local households
 * one edition every six weeks
 
 Best for first validation.
@@ -328,9 +328,9 @@ Example:
 
 * Catonsville East
 * Catonsville West
-* each around 2,500 households
+* each around 10,000 local households
 
-A business that wants 5,000 households can buy placement on both cards.
+A business that wants 10,000 local households can buy placement on both cards.
 
 #### C. Two nearby cities
 
@@ -437,7 +437,7 @@ Example:
 * one quad sponsor consumes more space
 * two double sponsors consume meaningful space
 * half spots allow smaller businesses to participate
-* single spots remain the standard product
+* standard spots remain the standard product
 
 The operator should monitor:
 
@@ -471,7 +471,7 @@ A simple pricing ladder is easier to sell.
 Example structure:
 
 * half spot: entry-level price
-* single spot: standard price
+* standard spot: standard price
 * double spot: premium presence
 * quad spot: major sponsor
 * digital-only: monthly downsell
@@ -1065,7 +1065,7 @@ For 5,000 cards, expect heavier lifting, more bundles, more time, and more need 
 
 These are rough estimates.
 
-#### First Edition, 2,500 Pieces
+#### First Edition, 10,000 pieces
 
 * route planning: 1–2 hours
 * prospect list building: 2–5 hours
@@ -1084,7 +1084,7 @@ Estimated total:
 
 That range is wide because selling and asset collection can vary dramatically.
 
-#### Repeat Edition, 2,500 Pieces
+#### Repeat Edition, 10,000 pieces
 
 With systems and repeat advertisers:
 
@@ -1099,7 +1099,7 @@ Estimated total:
 
 **21–55 hours**
 
-#### First Edition, 5,000 Pieces
+#### First Edition, 10,000 pieces
 
 A 5,000-piece edition adds:
 
@@ -1331,7 +1331,7 @@ Recommended first edition:
 
 * Catonsville Local Picks
 * 9x12 card
-* roughly 2,500 households based on real EDDM routes
+* 10,000 local households based on real EDDM routes
 * upfront payment only
 * half/single/double/quad placement options
 * at least one strong anchor offer

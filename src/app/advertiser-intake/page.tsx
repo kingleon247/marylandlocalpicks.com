@@ -10,11 +10,12 @@ import {
   ADVERTISER_PHONE_LINK,
   ADVERTISER_PHONE_VANITY,
 } from "@/components/advertiser-contact";
+import { MAILING_REACH_NOTE } from "@/data/advertiser-packages";
 
 export const metadata: Metadata = {
   title: "Advertiser Intake",
   description:
-    "Submit business details and ad assets for a Catonsville Local Picks placement.",
+    "Submit business details and ad assets for a premium 9x12 postcard placement mailed to 10,000 local households.",
 };
 
 const intakeSections = [
@@ -39,7 +40,8 @@ export default function AdvertiserIntakePage() {
           <div className="advertise-hero-aside">
             <p>
               Use this form after speaking with Maryland Local Picks or when
-              preparing your placement details.
+              preparing your details for a premium 9x12 postcard placement
+              mailed to 10,000 local households.
             </p>
             <div className="advertise-hero-actions">
               <a
@@ -60,7 +62,7 @@ export default function AdvertiserIntakePage() {
         <div className="shell">
           <div className="intake-layout">
             <aside className="intake-sidebar">
-              <p className="eyebrow">Reserve · Catonsville</p>
+              <p className="eyebrow">Reserve your spot</p>
               <ol className="intake-step-list">
                 {intakeSections.map((section, index) => (
                   <li key={section}>
@@ -77,6 +79,7 @@ export default function AdvertiserIntakePage() {
                   We check fit and category availability, then send proof and a
                   payment link — typically within two business days.
                 </p>
+                <p style={{ marginTop: "1rem" }}>{MAILING_REACH_NOTE}</p>
               </div>
             </aside>
             <div className="intake-panel">
@@ -85,7 +88,8 @@ export default function AdvertiserIntakePage() {
               <p className="intake-note">
                 Submit contact details, business information, offer copy,
                 landing page content, and any logos or photos you want us to
-                use.
+                use. Ad layout and basic design help are included with your
+                spot.
               </p>
               <Suspense fallback={<AdvertiserIntakeFormFallback />}>
                 <AdvertiserIntakeForm />

@@ -48,7 +48,7 @@ Public routes:
 - `/`
 - `/catonsville`
 - `/advertise`
-- `/reserve` — static reservation/packages page
+- `/reserve` — static reservation/packages page (Half Spot $350, Standard Spot $600, Double Spot $1,100; 10,000-home mailing)
 - `/advertiser-intake` — Phase 1.5 operational intake form
 - `/advertiser-intake/thank-you` — post-submission confirmation
 - `/catonsville/[slug]` — static business landing page template

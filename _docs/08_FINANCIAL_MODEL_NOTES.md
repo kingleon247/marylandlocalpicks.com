@@ -70,8 +70,8 @@ Formula:
 
 Example planning inputs:
 
-- 2,500 pieces
-- 5,000 pieces
+- 10,000 pieces
+- 10,000 pieces
 - actual route-count total
 
 The spreadsheet should let the rate be changed manually.
@@ -303,29 +303,17 @@ A low-profit first card may be acceptable if it creates a strong physical sample
 
 Do not make that exception repeatedly.
 
-### 15. 2,500 vs 5,000 Decision
+### 15. 10,000-Household Mailing Model
 
-2,500 advantages:
+The locked advertiser offer is a single **10,000-household** premium 9x12 postcard drop.
 
-- lower cash risk
-- easier first launch
-- lower price point
-- less physical handling
-- easier to test sales motion
+Firm revenue per filled spot (before costs):
 
-5,000 advantages:
+* Half Spot — $350
+* Standard Spot — $600
+* Double Spot — $1,100
 
-- stronger reach
-- stronger advertiser value
-- stronger farm coverage
-- easier to justify premium pricing
-- better brand repetition
-
-Decision:
-
-For Drop #1, 2,500 is usually the safer validation run.
-
-After validation, choose mail quantity based on farm coverage and advertiser demand, not only margin.
+**Manual review required:** Recompute print, postage, EDDM handling, and labor costs for a 10,000-piece run before relying on older 2,500/5,000 logistics estimates elsewhere in this document.
 
 ### 16. Single vs Recurring Revenue
 

@@ -1,8 +1,4 @@
-export type PlacementPackageKey =
-  | "halfSpot"
-  | "singleSpot"
-  | "doubleSpot"
-  | "quadSponsor";
+export type PlacementPackageKey = "halfSpot" | "standardSpot" | "doubleSpot";
 
 export type PlacementPackage = {
   key: PlacementPackageKey;
@@ -15,155 +11,91 @@ export type PlacementPackage = {
   recommended?: boolean;
 };
 
+export const MAILING_REACH_NOTE =
+  "Every card is mailed to 10,000 local households. Spots are limited, and only one business per category is accepted whenever possible.";
+
+export const CORE_OFFER_STATEMENT =
+  "You get category-exclusive visibility in 10,000 local mailboxes, on a premium oversized 9x12 postcard, without designing, printing, or mailing anything yourself.";
+
+export const bestForList = [
+  "Serve homeowners in the mailing area",
+  "Have a clear service or offer",
+  "Want more local visibility",
+  "Can respond quickly to calls, texts, QR scans, or website visits",
+  "Understand that marketing is about exposure and repeated visibility, not guaranteed instant results",
+];
+
+export const notForList = [
+  "Your business does not serve the mailing area",
+  "You do not have a clear offer or call to action",
+  "You need guaranteed leads or guaranteed sales",
+  "You are not ready to answer calls, texts, or inquiries from local homeowners",
+];
+
 export const placementPackages: PlacementPackage[] = [
   {
     key: "halfSpot",
     name: "Half Spot",
-    tagline: "Best for a first local placement.",
+    tagline:
+      "A compact placement for a simple offer, coupon, logo, or short message.",
     bestFor: [
-      "restaurants",
-      "coffee shops",
-      "salons",
-      "boutiques",
-      "small local offers",
-      "first-time advertisers",
+      "simple local offers",
+      "coupons and seasonal promotions",
+      "businesses with a clear, short message",
+      "entry-level local visibility",
     ],
     includes: [
-      "Half-card placement",
-      "One category listing",
-      "Digital landing page",
-      "One local offer",
+      "Half-spot placement on a premium 9x12 postcard",
+      "Mailed to 10,000 local households",
+      "Ad layout and basic design help included",
+      "Category-exclusive placement whenever possible",
+      "QR code included when useful",
     ],
-    price: "Pricing pending",
-    cta: "Reserve a spot",
+    price: "$350",
+    cta: "Reserve your spot",
   },
   {
-    key: "singleSpot",
-    name: "Single Spot",
-    tagline: "Best for steady neighborhood visibility.",
+    key: "standardSpot",
+    name: "Standard Spot",
+    tagline:
+      "Recommended for most local businesses. Enough room for a strong offer, services, contact info, logo, and QR code.",
     bestFor: [
-      "standard local advertisers",
-      "home services",
-      "professional services",
-      "health/wellness",
-      "auto",
-      "real estate/homeowner services",
+      "home-service businesses",
+      "local-service businesses",
+      "businesses with a clear offer and contact info",
+      "most advertisers who want strong local visibility",
     ],
     includes: [
-      "Full single-spot placement",
-      "Priority category listing",
-      "Landing page + featured offer",
-      "QR-connected traffic",
+      "Standard-spot placement on a premium 9x12 postcard",
+      "Mailed to 10,000 local households",
+      "Ad layout and basic design help included",
+      "Category-exclusive placement whenever possible",
+      "QR code included when useful",
     ],
-    price: "Pricing pending",
-    cta: "Reserve a spot",
+    price: "$600",
+    cta: "Reserve your spot",
     recommended: true,
   },
   {
     key: "doubleSpot",
     name: "Double Spot",
-    tagline: "Best for a standout, can't-miss presence.",
+    tagline:
+      "A larger placement for businesses that want stronger visibility, more room for photos, multiple services, before/after examples, or a more premium presentation.",
     bestFor: [
       "businesses that want stronger visibility",
-      "high-ticket services",
-      "businesses with several services or a strong visual offer",
+      "multiple services or visual offers",
+      "before/after examples",
+      "premium local presentation",
     ],
     includes: [
-      "Double-size feature placement",
-      "Top-of-category priority",
-      "Enhanced landing page",
-      "Pick of the Week eligibility",
+      "Double-spot placement on a premium 9x12 postcard",
+      "Mailed to 10,000 local households",
+      "Ad layout and basic design help included",
+      "Category-exclusive placement whenever possible",
+      "QR code included when useful",
     ],
-    price: "Pricing pending",
-    cta: "Reserve a spot",
-  },
-  {
-    key: "quadSponsor",
-    name: "Quad Sponsor",
-    tagline: "Best for owning the edition.",
-    bestFor: [
-      "major sponsors",
-      "high-value categories",
-      "businesses trying to dominate locally",
-      "annual or recurring advertisers",
-    ],
-    includes: [
-      "Premium cover-adjacent quad",
-      "Category exclusivity",
-      "Featured in digital + social",
-      "First right of renewal",
-    ],
-    price: "Call for availability",
-    cta: "Reserve a spot",
-  },
-];
-
-export type PrepayOption = {
-  key: string;
-  name: string;
-  description: string;
-};
-
-export const prepayOptions: PrepayOption[] = [
-  {
-    key: "oneMailing",
-    name: "One mailing",
-    description: "Reserve a single Catonsville edition placement.",
-  },
-  {
-    key: "threeMailingPackage",
-    name: "3-mailing package",
-    description: "Plan ahead across three planned mailings.",
-  },
-  {
-    key: "sixMailingPackage",
-    name: "6-mailing package",
-    description: "Stay visible across half a year of editions.",
-  },
-  {
-    key: "annualPackage",
-    name: "Annual 8-mailing package",
-    description: "Commit to roughly eight mailings per year.",
-  },
-];
-
-export const prepayBonuses = [
-  "locked rate",
-  "priority placement",
-  "Pick of the Week credit",
-  "offer updates",
-  "category priority",
-  "first right of refusal",
-];
-
-export type AddOn = {
-  name: string;
-  description: string;
-  future?: boolean;
-};
-
-export const addOns: AddOn[] = [
-  {
-    name: "Digital-only listing",
-    description: "Online presence without a print placement.",
-  },
-  {
-    name: "Pick of the Week",
-    description: "Extra spotlight in the city edition and digital guide.",
-  },
-  {
-    name: "Social promotion",
-    description: "Additional reach through Maryland Local Picks channels.",
-  },
-  {
-    name: "Call tracking",
-    description: "Dedicated tracking numbers and call reporting.",
-    future: true,
-  },
-  {
-    name: "Website, reputation, and AI services",
-    description: "Optional marketing and answering services.",
-    future: true,
+    price: "$1,100",
+    cta: "Reserve your spot",
   },
 ];
 
@@ -171,10 +103,6 @@ export const paymentPolicy = [
   "No payment, no reserved print spot.",
   "Print placements are paid upfront.",
   "Payment links are sent after placement and category availability are confirmed.",
-  "Prepaid packages may be available after confirming fit and inventory.",
-  "Final pricing and availability depend on edition inventory.",
-  "Digital-only options may be monthly later.",
+  "There is no charge before you have seen and approved your placement.",
+  "Maryland Local Picks sells local exposure and visibility — not guaranteed leads, calls, or sales.",
 ];
-
-export const mailingCadenceCopy =
-  "Maryland Local Picks is planned around roughly one mailing every six weeks, or about eight mailings per year.";

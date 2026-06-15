@@ -415,7 +415,7 @@ Sections:
 3. Available products
 
    * half spot
-   * single spot
+   * standard spot
    * double spot
    * quad spot
    * digital-only

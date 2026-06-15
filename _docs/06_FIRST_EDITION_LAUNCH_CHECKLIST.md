@@ -25,11 +25,11 @@ Starting assumptions:
 - Domain: `marylandlocalpicks.com`
 - Local project folder: `~/__code/marylandlocalpicks.com`
 - GitHub repo: `maryland-local-picks`
-- Card size target: 9x12
+- Card size target: premium 9x12 postcard
 - Mailing method: USPS EDDM Retail
-- Initial quantity target: approximately 2,500 households, based on actual carrier routes
-- Cadence goal: every 6 weeks
-- Payment model: upfront payment only for print
+- Mailing quantity: 10,000 local households per drop
+- Firm package prices: Half Spot $350, Standard Spot $600, Double Spot $1,100
+- Payment model: upfront payment only for print, after proof approval
 - Digital page: included with print placement
 - First site build: public MVP only
 
@@ -147,7 +147,7 @@ Suggested first-edition sizes:
 
 Suggested first-edition sales focus:
 
-- single spot
+- standard spot
 - half spot
 - double spot
 - digital page included

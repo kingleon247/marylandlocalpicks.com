@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ADVERTISER_PHONE_LINK, ADVERTISER_PHONE_VANITY } from "@/components/advertiser-contact";
+import { ADVERTISER_PHONE_LINK } from "@/components/advertiser-contact";
 import { BusinessCard } from "@/components/business-card";
 import { SectionHeading } from "@/components/section-heading";
 import {
@@ -392,21 +392,22 @@ export default function Home() {
         <div className="shell advertiser-banner">
           <div>
             <p className="eyebrow">For local businesses</p>
-            <h2>Reserve your spot in the Catonsville edition.</h2>
+            <h2>Put your business in 10,000 local mailboxes.</h2>
             <p>
-              A neighborhood print placement, a focused digital landing page, and
-              a clear offer — mailed to the doors that matter.
+              Premium 9x12 postcard advertising with category-exclusive
+              placement whenever possible — mailed to 10,000 local households.
+              Ad layout and design help included.
             </p>
           </div>
           <div className="advertiser-banner-actions">
             <Link className="button button-light" href="/reserve">
-              Reserve a spot →
+              Reserve your spot →
             </Link>
             <Link className="button button-secondary" href="/advertise">
               See advertiser options
             </Link>
             <a className="button button-secondary" href={`tel:${ADVERTISER_PHONE_LINK}`}>
-              Call or text {ADVERTISER_PHONE_VANITY}
+              Check category availability
             </a>
           </div>
         </div>

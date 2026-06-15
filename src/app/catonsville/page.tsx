@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BusinessCard } from "@/components/business-card";
-import { ADVERTISER_PHONE_LINK, ADVERTISER_PHONE_VANITY } from "@/components/advertiser-contact";
+import { ADVERTISER_PHONE_LINK } from "@/components/advertiser-contact";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { SectionHeading } from "@/components/section-heading";
 import {
@@ -219,21 +219,21 @@ export default function CatonsvillePage() {
         <div className="shell business-cta">
           <div>
             <p className="eyebrow">Own a local business?</p>
-            <h2>Reserve your spot in the Catonsville edition.</h2>
+            <h2>Put your business in 10,000 local mailboxes.</h2>
             <p>
-              Print placement, a focused digital page, QR traffic, and an offer
-              customers can act on.
+              Premium 9x12 postcard advertising with category-exclusive placement
+              whenever possible — mailed to 10,000 local households.
             </p>
           </div>
           <div className="business-cta-actions">
             <Link className="button button-light" href="/reserve">
-              Reserve a spot →
+              Reserve your spot →
             </Link>
             <Link className="button button-secondary" href="/advertise">
               Advertise with us
             </Link>
             <a className="button button-secondary" href={`tel:${ADVERTISER_PHONE_LINK}`}>
-              Call or text {ADVERTISER_PHONE_VANITY}
+              Check category availability
             </a>
           </div>
         </div>

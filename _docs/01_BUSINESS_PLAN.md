@@ -48,281 +48,85 @@ Maryland Local Picks has four main goals:
 
 ### 3. Initial Mailing Strategy
 
-The starting plan is to run the first edition in one local market, most likely Catonsville.
+The starting plan is to run editions in local markets, starting with Catonsville.
 
-The preferred card size is **9x12**, because it creates a more premium product, gives advertisers more design space, and allows flexible ad sizes such as half, single, double, and quad placements.
+The product is a **premium shared 9x12 postcard** mailed to **10,000 local households** per drop.
 
-The first mailing can start with approximately **2,500 households**, depending on actual USPS EDDM route counts. Since EDDM works by carrier route, the exact number will depend on the selected routes, not an arbitrary number picked in advance.
+Each drop is a single fixed mailing quantity. Maryland Local Picks does not sell 2,500-home drops, 5,000-home drops, test runs, beta runs, demo cards, preview cards, or variable mailing quantities.
 
-A larger 5,000-household mailing may produce more exposure and response, but it also requires more postage, more route planning, more physical handling, and potentially a higher advertiser price. The better launch strategy is to start with a manageable first drop, prove advertiser demand, then expand coverage.
-
-The target cadence is approximately **one mailing every six weeks**.
-
-A six-week cycle creates enough repetition to build recognition without becoming stale. It also creates urgency for advertisers because each edition has a real deadline. Over a full year, a six-week cycle creates approximately **8 mailings per year**.
-
-Possible annual cadence:
-
-* Mailing 1: Launch edition
-* Mailing 2: Spring / seasonal home services
-* Mailing 3: Early summer
-* Mailing 4: Mid-summer
-* Mailing 5: Back-to-school / fall prep
-* Mailing 6: Fall home services
-* Mailing 7: Holiday local picks
-* Mailing 8: New year / winter services
-
-The exact schedule can be adjusted around seasonality, advertiser demand, USPS timing, and available routes.
+The exact route count may vary slightly based on USPS EDDM carrier routes, but the advertiser-facing offer is always **10,000 local households**.
 
 ### 4. Advertiser Placement Strategy
 
-The printed card should allow multiple ad sizes so businesses can enter at different budget levels.
+The printed postcard supports three firm-priced spot sizes:
 
-Suggested placement sizes:
+* **Half Spot — $350** — compact placement for a simple offer, coupon, logo, or short message
+* **Standard Spot — $600** — recommended for most local businesses; room for a strong offer, services, contact info, logo, and QR code
+* **Double Spot — $1,100** — larger placement for stronger visibility, photos, multiple services, before/after examples, or a more premium presentation
 
-* **Half spot** — smaller budget, good for restaurants, coffee shops, salons, boutiques, small local offers
-* **Single spot** — standard advertiser placement
-* **Double spot** — larger presence for high-value businesses
-* **Quad spot** — premium dominant placement for major sponsors or exclusive categories
+Only one business per category is accepted whenever possible, so advertisers are not sharing the card with a direct competitor.
 
-This creates flexibility. Instead of forcing every business into one price point, Maryland Local Picks can fill the card based on advertiser demand.
+Maryland Local Picks sells **local exposure, visibility, category-exclusive mailbox presence, and done-for-you ad placement** — not guaranteed leads, calls, sales, ROI, redemptions, or response rates.
 
-A business with a smaller budget can still participate. A stronger advertiser can buy more space. A business that wants a category or ZIP locked down can pay more for that control.
-
-The card should avoid looking like a cheap coupon sheet. It should feel curated. A few strong local offers should be included in every edition to make residents want to keep or scan the card. Good anchor businesses may include pizza shops, coffee shops, restaurants, ice cream shops, car washes, seasonal home services, or other businesses with broad household appeal.
-
-Not every advertiser needs a heavy discount. However, every edition should include enough value that the card feels worth paying attention to.
+The card should feel curated and premium. Ad layout and basic design help are included with every spot.
 
 ### 5. Payment Strategy
 
-Maryland Local Picks should use upfront payment as the default.
+Maryland Local Picks uses upfront payment as the default.
 
-A print advertiser should pay before their spot is reserved and before the card is printed. This protects cash flow and prevents unpaid advertisers from delaying the drop.
+A print advertiser pays before their spot is reserved and before the card is printed.
 
 The basic rule:
 
 **No payment, no reserved spot.**
 
-This matters because printing and postage costs are real. Maryland Local Picks should not front the cost of a business’s ad unless there is a strategic reason, such as giving away one anchor spot to a popular local business to improve the value of the card.
-
-Payment options should include both single-payment and recurring-payment strategies.
+Payment links are sent after placement and category availability are confirmed. There is no charge before the advertiser has seen and approved their placement.
 
 ### 6. Single-Mailing Payment
 
-The simplest offer is a one-time payment for one card edition.
-
-Example:
+The offer is a one-time payment for one postcard drop:
 
 * Pay once
-* Appear on one printed card
-* Receive a digital landing page for that edition
-* Get listed on the city page
-* Receive basic view/tap tracking
-* Option to renew for the next edition
+* Appear on one premium 9x12 postcard mailed to 10,000 local households
+* Ad layout and basic design help included
+* Category-exclusive placement whenever possible
+* QR code included when useful
 
-This is the easiest offer for a new advertiser to understand.
+Firm package prices:
 
-It works best for:
+* Half Spot — $350
+* Standard Spot — $600
+* Double Spot — $1,100
 
-* first-time advertisers
-* seasonal businesses
-* businesses testing the channel
-* smaller businesses with limited budgets
-* advertisers who are not ready for recurring commitments
+### 7. What Maryland Local Picks Does Not Promise
 
-For the first few drops, this should probably be the main offer because it lowers friction.
+Maryland Local Picks sells local exposure and visibility. It does not promise a specific number of calls, leads, sales, or redemptions.
 
-### 7. Recurring Payment Strategy
+Direct mail does not replace a website, social media, Google profile, or referrals. It gives the business another local touchpoint.
 
-Recurring payments should be introduced carefully. The goal is to create predictable revenue without making the offer feel too complicated at launch.
+### 8. Future Revenue (Not Current Offer)
 
-Possible recurring options:
-
-#### A. Recurring Print Reservation
-
-A business can reserve a spot for every mailing until canceled.
-
-Example:
-
-* “Keep me on every Catonsville card.”
-* Billed every six weeks.
-* Spot remains reserved as long as payment stays current.
-
-This is ideal for businesses that want continuous local visibility.
-
-Good candidates:
-
-* HVAC
-* roofing
-* plumbing
-* electricians
-* real estate
-* insurance
-* dentists
-* med spas
-* landscapers
-* senior care
-* home improvement companies
-
-#### B. Monthly Digital-Only Listing
-
-This is the downsell for businesses that do not buy print or do not renew print.
-
-Example:
-
-* Business landing page
-* Listed on the city page
-* Active offer/coupon
-* Basic tap tracking
-* Optional Pick of the Week eligibility
-* No printed card placement
-
-This should be priced lower than print because there is no printing, postage, or EDDM labor.
-
-This catches businesses who say:
-
-* “The card is too expensive.”
-* “Maybe next time.”
-* “We don’t want print right now.”
-* “Can we just be online?”
-
-Instead of losing them, Maryland Local Picks can offer a lower-cost digital presence.
-
-#### C. Premium Digital Add-Ons
-
-A business that wants more proof, tracking, or lead handling can add premium services.
-
-Potential add-ons:
-
-* SignalWire call tracking number
-* real call logs
-* call duration reporting
-* recorded-call option with proper consent
-* AI answering later
-* website buildout
-* review/reputation help
-* digital ad management
-* Facebook/social deal promotion
-
-These are not the first sale. These are upsells after trust is built.
-
-### 8. Advance Payment and Prepay Strategy
-
-Advance payment is a major opportunity.
-
-The business should offer prepaid packages once the first edition is validated.
-
-Possible prepay options:
-
-#### Pay for 1 Mailing
-
-Best for testing.
-
-* Lowest commitment
-* Highest per-mailing price
-* Good for new advertisers
-
-#### Pay for 3 Mailings
-
-Good middle option.
-
-* Covers roughly 18 weeks on a six-week schedule
-* Gives the advertiser repetition
-* Gives Maryland Local Picks predictable revenue
-
-Suggested incentive:
-
-* Small discount
-* Priority placement
-* first choice of category
-* locked pricing for the next three mailings
-
-#### Pay for 6 Mailings
-
-Good for serious advertisers.
-
-* Covers roughly 36 weeks
-* Strong repetition
-* Good for home services and high-ticket businesses
-
-Suggested incentive:
-
-* stronger discount
-* category priority
-* ability to rotate offers
-* preferred placement
-* included Pick of the Week credit
-
-#### Pay for the Year
-
-At one mailing every six weeks, a full year is approximately **8 mailings**.
-
-Annual prepay is the strongest cash-flow product.
-
-Possible annual offer:
-
-* 8 print placements
-* digital landing page included
-* business profile kept active all year
-* ability to update offers
-* category priority or exclusivity option
-* one or more Pick of the Week features
-* quarterly performance summary
-* locked-in rate for the year
-
-Annual prepay should not be discounted too heavily. The value is consistency, priority, and locked-in presence, not just a cheaper price.
-
-A possible structure:
-
-* 1 mailing: standard price
-* 3 mailings prepaid: small discount or added bonus
-* 6 mailings prepaid: better bonus
-* annual prepaid: best package, priority placement, added digital promotion
-
-The best incentive may be bonuses instead of discounts. Discounts lower perceived value. Bonuses increase perceived value.
-
-Better bonuses include:
-
-* free Pick of the Week feature
-* free social promotion
-* free landing page upgrade
-* free offer update each mailing
-* priority placement
-* category lock
-* ZIP/route lock
-* included call-tap tracking report
+Future phases may introduce recurring reservations, digital-only listings, call tracking, and other add-ons. These are not part of the current locked advertiser offer on the website.
 
 ### 9. Recommended Payment Rules
 
-Maryland Local Picks should use these payment rules from the beginning:
-
 1. Print spots must be paid before the ad is reserved.
-2. Annual or multi-mailing plans should be paid upfront or billed automatically.
-3. Recurring advertisers must keep payment active to keep their reserved placement.
-4. Digital-only listings should be monthly recurring.
-5. Premium call tracking should be monthly recurring because phone numbers and usage create ongoing costs.
-6. Custom website or setup work should require a setup fee before work begins.
-7. No advertiser should receive repeated free placements unless it clearly improves the card’s value or supports a strategic relationship.
+2. Payment links are sent after fit and category availability are confirmed.
+3. Do not promise guaranteed leads or sales.
+4. No advertiser should receive repeated free placements unless it clearly improves the card's value.
 
 ### 10. Launch Recommendation
 
-The first launch should stay simple.
-
 Recommended first edition:
 
-* Brand: Catonsville Local Picks
-* Card size: 9x12
-* Mailing size: roughly 2,500 households based on actual EDDM route counts
-* Cadence goal: every six weeks
-* Ad sizes: half, single, double, quad
-* Payment: upfront only
-* Digital landing page included with print placement
-* QR code to city page and/or individual business pages
-* Email opt-in on the city page
-* One strong local anchor offer
-* Optional free anchor placement if it improves household value
+* Brand: Catonsville Local Picks (under Maryland Local Picks)
+* Card size: premium 9x12 postcard
+* Mailing size: 10,000 local households
+* Ad sizes: Half Spot ($350), Standard Spot ($600), Double Spot ($1,100)
+* Payment: upfront only, after proof approval
+* Category exclusivity whenever possible
+* Ad layout and design help included
 * Do not mail unless enough paid placements are sold to cover costs and justify the time
-
-The business should be built for recurring revenue from the beginning, but sold simply at first.
 
 The first job is not to build every feature.
 

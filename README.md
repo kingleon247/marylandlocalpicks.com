@@ -23,7 +23,7 @@ Included:
 * responsive Maryland Local Picks brand homepage
 * Catonsville city edition page
 * advertiser information page
-* `/reserve` packages and payment-policy page
+* `/reserve` packages and payment-policy page (Half Spot $350, Standard Spot $600, Double Spot $1,100)
 * `/advertiser-intake` operational intake form with server-side submission
 * local/serverful intake storage in `storage/advertiser-intakes/` (gitignored)
 * Stripe Payment Link config placeholder (`src/data/payment-links.ts`, values null until links are created)
@@ -75,7 +75,7 @@ Working principle:
 | `/`                            | Maryland Local Picks brand and city edition overview      |
 | `/catonsville`                 | First city directory, offers, weekly pick, and opt-in     |
 | `/advertise`                   | Print-and-digital advertiser proposition and inquiry form |
-| `/reserve`                     | Catonsville placement packages, prepay options, and payment policy |
+| `/reserve`                     | Premium 9x12 postcard placement packages ($350 / $600 / $1,100) and payment policy |
 | `/advertiser-intake`           | Operational advertiser intake form (no login required)    |
 | `/advertiser-intake/thank-you` | Post-submission confirmation page                         |
 | `/catonsville/[slug]`          | Static business conversion landing page template          |
@@ -196,7 +196,7 @@ storage/advertiser-intakes/{submissionId}/assets/
 * If deployed later, hosting and storage behavior must be reviewed.
 * Intake submissions do not send email alerts yet. The operator must manually check the storage folder until email or CRM integration is added.
 * Stripe Payment Links are not integrated yet. Payment link config exists in `src/data/payment-links.ts` with null values until real links are created.
-* Online payment is not active on the site yet. `/reserve` explains packages and payment policy; CTAs route to intake or request a payment link.
+* Online payment is not active on the site yet. `/reserve` explains the three placement packages and payment policy; CTAs route to intake or request a payment link.
 
 ## Project Structure
 
@@ -254,7 +254,9 @@ If anything in `docs/` conflicts with `_docs/`, follow `_docs/`.
 
 Maryland Local Picks combines:
 
-* local print advertising
+* premium shared 9x12 postcard advertising mailed to 10,000 local households
+* category-exclusive placement whenever possible
+* done-for-you ad layout and design help
 * city-specific digital guide pages
 * business landing pages
 * local offers and coupons
@@ -270,10 +272,18 @@ The first city edition is:
 Catonsville Local Picks
 ```
 
+The advertiser offer:
+
+```text
+Premium shared 9x12 postcard advertising mailed to 10,000 local households.
+Half Spot $350 · Standard Spot $600 · Double Spot $1,100.
+Category-exclusive placement whenever possible. Exposure and visibility — not guaranteed leads.
+```
+
 The initial public positioning:
 
 ```text
-A printed card and digital guide featuring selected local businesses, offers, and places worth knowing.
+A premium local postcard and digital guide featuring selected local businesses, offers, and places worth knowing.
 ```
 
 ## Phase Plan
@@ -395,6 +405,6 @@ When using Cursor, Claude, Codex, or any other AI-assisted development tool:
 
 All businesses, offers, testimonials, addresses, and contact details currently shown in the product are fictional placeholder content unless explicitly replaced with real advertiser information.
 
-Before any real print drop, verify current USPS EDDM requirements, print specifications, route counts, pricing, bundling, facing slips, and drop-off instructions.
+Before any real print drop, verify current USPS EDDM requirements, print specifications, route counts for the 10,000-household mailing, pricing, bundling, facing slips, and drop-off instructions.
 
 Before using any call recording or AI answering feature, perform a legal and consent review.

@@ -10,8 +10,8 @@ export function AdvertiserContact() {
       <p className="eyebrow">Talk directly</p>
       <p>
         Local business owners can call or text{" "}
-        <strong>{ADVERTISER_PHONE_VANITY}</strong> to ask about Catonsville
-        placement availability, pricing, and timing for the first edition.
+        <strong>{ADVERTISER_PHONE_VANITY}</strong> to ask about category
+        availability, pricing, and timing for the next 10,000-home mailing.
       </p>
       <p className="contact-number-numeric">{ADVERTISER_PHONE_NUMERIC}</p>
       <div className="advertiser-contact-actions">

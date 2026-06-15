@@ -3,7 +3,7 @@
 
 > **Document role:** Advertiser-facing product ladder, offer packaging, objections, and renewal strategy.
 >
-> **Cursor/Codex/Claude usage:** This file is intended to be read from `_docs/` as project context. Follow the phase boundaries. Do not build later-phase features unless explicitly requested.
+> **Current locked offer (live site):** Premium shared 9x12 postcard mailed to **10,000 local households**. Firm prices: Half Spot $350, Standard Spot $600 (recommended), Double Spot $1,100. Sections below may describe future/legacy packaging — follow `src/data/advertiser-packages.ts` and the live `/reserve` page for the current offer.
 
 ## Page 4: Advertiser Products, Packages, Pricing Logic, Payment Options, and Renewal Strategy
 
@@ -109,158 +109,61 @@ The offer ladder should move from simple to advanced.
 
 ### 4. Print Placement Products
 
-The printed card should support multiple ad sizes.
+The current locked offer is three spot sizes on a premium 9x12 postcard mailed to 10,000 local households.
 
-The goal is to make the product flexible while keeping the sales conversation simple.
+#### Half Spot — $350
 
-#### Half Spot
+A compact placement for a simple offer, coupon, logo, or short message.
 
-Best for:
-
-* coffee shops
-* pizza shops
-* bakeries
-* ice cream shops
-* restaurants
-* salons
-* small retail
-* local events
-* small-budget advertisers
-* anchor offers
-
-Positioning:
-
-**“This is the easiest way to get on the card without taking a larger space.”**
+Position as the simple entry option.
 
 Includes:
 
-* smaller print ad
-* digital business landing page
-* city page listing
-* offer/coupon placement if provided
-* QR code destination
-* basic tap tracking
-* renewal option
+* half-spot placement on premium 9x12 postcard
+* mailed to 10,000 local households
+* ad layout and basic design help
+* category-exclusive placement whenever possible
+* QR code when useful
 
-Sales use:
+#### Standard Spot — $600
 
-The half spot keeps smaller businesses involved without discounting the main full spot.
+Recommended for most local businesses. Enough room for a strong offer, services, contact info, logo, and QR code.
 
-It is also useful for filling remaining card space.
-
-#### Single Spot
-
-This is the standard card placement.
-
-Best for:
-
-* home services
-* professional services
-* real estate
-* insurance
-* auto
-* health/wellness
-* local businesses with a clear offer
-
-Positioning:
-
-**“This is the standard featured business placement.”**
+This is the primary/default recommendation.
 
 Includes:
 
-* standard print ad
-* digital landing page
-* QR code
-* city page listing
-* offer/coupon placement
-* basic tracking
-* renewal option
+* standard-spot placement on premium 9x12 postcard
+* mailed to 10,000 local households
+* ad layout and basic design help
+* category-exclusive placement whenever possible
+* QR code when useful
 
-This should be the main product sold.
+#### Double Spot — $1,100
 
-#### Double Spot
+A larger placement for stronger visibility, photos, multiple services, before/after examples, or a more premium presentation.
 
-Best for:
-
-* higher-ticket businesses
-* businesses that want stronger visibility
-* businesses with multiple services
-* businesses with a strong visual offer
-* advertisers who want to stand out from smaller placements
-
-Positioning:
-
-**“This gives you more room to tell the story and makes your business stand out more on the card.”**
+Position as the premium visibility option.
 
 Includes:
 
-* larger print space
-* stronger design presence
-* expanded digital landing page
-* larger offer section
-* possible priority placement
-* basic tracking
-* renewal priority
+* double-spot placement on premium 9x12 postcard
+* mailed to 10,000 local households
+* ad layout and basic design help
+* category-exclusive placement whenever possible
+* QR code when useful
 
-#### Quad Spot
+### 5. Firm Pricing (Current)
 
-Best for:
+Current firm package prices per 10,000-home mailing:
 
-* major sponsors
-* high-value categories
-* businesses trying to dominate a local area
-* businesses that want premium placement
-* annual sponsors
-* category-exclusive advertisers
+* Half Spot — $350
+* Standard Spot — $600
+* Double Spot — $1,100
 
-Positioning:
+Do not use old test pricing ($150, $250, $300, $450, $500, $800, or other previous amounts).
 
-**“This is the dominant placement for a business that wants to be one of the main names people notice.”**
-
-Includes:
-
-* largest print placement
-* premium digital landing page
-* priority placement on city page
-* stronger visual design
-* possible Pick of the Week credit
-* possible social promotion credit
-* reporting
-* renewal priority
-
-Quad spots should be limited. Scarcity makes them more valuable.
-
-### 5. Suggested Pricing Logic
-
-Pricing should depend on:
-
-* mailing quantity
-* card size
-* city/market
-* ad size
-* household reach
-* category value
-* whether exclusivity is included
-* whether the business prepays
-* whether the business buys multiple editions
-* whether social or digital add-ons are included
-
-Do not set pricing only based on print/postage cost.
-
-The business is selling:
-
-* local household reach
-* design and coordination
-* digital landing page
-* QR traffic
-* local credibility
-* category scarcity
-* repeated exposure
-* convenience
-* reporting
-* future relationship
-
-A business is not just buying ink on paper.
+The business sells local household reach, design coordination, category scarcity, and done-for-you placement — not guaranteed leads.
 
 ### 6. Launch Pricing Strategy
 
@@ -277,7 +180,7 @@ This gives a reason for the lower first-card price and creates urgency.
 Possible launch structure:
 
 * half spot: entry price
-* single spot: core launch price
+* standard spot: core launch price
 * double spot: premium launch price
 * quad spot: sponsor launch price
 
@@ -782,7 +685,7 @@ Examples:
 
 * appear in every Catonsville mailing
 * lock 21228
-* appear on both 2,500-card route groups
+* appear on both 10,000-home postcard route groups
 * target higher-income carrier routes
 * target routes near business location
 
@@ -801,13 +704,13 @@ Example:
 * Catonsville East + Catonsville West
 * Catonsville + Arbutus
 * Catonsville + Ellicott City
-* two 2,500-card editions = roughly 5,000 households
+* two 10,000-home postcard editions = roughly 10,000 local households
 
 Positioning:
 
 **“If you want the wider reach, we can place you on both cards.”**
 
-This is cleaner than creating a separate “5,000 option” if the system is built around multiple 2,500-card editions.
+This is cleaner than creating a separate “5,000 option” if the system is built around multiple 10,000-home postcard editions.
 
 Each placement should be tracked separately with its own QR short code.
 
@@ -820,7 +723,7 @@ Do not present every future option to the first advertiser.
 Recommended first-edition menu:
 
 1. Half spot
-2. Single spot
+2. Standard Spot
 3. Double spot
 4. Quad sponsor
 5. Digital-only listing
@@ -830,7 +733,7 @@ Recommended first-edition menu:
 
 Sales should mostly focus on:
 
-* single spot
+* standard spot
 * half spot
 * double spot
 * digital page included

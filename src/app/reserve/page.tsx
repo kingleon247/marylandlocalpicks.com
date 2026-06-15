@@ -9,19 +9,17 @@ import {
 } from "@/components/advertiser-contact";
 import { SectionHeading } from "@/components/section-heading";
 import {
-  addOns,
-  mailingCadenceCopy,
+  CORE_OFFER_STATEMENT,
+  MAILING_REACH_NOTE,
   paymentPolicy,
   placementPackages,
-  prepayBonuses,
-  prepayOptions,
 } from "@/data/advertiser-packages";
-import { getPackageCtaAction, getPaymentAction } from "@/data/payment-links";
+import { getPackageCtaAction } from "@/data/payment-links";
 
 export const metadata: Metadata = {
   title: "Reserve a Spot",
   description:
-    "Reserve a Catonsville Local Picks print and digital placement. Review packages, prepay options, and next steps.",
+    "Reserve your spot on a premium 9x12 postcard mailed to 10,000 local households. Half Spot $350, Standard Spot $600, Double Spot $1,100.",
 };
 
 function PackageCard({
@@ -30,11 +28,9 @@ function PackageCard({
   pkg: (typeof placementPackages)[number];
 }) {
   const action = getPackageCtaAction(pkg.key);
-  const isQuad = pkg.key === "quadSponsor";
   const cardClass = [
     "reserve-package-card",
     pkg.recommended ? "reserve-package-card-recommended" : "",
-    isQuad ? "reserve-package-card-quad" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -58,10 +54,7 @@ function PackageCard({
     <>
       <h3>{pkg.name}</h3>
       <p className="reserve-package-tagline">{pkg.tagline}</p>
-      <p className="reserve-package-price">
-        {pkg.price}
-        <span className="reserve-package-price-note"> / mailing</span>
-      </p>
+      <p className="reserve-package-price">{pkg.price}</p>
       <ul className="reserve-package-features">
         {pkg.includes.map((item) => (
           <li key={item}>{item}</li>
@@ -89,14 +82,14 @@ export default function ReservePage() {
       <section className="advertise-hero">
         <div className="shell advertise-hero-grid">
           <div>
-            <p className="eyebrow">Catonsville edition</p>
-            <h1>Reserve a Catonsville Local Picks placement</h1>
+            <p className="eyebrow">Premium local advertising</p>
+            <h1>Claim your spot on the next 10,000-home mailing</h1>
           </div>
           <div className="advertise-hero-aside">
             <p>
-              Spots are limited. Every print placement includes a digital
-              landing page. The Catonsville edition is a 9×12 guide mailed to
-              2,500 homes on a roughly six-week cycle.
+              Spots are limited. Every placement is on a premium 9x12 postcard
+              mailed to 10,000 local households. Only one business per category
+              is accepted whenever possible.
             </p>
             <div className="advertise-hero-actions">
               <a
@@ -121,105 +114,27 @@ export default function ReservePage() {
           <SectionHeading
             eyebrow="Placement packages"
             title="Choose the visibility level that fits your business."
-            intro="After confirming fit and category availability, Maryland Local Picks sends a proof and payment link. Online payment is not active on this site yet."
+            intro="After confirming fit and category availability, Maryland Local Picks sends a proof and payment link."
           />
           <div className="reserve-distribution-strip">
-            <span className="eyebrow">The Catonsville edition</span>
+            <span className="eyebrow">Premium shared postcard</span>
             <span className="reserve-distribution-dot" aria-hidden="true">
               ·
             </span>
-            <span>9×12 printed guide</span>
+            <span>Premium 9x12 postcard</span>
             <span className="reserve-distribution-dot" aria-hidden="true">
               ·
             </span>
-            <span>Mailed to 2,500 homes</span>
+            <span>Mailed to 10,000 local households</span>
             <span className="reserve-distribution-dot" aria-hidden="true">
               ·
             </span>
-            <span>Digital landing page included with every spot</span>
+            <span>Ad layout and design help included with every spot</span>
           </div>
+          <p className="advertise-placement-note">{MAILING_REACH_NOTE}</p>
           <div className="reserve-package-grid">
             {placementPackages.map((pkg) => (
               <PackageCard key={pkg.key} pkg={pkg} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section reserve-prepay-section">
-        <div className="shell">
-          <SectionHeading
-            eyebrow="Prepay and recurring"
-            title="Plan across multiple mailings."
-            intro={mailingCadenceCopy}
-          />
-          <div className="reserve-prepay-grid">
-            {prepayOptions.map((option) => {
-              const action =
-                option.key === "oneMailing"
-                  ? {
-                      href: "/advertiser-intake",
-                      label: "Request payment link",
-                      external: false,
-                    }
-                  : getPaymentAction(
-                      option.key as
-                        | "threeMailingPackage"
-                        | "sixMailingPackage"
-                        | "annualPackage",
-                    );
-
-              return (
-                <article className="reserve-prepay-card" key={option.key}>
-                  <h3>{option.name}</h3>
-                  <p>{option.description}</p>
-                  {action.external ? (
-                    <a
-                      className="text-link"
-                      href={action.href}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      {action.label} <span aria-hidden="true">→</span>
-                    </a>
-                  ) : (
-                    <Link className="text-link" href={action.href}>
-                      {action.label} <span aria-hidden="true">→</span>
-                    </Link>
-                  )}
-                </article>
-              );
-            })}
-          </div>
-          <div className="reserve-bonus-panel">
-            <p className="eyebrow">Possible package bonuses</p>
-            <ul className="check-list">
-              {prepayBonuses.map((bonus) => (
-                <li key={bonus}>{bonus}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="shell">
-          <SectionHeading
-            eyebrow="Add-ons"
-            title="Optional upgrades beyond the core placement."
-            intro="Some services are planned for later phases."
-          />
-          <div className="reserve-addon-grid">
-            {addOns.map((addon) => (
-              <article className="reserve-addon-card" key={addon.name}>
-                <h3>
-                  {addon.name}
-                  {addon.future ? (
-                    <span className="reserve-future-tag">Planned</span>
-                  ) : null}
-                </h3>
-                <p>{addon.description}</p>
-              </article>
             ))}
           </div>
         </div>
@@ -236,11 +151,7 @@ export default function ReservePage() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <p className="reserve-policy-note">
-            There is no charge before you have seen and approved your
-            placement. Maryland Local Picks sends a payment link after
-            confirming fit and inventory.
-          </p>
+          <p className="reserve-policy-note">{CORE_OFFER_STATEMENT}</p>
         </div>
       </section>
 
@@ -250,7 +161,7 @@ export default function ReservePage() {
             <p className="eyebrow">Next step</p>
             <h2>Talk with us or start intake.</h2>
             <p>
-              Call or text to ask about availability, pricing, and timing. When
+              Call or text to ask about category availability and timing. When
               you are ready, complete advertiser intake with your business
               details and assets.
             </p>
