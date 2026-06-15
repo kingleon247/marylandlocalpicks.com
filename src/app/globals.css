@@ -1859,6 +1859,29 @@ p {
   letter-spacing: 0.02em;
 }
 
+.advertise-product-shot {
+  margin: 0 0 56px;
+}
+
+.advertise-product-photo {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--cream-deep);
+  border-radius: var(--radius-panel);
+  box-shadow:
+    0 2px 3px rgba(20, 40, 34, 0.05),
+    0 10px 20px -10px rgba(20, 40, 34, 0.14),
+    0 38px 62px -32px rgba(20, 40, 34, 0.42);
+}
+
+.advertise-product-shot figcaption {
+  max-width: 60ch;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
 .inclusion-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

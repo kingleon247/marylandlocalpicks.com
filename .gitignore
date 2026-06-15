@@ -46,3 +46,6 @@ next-env.d.ts
 
 # downloaded design audit assets (canonical copy lives in _docs/design-reference/)
 /_assets/
+
+# local Claude Code tooling
+/.claude/

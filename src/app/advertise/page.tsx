@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -81,6 +82,21 @@ export default function AdvertisePage() {
             title="One local campaign, connected from print to action."
             intro="The first edition keeps the product simple: a strong physical placement, a useful online destination, and a message customers can understand quickly."
           />
+          <figure className="advertise-product-shot">
+            <Image
+              alt="The printed Maryland Local Picks Catonsville Edition card on a kitchen counter, showing local business offers and QR codes, with the digital guide open on a phone beside it."
+              className="advertise-product-photo"
+              height={1073}
+              priority
+              sizes="(max-width: 1020px) 100vw, 1100px"
+              src="/eddm-card.png"
+              width={1466}
+            />
+            <figcaption>
+              The Catonsville Edition card — mailed to local doors, with every
+              placement linked to its digital business page.
+            </figcaption>
+          </figure>
           <div className="inclusion-grid">
             {inclusions.map((item) => (
               <article className="inclusion-card" key={item.number}>
