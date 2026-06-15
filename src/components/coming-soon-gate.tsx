@@ -18,7 +18,7 @@ function ComingSoonGateForm() {
         <p className="eyebrow">Maryland Local Picks</p>
         <h1>Maryland Local Picks is getting ready.</h1>
         <p className="site-gate-lede">
-          A curated local guide for Catonsville businesses, offers, and places
+          A curated local guide to Maryland businesses, offers, and places
           worth keeping.
         </p>
         <p className="site-gate-secondary">

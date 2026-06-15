@@ -4,10 +4,11 @@
   --paper-deep: #fafaf8;
   --cream: #fafaf8;
   --cream-deep: #f0ede6;
-  /* Brand chrome: dark green stays */
-  --head: #1e3a30;
-  --ink: #1e3a30;
-  --ink-deep: #16312a;
+  /* Brand chrome: warm gray */
+  --head: #585757;
+  --ink: #585757;
+  --ink-deep: #474747;
+  --brand-mark: #0e1573;
   --ink-soft: #463f33;
   --text: #463f33;
   --muted: #5b5341;
@@ -198,7 +199,7 @@ p {
   height: 45px;
   place-items: center;
   color: var(--paper);
-  background: var(--ink);
+  background: var(--brand-mark);
   border-radius: 50%;
   font-size: 0.7rem;
   font-weight: 900;
@@ -391,6 +392,7 @@ p {
 .hero-copy h1 span {
   display: block;
   color: var(--action);
+  font-style: italic;
 }
 
 .hero-lede {
@@ -2859,8 +2861,8 @@ p {
 }
 
 .brand-footer .brand-mark {
-  color: var(--ink-deep);
-  background: var(--gold);
+  color: var(--paper);
+  background: var(--brand-mark);
 }
 
 .brand-footer .brand-name {
