@@ -10,97 +10,121 @@ import {
 } from "@/components/advertiser-contact";
 import { InquiryForm } from "@/components/inquiry-form";
 import { SectionHeading } from "@/components/section-heading";
+import { placementPackages } from "@/data/advertiser-packages";
 
 export const metadata: Metadata = {
   title: "Advertise",
   description:
-    "Reach Catonsville customers through a curated print card, digital business page, local offer, and QR-connected campaign.",
+    "Put your Catonsville business on a printed local card with a digital business page, QR scans, and a simple local offer. Reserve a placement or call 443-94-PICKS.",
 };
 
-const inclusions = [
+const whatYouGet = [
   {
-    number: "01",
     title: "Printed card placement",
-    text: "Put your business into a useful neighborhood piece designed to stay visible after the mail is opened.",
+    text: "Your business printed on the Catonsville card mailed to local doors and kept on the counter.",
   },
   {
-    number: "02",
-    title: "Digital landing page",
-    text: "Give every placement a focused page with direct call, email, directions, website, and offer actions.",
+    title: "Digital business page",
+    text: "A focused page with call, directions, website, hours, and your current offer.",
   },
   {
-    number: "03",
-    title: "QR-connected traffic",
-    text: "Move readers from the card to your page without asking them to search, type, or remember a URL.",
+    title: "QR code connection",
+    text: "Every placement links print to digital with a scan — no searching or typing a URL.",
   },
   {
-    number: "04",
-    title: "Local offer placement",
-    text: "Lead with a clear, useful reason for a nearby customer to choose your business now.",
+    title: "Local category placement",
+    text: "Listed where nearby residents look: Eat, Shop, or Explore.",
+  },
+  {
+    title: "Simple offer support",
+    text: "Lead with a clear coupon or local offer customers can act on right away.",
+  },
+];
+
+const howItWorks = [
+  {
+    title: "Reserve your spot",
+    text: "Claim a placement for the upcoming Catonsville edition before spots fill.",
+  },
+  {
+    title: "Send your details",
+    text: "Share your business info, logo, offer, and a few images.",
+  },
+  {
+    title: "We build it",
+    text: "We prepare your printed card placement and your digital business page.",
+  },
+  {
+    title: "Residents scan",
+    text: "The card lands in mailboxes and scans straight through to your page.",
   },
 ];
 
 export default function AdvertisePage() {
   return (
     <>
-      <section className="advertise-hero">
-        <div className="shell advertise-hero-grid">
-          <div>
-            <p className="eyebrow">Advertising that feels local</p>
-            <h1>Be part of the guide people want to keep.</h1>
-          </div>
-          <div className="advertise-hero-aside">
-            <p>
-              Maryland Local Picks pairs a curated printed card with a
-              conversion-focused digital page for each participating business.
+      <section className="advertise-sales-hero">
+        <div className="shell advertise-sales-hero-grid">
+          <div className="advertise-hero-copy">
+            <p className="eyebrow">For local businesses</p>
+            <h1>Put your business on a local card residents actually keep.</h1>
+            <p className="advertise-hero-lede">
+              Maryland Local Picks combines a printed Catonsville mailer with a
+              digital business page, QR scans, and a simple way for residents to
+              discover your offer.
             </p>
-            <div className="advertise-hero-actions">
+            <p className="advertise-hero-detail">
+              Catonsville Edition · limited placements · print + digital included
+            </p>
+          </div>
+
+          <figure className="advertise-hero-media">
+            <Image
+              alt="The printed Maryland Local Picks Catonsville Edition card on a counter, showing local business offers and QR codes, with the digital guide open on a phone beside it."
+              className="advertise-hero-photo"
+              height={1073}
+              priority
+              sizes="(max-width: 1020px) 100vw, 600px"
+              src="/eddm-card.png"
+              width={1466}
+            />
+          </figure>
+
+          <div className="advertise-hero-cta">
+            <div className="advertise-hero-cta-buttons">
+              <Link className="button button-primary" href="/reserve">
+                Reserve a spot
+              </Link>
               <a
-                className="button button-hero-call"
+                className="button button-secondary"
                 href={`tel:${ADVERTISER_PHONE_LINK}`}
               >
                 Call {ADVERTISER_PHONE_VANITY}
               </a>
-              <p className="advertise-hero-phone-numeric">
-                {ADVERTISER_PHONE_NUMERIC}
-              </p>
-              <Link className="button button-light" href="/reserve">
-                Reserve a spot
-              </Link>
-              <a className="button button-light" href="#inquiry">
-                Send an inquiry
-              </a>
             </div>
+            <p className="advertise-hero-phone-numeric">
+              Call or text ·{" "}
+              <a href={`tel:${ADVERTISER_PHONE_LINK}`}>
+                {ADVERTISER_PHONE_NUMERIC}
+              </a>
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section advertise-get-section">
         <div className="shell">
           <SectionHeading
-            eyebrow="What is included"
-            title="One local campaign, connected from print to action."
-            intro="The first edition keeps the product simple: a strong physical placement, a useful online destination, and a message customers can understand quickly."
+            eyebrow="What you get"
+            title="Everything a local placement needs to work."
+            intro="One simple package connects a printed card to a digital page customers can act on."
           />
-          <figure className="advertise-product-shot">
-            <Image
-              alt="The printed Maryland Local Picks Catonsville Edition card on a kitchen counter, showing local business offers and QR codes, with the digital guide open on a phone beside it."
-              className="advertise-product-photo"
-              height={1073}
-              priority
-              sizes="(max-width: 1020px) 100vw, 1100px"
-              src="/eddm-card.png"
-              width={1466}
-            />
-            <figcaption>
-              The Catonsville Edition card — mailed to local doors, with every
-              placement linked to its digital business page.
-            </figcaption>
-          </figure>
-          <div className="inclusion-grid">
-            {inclusions.map((item) => (
-              <article className="inclusion-card" key={item.number}>
-                <span>{item.number}</span>
+          <div className="advertise-get-grid">
+            {whatYouGet.map((item, index) => (
+              <article className="advertise-get-card" key={item.title}>
+                <span className="advertise-get-num">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>
@@ -109,68 +133,93 @@ export default function AdvertisePage() {
         </div>
       </section>
 
-      <section className="section advertiser-detail-section">
-        <div className="shell advertiser-detail-grid">
-          <div className="detail-intro">
-            <p className="eyebrow">Designed to grow</p>
-            <h2>Start useful. Add measurement as the platform matures.</h2>
-          </div>
-          <div className="detail-list">
-            <article>
-              <span>Now</span>
-              <h3>Calls, directions, email, and website clicks</h3>
-              <p>
-                Every business page puts the most important customer actions
-                above the fold.
-              </p>
-            </article>
-            <article>
-              <span>Next</span>
-              <h3>Pick of the Week and social promotion</h3>
-              <p>
-                Promotional upgrades create extra moments of attention beyond
-                the initial print drop.
-              </p>
-            </article>
-            <article>
-              <span>Later</span>
-              <h3>Call tracking, QR reporting, and dashboards</h3>
-              <p>
-                Planned reporting will help recurring advertisers understand
-                activity across print and digital touchpoints.
-              </p>
-            </article>
-          </div>
+      <section className="section advertise-how-section">
+        <div className="shell">
+          <SectionHeading
+            eyebrow="How it works"
+            title="From reserved spot to scanned card."
+            intro="A straightforward path from signing up to landing in local mailboxes."
+          />
+          <ol className="advertise-steps">
+            {howItWorks.map((step, index) => (
+              <li className="advertise-step" key={step.title}>
+                <span className="advertise-step-num">{index + 1}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section className="section package-section">
-        <div className="shell package-grid">
-          <div className="package-card">
-            <p className="eyebrow">Launch placement</p>
-            <h2>Catonsville launch placement</h2>
-            <ul className="check-list">
-              <li>Placement on the printed Catonsville card</li>
-              <li>Dedicated business conversion page</li>
-              <li>Featured offer or customer incentive</li>
-              <li>QR path from print to digital</li>
-              <li>Eligibility for Pick of the Week</li>
-            </ul>
-            <p className="package-note">
-              Final pricing, print quantity, placement sizes, and drop dates
-              will be set for each campaign.
+      <section className="section advertise-placements-section">
+        <div className="shell">
+          <SectionHeading
+            eyebrow="Choose your placement"
+            title="Placement options for the Catonsville edition."
+            intro="Pick the size and visibility that fits your business. Final pricing is set per campaign and edition inventory."
+          />
+          <div className="advertise-placement-grid">
+            {placementPackages.map((pkg) => (
+              <article
+                className={`advertise-placement-card${
+                  pkg.recommended ? " advertise-placement-card-recommended" : ""
+                }`}
+                key={pkg.key}
+              >
+                {pkg.recommended ? (
+                  <span className="advertise-placement-badge">Most popular</span>
+                ) : null}
+                <h3>{pkg.name}</h3>
+                <p className="advertise-placement-tagline">{pkg.tagline}</p>
+                <p className="advertise-placement-price">{pkg.price}</p>
+                <ul className="advertise-placement-includes">
+                  {pkg.includes.map((inc) => (
+                    <li key={inc}>{inc}</li>
+                  ))}
+                </ul>
+                <Link
+                  className="button button-primary button-wide"
+                  href="/reserve"
+                >
+                  {pkg.cta}
+                </Link>
+              </article>
+            ))}
+          </div>
+          <p className="advertise-placement-note">
+            See full placement details, prepay packages, and payment policy on
+            the <Link href="/reserve">reserve page</Link>.
+          </p>
+        </div>
+      </section>
+
+      <section className="section advertise-final-section">
+        <div className="shell advertise-final-cta">
+          <div>
+            <p className="eyebrow">Limited placements</p>
+            <h2>Reserve your spot in the Catonsville edition.</h2>
+            <p>
+              Print placement, a digital business page, QR traffic, and an offer
+              customers can act on — built for the radius that matters.
             </p>
           </div>
-          <div className="package-side">
-            <span className="package-index">21228</span>
-            <h3>Made for the radius that matters.</h3>
-            <p>
-              Local businesses do not need broad impressions. They need the
-              right nearby people to notice, remember, and act.
-            </p>
-            <Link className="text-link text-link-light" href="/catonsville">
-              See the Catonsville edition <span aria-hidden="true">→</span>
+          <div className="advertise-final-cta-actions">
+            <Link className="button button-primary" href="/reserve">
+              Reserve a spot
             </Link>
+            <a
+              className="button button-secondary"
+              href={`tel:${ADVERTISER_PHONE_LINK}`}
+            >
+              Call {ADVERTISER_PHONE_VANITY}
+            </a>
+            <p className="advertise-hero-phone-numeric">
+              Call or text ·{" "}
+              <a href={`tel:${ADVERTISER_PHONE_LINK}`}>
+                {ADVERTISER_PHONE_NUMERIC}
+              </a>
+            </p>
           </div>
         </div>
       </section>
@@ -179,10 +228,10 @@ export default function AdvertisePage() {
         <div className="shell inquiry-grid">
           <div>
             <p className="eyebrow">Advertiser inquiry</p>
-            <h2>Tell us what you would like Catonsville to know.</h2>
+            <h2>Prefer to start with a few details?</h2>
             <p>
-              Share a few details and we will follow up about your business,
-              timing, and offer. Prefer to talk now? Call or text directly.
+              Share your business and offer, and we will follow up about
+              Catonsville placement availability and timing.
             </p>
             <AdvertiserContact />
           </div>
