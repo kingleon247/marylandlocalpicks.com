@@ -3964,48 +3964,69 @@ p {
   place-items: center;
   padding: 48px 24px;
   background:
-    radial-gradient(circle at 12% 8%, rgba(220, 165, 46, 0.14), transparent 34%),
-    var(--paper-deep);
+    radial-gradient(circle at 50% -10%, rgba(220, 165, 46, 0.12), transparent 48%),
+    linear-gradient(180deg, #6b6560 0%, #5f5954 100%);
 }
 
 .site-gate-loading {
   min-height: 100vh;
+  background: #625c56;
 }
 
 .site-gate-panel {
   width: min(560px, 100%);
-  padding: 48px 44px;
-  border: 1px solid var(--line-soft);
+  padding: 52px 44px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: var(--radius-panel);
   background: var(--paper);
-  box-shadow: var(--shadow);
+  box-shadow: 0 28px 56px -28px rgba(35, 28, 22, 0.32);
   text-align: center;
 }
 
 .site-gate-logo {
   display: block;
-  width: min(240px, 72vw);
+  width: min(288px, 76vw);
   height: auto;
   margin-inline: auto;
 }
 
 .site-gate-panel h1 {
-  margin-top: 24px;
+  margin-top: 28px;
   color: var(--ink);
-  font-size: clamp(2rem, 4.5vw, 2.75rem);
-  line-height: 1.05;
+  font-size: clamp(1.85rem, 4.2vw, 2.5rem);
+  line-height: 1.15;
   text-wrap: balance;
 }
 
+.site-gate-headline-brand {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.8vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.site-gate-headline-sub {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.8vw, 2.15rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.12;
+}
+
 .site-gate-lede {
-  margin-top: 18px;
+  max-width: 38ch;
+  margin: 20px auto 0;
   color: var(--muted);
   font-size: 1.08rem;
   line-height: 1.65;
 }
 
 .site-gate-secondary {
-  margin-top: 14px;
+  max-width: 36ch;
+  margin: 12px auto 0;
   color: var(--muted-soft);
   font-size: 0.95rem;
   line-height: 1.6;

@@ -17,10 +17,13 @@ function ComingSoonGateForm() {
     <div className="site-gate">
       <div className="site-gate-panel">
         <BrandLogo className="site-gate-logo" priority variant="full" />
-        <h1>Maryland Local Picks is getting ready.</h1>
+        <h1>
+          <span className="site-gate-headline-brand">Maryland Local Picks</span>
+          <span className="site-gate-headline-sub">is almost ready.</span>
+        </h1>
         <p className="site-gate-lede">
-          A curated local guide to Maryland businesses, offers, and places
-          worth keeping.
+          A local guide to Maryland businesses, offers, and places worth
+          checking out.
         </p>
         <p className="site-gate-secondary">
           Private preview access is available for invited reviewers.
@@ -45,12 +48,14 @@ function ComingSoonGateForm() {
             </p>
           ) : null}
           <button className="button button-primary button-wide" type="submit">
-            Enter preview
+            Unlock preview
           </button>
         </form>
 
         <p className="site-gate-contact">
-          Questions? Call or text{" "}
+          Questions or interested in advertising?
+          <br />
+          Call or text{" "}
           <a href={`tel:${ADVERTISER_PHONE_LINK}`}>{ADVERTISER_PHONE_VANITY}</a>
         </p>
       </div>
