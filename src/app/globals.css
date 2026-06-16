@@ -26,6 +26,7 @@
   /* Gold: offer boxes */
   --gold: #dca52e;
   --gold-hover: #c8901f;
+  --brand-circle: #f4ac0c;
   --sage: #7c8a6a;
   --sage-light: #f2f4ea;
   --blue: #6e98ac;
@@ -190,6 +191,22 @@ p {
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  place-items: center;
+  color: var(--paper);
+  background: var(--brand-circle);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .brand-logo {
@@ -202,10 +219,8 @@ p {
   height: 34px;
 }
 
-.brand-logo-footer {
-  padding: 10px 14px;
-  background: var(--paper);
-  border-radius: var(--radius-btn);
+.brand-header {
+  gap: 6px;
 }
 
 .site-nav {
@@ -2847,7 +2862,7 @@ p {
 .site-footer {
   padding: 48px 0;
   color: var(--paper);
-  background: var(--ink-deep);
+  background: #5f5954;
   border-radius: var(--radius-panel) var(--radius-panel) 0 0;
 }
 
@@ -2857,14 +2872,10 @@ p {
   gap: 36px;
 }
 
-.brand-footer .brand-logo-footer {
-  height: 30px;
-}
-
 .footer-note {
   max-width: 34ch;
   margin-top: 18px;
-  color: rgba(255, 253, 247, 0.82);
+  color: var(--paper);
   font-size: 0.94rem;
   line-height: 1.6;
 }
@@ -2878,7 +2889,7 @@ p {
 }
 
 .footer-links a {
-  color: rgba(255, 253, 247, 0.9);
+  color: var(--paper);
 }
 
 .footer-links a:hover {
@@ -2887,11 +2898,11 @@ p {
 
 .site-footer .footer-label {
   margin-bottom: 16px;
-  color: var(--gold);
+  color: #f0c04a;
 }
 
 .footer-meta {
-  color: rgba(255, 253, 247, 0.82);
+  color: var(--paper);
   font-size: 0.94rem;
   line-height: 1.7;
 }
@@ -2901,13 +2912,13 @@ p {
 }
 
 .footer-phone {
-  color: var(--paper);
+  color: #fff;
   font-size: 1.05rem;
   font-weight: 600;
 }
 
 .site-footer .contact-number-numeric {
-  color: rgba(255, 253, 247, 0.68);
+  color: rgba(255, 253, 247, 0.88);
 }
 
 @media (max-width: 1020px) {
@@ -3077,6 +3088,12 @@ p {
 
   .brand-logo-wordmark {
     height: 28px;
+  }
+
+  .brand-header .brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 0.6rem;
   }
 
   .section-heading-row,
@@ -4000,18 +4017,20 @@ p {
 
 .site-gate-headline-brand {
   display: block;
+  color: var(--ink-deep);
   font-family: var(--font-display);
   font-size: clamp(2rem, 4.8vw, 2.75rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.08;
 }
 
 .site-gate-headline-sub {
   display: block;
   margin-top: 6px;
+  color: var(--ink-deep);
   font-family: var(--font-display);
   font-size: clamp(1.65rem, 3.8vw, 2.15rem);
-  font-weight: 500;
+  font-weight: 600;
   font-style: italic;
   line-height: 1.12;
 }
@@ -4019,16 +4038,17 @@ p {
 .site-gate-lede {
   max-width: 38ch;
   margin: 20px auto 0;
-  color: var(--muted);
-  font-size: 1.08rem;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500;
   line-height: 1.65;
 }
 
 .site-gate-secondary {
   max-width: 36ch;
   margin: 12px auto 0;
-  color: var(--muted-soft);
-  font-size: 0.95rem;
+  color: var(--muted);
+  font-size: 0.98rem;
   line-height: 1.6;
 }
 
@@ -4105,7 +4125,7 @@ p {
 }
 
 .footer-preview-exit a {
-  color: rgba(255, 253, 247, 0.82);
+  color: var(--paper);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

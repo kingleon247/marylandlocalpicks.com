@@ -6,7 +6,10 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="shell header-inner">
-        <Link className="brand" href="/" aria-label="Maryland Local Picks home">
+        <Link className="brand brand-header" href="/" aria-label="Maryland Local Picks home">
+          <span className="brand-mark" aria-hidden="true">
+            MLP
+          </span>
           <BrandLogo className="brand-logo brand-logo-wordmark" priority />
         </Link>
         <nav className="site-nav" aria-label="Main navigation">

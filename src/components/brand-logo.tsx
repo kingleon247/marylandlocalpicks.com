@@ -1,5 +1,5 @@
 type BrandLogoProps = {
-  variant?: "wordmark" | "full";
+  variant?: "wordmark" | "wordmark-footer" | "full";
   className?: string;
   priority?: boolean;
 };
@@ -7,6 +7,11 @@ type BrandLogoProps = {
 const LOGO = {
   wordmark: {
     src: "/logo-wordmark.svg",
+    width: 1086,
+    height: 388,
+  },
+  "wordmark-footer": {
+    src: "/logo-wordmark-footer.svg",
     width: 1086,
     height: 388,
   },
