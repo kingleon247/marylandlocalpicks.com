@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandLogo } from "@/components/brand-logo";
 import {
   ADVERTISER_PHONE_LINK,
   ADVERTISER_PHONE_NUMERIC,
@@ -14,12 +15,8 @@ export async function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div>
-          <Link className="brand brand-footer" href="/">
-            <span className="brand-mark">MLP</span>
-            <span className="brand-name">
-              Maryland
-              <strong>Local Picks</strong>
-            </span>
+          <Link className="brand brand-footer" href="/" aria-label="Maryland Local Picks home">
+            <BrandLogo className="brand-logo brand-logo-wordmark brand-logo-footer" />
           </Link>
           <p className="footer-note">
             Local businesses, offers, and places worth knowing — printed,

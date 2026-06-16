@@ -190,37 +190,22 @@ p {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
 }
 
-.brand-mark {
-  display: grid;
-  width: 45px;
-  height: 45px;
-  place-items: center;
-  color: var(--paper);
-  background: var(--brand-mark);
-  border-radius: 50%;
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.09em;
+.brand-logo {
+  display: block;
+  width: auto;
+  max-width: 100%;
 }
 
-.brand-name {
-  display: flex;
-  flex-direction: column;
-  color: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  line-height: 1.25;
-  text-transform: uppercase;
+.brand-logo-wordmark {
+  height: 34px;
 }
 
-.brand-name strong {
-  font-size: 0.9rem;
-  letter-spacing: 0.07em;
+.brand-logo-footer {
+  padding: 10px 14px;
+  background: var(--paper);
+  border-radius: var(--radius-btn);
 }
 
 .site-nav {
@@ -2872,17 +2857,8 @@ p {
   gap: 36px;
 }
 
-.brand-footer .brand-mark {
-  color: var(--paper);
-  background: var(--brand-mark);
-}
-
-.brand-footer .brand-name {
-  color: var(--paper);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+.brand-footer .brand-logo-footer {
+  height: 30px;
 }
 
 .footer-note {
@@ -3099,8 +3075,8 @@ p {
     padding: 10px 13px;
   }
 
-  .brand-name {
-    display: none;
+  .brand-logo-wordmark {
+    height: 28px;
   }
 
   .section-heading-row,
@@ -4003,10 +3979,18 @@ p {
   border-radius: var(--radius-panel);
   background: var(--paper);
   box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.site-gate-logo {
+  display: block;
+  width: min(240px, 72vw);
+  height: auto;
+  margin-inline: auto;
 }
 
 .site-gate-panel h1 {
-  margin-top: 14px;
+  margin-top: 24px;
   color: var(--ink);
   font-size: clamp(2rem, 4.5vw, 2.75rem);
   line-height: 1.05;
@@ -4036,6 +4020,7 @@ p {
 .site-gate-form label {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 7px;
   color: var(--muted-soft);
   font-family: var(--font-mono);

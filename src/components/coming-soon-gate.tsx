@@ -7,6 +7,7 @@ import {
   ADVERTISER_PHONE_LINK,
   ADVERTISER_PHONE_VANITY,
 } from "@/components/advertiser-contact";
+import { BrandLogo } from "@/components/brand-logo";
 
 function ComingSoonGateForm() {
   const searchParams = useSearchParams();
@@ -15,7 +16,7 @@ function ComingSoonGateForm() {
   return (
     <div className="site-gate">
       <div className="site-gate-panel">
-        <p className="eyebrow">Maryland Local Picks</p>
+        <BrandLogo className="site-gate-logo" priority variant="full" />
         <h1>Maryland Local Picks is getting ready.</h1>
         <p className="site-gate-lede">
           A curated local guide to Maryland businesses, offers, and places
