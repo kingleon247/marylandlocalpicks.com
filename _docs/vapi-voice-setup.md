@@ -331,21 +331,30 @@ Vapi must reach a public URL, so expose your local dev server with a tunnel.
 ## Production deployment checklist
 
 - [ ] `VAPI_PHONE_NUMBER=+14439474257` set in the production environment.
-- [ ] `VAPI_WEBHOOK_SECRET` set to a strong random value in production **and** in
-      the Vapi dashboard Server URL Secret (they must match).
+- [ ] **`VAPI_WEBHOOK_SECRET` is REQUIRED in production.** Set it to a strong
+      random value in production **and** in the Vapi dashboard Server URL Secret
+      (they must match). **If it is missing/empty in production the webhook
+      intentionally fails closed** — it returns `503` and processes nothing, so
+      the endpoint is never publicly writable. (In development only, a missing
+      secret is allowed with a console warning.)
 - [ ] `VAPI_ASSISTANT_ID` set if using `assistant-request` handling.
 - [ ] Vapi assistant Server URL points to
       `https://marylandlocalpicks.com/api/vapi/webhook`.
 - [ ] Vapi phone number `+14439474257` is attached to the assistant.
 - [ ] `createAdvertiserLead` tool is configured with the arguments above.
 - [ ] Confirmed a test call writes a record under `storage/vapi-calls/`.
+- [ ] **Request limits:** the route rejects payloads over 1MB with `413`, and
+      each call's `call.json` retains only the most recent 25 raw webhook
+      payloads (older ones are dropped) so files cannot grow without bound.
+- [ ] **Rate limiting:** the app does not rate-limit this public endpoint.
+      Add external rate limiting (e.g. Nginx `limit_req` or a Cloudflare rate
+      limiting rule) in front of `/api/vapi/webhook` before going live.
 - [ ] **Hosting note:** local filesystem storage requires a serverful/persistent
       deployment (not ephemeral serverless). Review storage durability before
       going live, consistent with the web intake storage caveat in `README.md`.
 - [ ] **Legal/consent:** before enabling call recording or AI answering in
       production, complete a Maryland all-party consent and legal review (see
       `_docs/02_PRODUCT_WEBSITE_SPEC.md` and `README.md`).
-```
 
 ## Do not (this phase)
 

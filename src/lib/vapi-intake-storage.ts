@@ -60,6 +60,13 @@ export type VapiCallPatch = Partial<
 
 const STORAGE_ROOT = path.join(process.cwd(), "storage", "vapi-calls");
 
+/**
+ * Maximum number of raw webhook payloads retained per call. Vapi can send many
+ * events for one call (partial transcripts, status updates, etc.); keeping only
+ * the most recent N prevents call.json from growing without bound.
+ */
+const MAX_RAW_PAYLOADS = 25;
+
 const VALID_PACKAGES: ReadonlySet<DesiredPackage> = new Set([
   "halfSpot",
   "standardSpot",
@@ -204,6 +211,10 @@ export async function upsertVapiCall(args: {
 
   if (rawPayload !== undefined) {
     record.rawPayloads.push(rawPayload);
+    // Cap history to the most recent payloads so the file cannot grow forever.
+    if (record.rawPayloads.length > MAX_RAW_PAYLOADS) {
+      record.rawPayloads = record.rawPayloads.slice(-MAX_RAW_PAYLOADS);
+    }
   }
 
   record.updatedAt = new Date().toISOString();

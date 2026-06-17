@@ -47,35 +47,49 @@ function safeEqual(a: string, b: string): boolean {
   return timingSafeEqual(bufA, bufB);
 }
 
-type SecretCheck = { ok: true } | { ok: false; reason: string };
+/** Maximum accepted request body size. Larger payloads are rejected with 413. */
+const MAX_BODY_BYTES = 1024 * 1024; // 1MB
+
+/**
+ * Result of authenticating a request:
+ * - "ok": secret configured and matched, or dev with no secret set.
+ * - "unauthorized": secret configured but the request's credential is wrong or
+ *   missing -> 401.
+ * - "misconfigured": no secret set in a production environment. Fail closed so
+ *   the endpoint is never publicly writable -> 503.
+ */
+type SecretCheck = "ok" | "unauthorized" | "misconfigured";
 
 /**
  * Authenticate the request against VAPI_WEBHOOK_SECRET using either
  * `Authorization: Bearer <secret>` or `x-vapi-secret: <secret>`.
  *
- * - Secret set + match  -> ok
- * - Secret set + no/wrong credential -> not ok (caller returns 401)
- * - Secret unset (local dev) -> ok, with a warning logged by the caller
+ * - Secret set + match -> "ok"
+ * - Secret set + no/wrong credential -> "unauthorized"
+ * - Secret unset in production -> "misconfigured" (fail closed)
+ * - Secret unset in development/test -> "ok" (warning logged by the caller)
  */
 function verifyVapiSecret(request: Request): SecretCheck {
   const expected = process.env.VAPI_WEBHOOK_SECRET?.trim();
 
   if (!expected) {
-    return { ok: true };
+    // Fail open only outside production; fail closed in production so a missing
+    // secret can never leave the endpoint publicly unauthenticated.
+    return process.env.NODE_ENV === "production" ? "misconfigured" : "ok";
   }
 
   const headerSecret = request.headers.get("x-vapi-secret")?.trim();
   if (headerSecret && safeEqual(headerSecret, expected)) {
-    return { ok: true };
+    return "ok";
   }
 
   const authHeader = request.headers.get("authorization")?.trim() ?? "";
   const bearerMatch = /^Bearer\s+(.+)$/i.exec(authHeader);
   if (bearerMatch && safeEqual(bearerMatch[1].trim(), expected)) {
-    return { ok: true };
+    return "ok";
   }
 
-  return { ok: false, reason: "missing or invalid Vapi secret" };
+  return "unauthorized";
 }
 
 function getCallId(view: JsonObject): string | null {
@@ -410,19 +424,52 @@ async function handleEndOfCallReport(
 
 export async function POST(request: Request): Promise<Response> {
   const check = verifyVapiSecret(request);
-  if (!check.ok) {
+
+  if (check === "misconfigured") {
+    // Production with no secret configured: refuse to process so the endpoint
+    // is never publicly writable. This is a deployment error, not a caller error.
+    console.error(
+      "[vapi] VAPI_WEBHOOK_SECRET is not set in production — refusing to process webhook.",
+    );
+    return Response.json(
+      { error: "Webhook not configured" },
+      { status: 503 },
+    );
+  }
+
+  if (check === "unauthorized") {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   if (!process.env.VAPI_WEBHOOK_SECRET?.trim()) {
     console.warn(
-      "[vapi] VAPI_WEBHOOK_SECRET is not set — accepting webhook without authentication (local dev only).",
+      "[vapi] VAPI_WEBHOOK_SECRET is not set — accepting webhook without authentication (development only).",
     );
+  }
+
+  // Body size guard. Prefer the declared Content-Length, then fall back to the
+  // actual byte length read from the stream, so an oversized or unlabeled
+  // payload is rejected before parsing. Reads the body as text once and parses
+  // it ourselves (request.json() can't be called after the body is consumed).
+  const declaredLength = Number(request.headers.get("content-length") ?? "");
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY_BYTES) {
+    return Response.json({ error: "Payload too large" }, { status: 413 });
+  }
+
+  let rawText: string;
+  try {
+    rawText = await request.text();
+  } catch {
+    return Response.json({ error: "Invalid request body" }, { status: 400 });
+  }
+
+  if (Buffer.byteLength(rawText, "utf8") > MAX_BODY_BYTES) {
+    return Response.json({ error: "Payload too large" }, { status: 413 });
   }
 
   let body: unknown;
   try {
-    body = await request.json();
+    body = JSON.parse(rawText);
   } catch {
     return Response.json({ error: "Invalid JSON" }, { status: 400 });
   }
