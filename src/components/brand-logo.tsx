@@ -43,3 +43,24 @@ export function BrandLogo({
     />
   );
 }
+
+type BrandMarkProps = {
+  className?: string;
+  priority?: boolean;
+};
+
+export function BrandMark({ className, priority = false }: BrandMarkProps) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt=""
+      aria-hidden="true"
+      className={className}
+      decoding="async"
+      fetchPriority={priority ? "high" : undefined}
+      height={1045}
+      src="/logo-pin.svg"
+      width={717}
+    />
+  );
+}

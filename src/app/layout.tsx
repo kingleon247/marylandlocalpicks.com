@@ -26,8 +26,13 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+const siteManifest: Pick<Metadata, "manifest"> = {
+  manifest: "/site.webmanifest",
+};
+
 const publicMetadata: Metadata = {
   metadataBase: new URL("https://marylandlocalpicks.com"),
+  ...siteManifest,
   title: {
     default: "Maryland Local Picks",
     template: "%s | Maryland Local Picks",
@@ -43,6 +48,7 @@ const publicMetadata: Metadata = {
 };
 
 const gatedMetadata: Metadata = {
+  ...siteManifest,
   title: "Coming Soon | Maryland Local Picks",
   description:
     "Maryland Local Picks is getting ready. Private preview access is available for invited reviewers.",

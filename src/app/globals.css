@@ -195,18 +195,10 @@ p {
 }
 
 .brand-mark {
-  display: grid;
-  width: 40px;
-  height: 40px;
+  display: block;
+  width: auto;
+  height: 52px;
   flex-shrink: 0;
-  place-items: center;
-  color: var(--paper);
-  background: var(--brand-circle);
-  border-radius: 50%;
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
 }
 
 .brand-logo {
@@ -3091,9 +3083,7 @@ p {
   }
 
   .brand-header .brand-mark {
-    width: 34px;
-    height: 34px;
-    font-size: 0.6rem;
+    height: 44px;
   }
 
   .section-heading-row,

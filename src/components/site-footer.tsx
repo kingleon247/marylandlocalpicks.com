@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { BrandLogo } from "@/components/brand-logo";
+import { BrandLogo, BrandMark } from "@/components/brand-logo";
 import {
   ADVERTISER_PHONE_LINK,
   ADVERTISER_PHONE_NUMERIC,
@@ -20,9 +20,7 @@ export async function SiteFooter() {
             href="/"
             aria-label="Maryland Local Picks home"
           >
-            <span className="brand-mark" aria-hidden="true">
-              MLP
-            </span>
+            <BrandMark className="brand-mark" />
             <BrandLogo
               className="brand-logo brand-logo-wordmark"
               variant="wordmark-footer"

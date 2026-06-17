@@ -1,15 +1,13 @@
 import Link from "next/link";
 
-import { BrandLogo } from "@/components/brand-logo";
+import { BrandLogo, BrandMark } from "@/components/brand-logo";
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="shell header-inner">
         <Link className="brand brand-header" href="/" aria-label="Maryland Local Picks home">
-          <span className="brand-mark" aria-hidden="true">
-            MLP
-          </span>
+          <BrandMark className="brand-mark" priority />
           <BrandLogo className="brand-logo brand-logo-wordmark" priority />
         </Link>
         <nav className="site-nav" aria-label="Main navigation">
