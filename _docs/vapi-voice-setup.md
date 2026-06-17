@@ -172,8 +172,18 @@ Tone:
 Professional, friendly, local, concise. Do not sound like a robot. Do not
 overpromise results.
 
+Consent (say this first, before anything else):
+"This call may be recorded and handled by an AI assistant for follow-up. Is
+that okay?"
+- If the caller agrees: continue normally with the call flow below.
+- If the caller does NOT agree: do not rely on recording or transcript. Take a
+  minimal message (name and best callback number only), tell them a team member
+  will follow up, and end politely. Do not push for more details. If they want a
+  person, route to human follow-up and mark it urgent.
+
 Call flow:
 - Greet caller.
+- Ask the consent question above and honor the answer.
 - Ask if they are calling about advertising or something else.
 - If advertising:
   - Briefly explain the postcard.
@@ -226,7 +236,12 @@ Vapi must reach a public URL, so expose your local dev server with a tunnel.
 3. Put the tunnel URL + `/api/vapi/webhook` as the assistant's Server URL in the
    Vapi dashboard, and set the Server URL Secret.
 
-4. Smoke-test the endpoint directly (simulates a lead tool call):
+4. Smoke-test the endpoint directly. The handler tolerates several real Vapi
+   payload shapes; examples for each are below. Drop the `x-vapi-secret` header
+   if `VAPI_WEBHOOK_SECRET` is unset locally. After running, check the matching
+   record under `storage/vapi-calls/<call-id>/call.json`.
+
+   **a) `toolCalls` array (createAdvertiserLead), message-wrapped:**
 
    ```bash
    curl -X POST http://localhost:3000/api/vapi/webhook \
@@ -248,7 +263,70 @@ Vapi must reach a public URL, so expose your local dev server with a tunnel.
      }'
    ```
 
-   Then check `storage/vapi-calls/test-call-1/call.json`.
+   **b) Legacy `functionCall` object (arguments as an object):**
+
+   ```bash
+   curl -X POST http://localhost:3000/api/vapi/webhook \
+     -H "Content-Type: application/json" \
+     -H "x-vapi-secret: $VAPI_WEBHOOK_SECRET" \
+     -d '{
+       "message": {
+         "type": "function-call",
+         "call": { "id": "test-call-2", "customer": { "number": "+14105550000" } },
+         "functionCall": {
+           "name": "createAdvertiserLead",
+           "parameters": {
+             "businessName": "Bay Cleaners",
+             "contactName": "Pat",
+             "phone": "+14105550000",
+             "email": "pat@example.com",
+             "category": "Cleaning",
+             "desiredPackage": "double",
+             "market": "Catonsville",
+             "notes": "Has logo ready"
+           }
+         }
+       }
+     }'
+   ```
+
+   **c) `end-of-call-report`, message-wrapped:**
+
+   ```bash
+   curl -X POST http://localhost:3000/api/vapi/webhook \
+     -H "Content-Type: application/json" \
+     -H "x-vapi-secret: $VAPI_WEBHOOK_SECRET" \
+     -d '{
+       "message": {
+         "type": "end-of-call-report",
+         "call": { "id": "test-call-1" },
+         "endedReason": "customer-ended-call",
+         "summary": "Caller asked about advertising.",
+         "recordingUrl": "https://example.com/rec.wav",
+         "startedAt": "2026-06-17T10:00:00Z",
+         "endedAt": "2026-06-17T10:03:00Z"
+       }
+     }'
+   ```
+
+   **d) `end-of-call-report`, top-level (no message wrapper):**
+
+   ```bash
+   curl -X POST http://localhost:3000/api/vapi/webhook \
+     -H "Content-Type: application/json" \
+     -H "x-vapi-secret: $VAPI_WEBHOOK_SECRET" \
+     -d '{
+       "type": "end-of-call-report",
+       "call": {
+         "id": "test-call-3",
+         "customer": { "number": "+14105559999" },
+         "startedAt": "2026-06-17T12:00:00Z",
+         "endedAt": "2026-06-17T12:04:00Z"
+       },
+       "analysis": { "summary": "Top-level report.", "structuredData": { "businessName": "Top Level LLC" } },
+       "artifact": { "recordingUrl": "https://example.com/top.wav", "transcript": "assistant: hello" }
+     }'
+   ```
 
 ## Production deployment checklist
 

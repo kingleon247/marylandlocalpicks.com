@@ -78,29 +78,39 @@ function verifyVapiSecret(request: Request): SecretCheck {
   return { ok: false, reason: "missing or invalid Vapi secret" };
 }
 
-function getCallId(message: JsonObject): string | null {
-  const call = asObject(message.call);
+function getCallId(view: JsonObject): string | null {
+  const call = asObject(view.call);
   return (
     cleanString(call.id) ??
-    cleanString(message.callId) ??
-    cleanString(message.id)
+    cleanString(view.callId) ??
+    cleanString(call.callId) ??
+    cleanString(view.id)
   );
 }
 
-/** Identity fields (numbers/names) present on most message types via call. */
-function identityPatch(message: JsonObject): VapiCallPatch {
-  const call = asObject(message.call);
-  const customer = asObject(call.customer);
-  const phoneNumber = asObject(call.phoneNumber);
-  const messagePhone = asObject(message.phoneNumber);
+/**
+ * Identity fields (numbers/names). Vapi may place these under `call.customer`
+ * / `call.phoneNumber`, or directly at the message/top level — check both.
+ */
+function identityPatch(view: JsonObject): VapiCallPatch {
+  const call = asObject(view.call);
+  const callCustomer = asObject(call.customer);
+  const viewCustomer = asObject(view.customer);
+  const callPhone = asObject(call.phoneNumber);
+  const viewPhone = asObject(view.phoneNumber);
 
   return {
     phoneNumber:
-      cleanString(phoneNumber.number) ??
-      cleanString(messagePhone.number) ??
+      cleanString(callPhone.number) ??
+      cleanString(viewPhone.number) ??
+      cleanString(call.phoneNumber) ??
       cleanString(process.env.VAPI_PHONE_NUMBER),
-    callerNumber: cleanString(customer.number),
-    callerName: cleanString(customer.name),
+    callerNumber:
+      cleanString(callCustomer.number) ??
+      cleanString(viewCustomer.number) ??
+      cleanString(call.customerNumber),
+    callerName:
+      cleanString(callCustomer.name) ?? cleanString(viewCustomer.name),
   };
 }
 
@@ -157,45 +167,71 @@ function parseArguments(value: unknown): JsonObject {
   return {};
 }
 
+type ToolCall = { id: string | null; name: string; args: JsonObject };
+
+/**
+ * Read one tool/function entry. The name may live at `function.name`, `name`,
+ * `toolName`, or `function.toolName`; arguments at `function.arguments`,
+ * `function.parameters`, `arguments`, or `parameters`, as an object or a JSON
+ * string. Returns null if no usable name is found.
+ */
+function readToolEntry(entry: unknown, fallbackId: string | null): ToolCall | null {
+  const tool = asObject(entry);
+  const fn = asObject(tool.function);
+  const name =
+    cleanString(fn.name) ??
+    cleanString(tool.name) ??
+    cleanString(tool.toolName) ??
+    cleanString(fn.toolName);
+  if (!name) {
+    return null;
+  }
+  return {
+    id: cleanString(tool.id) ?? cleanString(tool.toolCallId) ?? fallbackId,
+    name,
+    args: parseArguments(
+      fn.arguments ?? fn.parameters ?? tool.arguments ?? tool.parameters,
+    ),
+  };
+}
+
 /**
  * Collect tool/function call invocations across Vapi's historical and current
- * shapes: legacy `functionCall`, and `toolCalls` / `toolCallList` arrays.
+ * shapes: legacy `functionCall` object, a singular `toolCall` object, and
+ * `toolCalls` / `toolCallList` arrays.
  */
-function collectToolCalls(
-  message: JsonObject,
-): Array<{ id: string | null; name: string | null; args: JsonObject }> {
-  const calls: Array<{
-    id: string | null;
-    name: string | null;
-    args: JsonObject;
-  }> = [];
+function collectToolCalls(view: JsonObject): ToolCall[] {
+  const calls: ToolCall[] = [];
+  const fallbackId =
+    cleanString(view.id) ?? cleanString(view.toolCallId) ?? null;
 
-  const legacy = asObject(message.functionCall);
-  if (cleanString(legacy.name)) {
+  // Legacy single function-call object.
+  const legacy = asObject(view.functionCall);
+  const legacyName = cleanString(legacy.name) ?? cleanString(legacy.toolName);
+  if (legacyName) {
     calls.push({
-      id: cleanString(message.id),
-      name: cleanString(legacy.name),
+      id: fallbackId,
+      name: legacyName,
       args: parseArguments(legacy.parameters ?? legacy.arguments),
     });
   }
 
-  const lists = [message.toolCalls, message.toolCallList];
-  for (const list of lists) {
+  // Singular toolCall object.
+  const single = readToolEntry(view.toolCall, fallbackId);
+  if (single) {
+    calls.push(single);
+  }
+
+  // Arrays.
+  for (const list of [view.toolCalls, view.toolCallList]) {
     if (!Array.isArray(list)) {
       continue;
     }
     for (const entry of list) {
-      const tool = asObject(entry);
-      const fn = asObject(tool.function);
-      const name = cleanString(fn.name) ?? cleanString(tool.name);
-      if (!name) {
-        continue;
+      const parsed = readToolEntry(entry, fallbackId);
+      if (parsed) {
+        calls.push(parsed);
       }
-      calls.push({
-        id: cleanString(tool.id),
-        name,
-        args: parseArguments(fn.arguments ?? tool.arguments ?? tool.parameters),
-      });
     }
   }
 
@@ -209,10 +245,11 @@ function collectToolCalls(
  * (legacy function-call), so either Vapi version gets a usable reply.
  */
 async function handleToolCalls(
-  message: JsonObject,
+  view: JsonObject,
   callId: string | null,
+  rawBody: unknown,
 ): Promise<Response> {
-  const calls = collectToolCalls(message);
+  const calls = collectToolCalls(view);
   const results: Array<{ toolCallId: string | null; result: string }> = [];
   let handledLead = false;
 
@@ -220,7 +257,7 @@ async function handleToolCalls(
     if (call.name === LEAD_TOOL_NAME) {
       await upsertVapiCall({
         callId,
-        patch: { ...identityPatch(message), ...leadArgsToPatch(call.args) },
+        patch: { ...identityPatch(view), ...leadArgsToPatch(call.args) },
       });
       handledLead = true;
       results.push({ toolCallId: call.id, result: LEAD_SPOKEN_CONFIRMATION });
@@ -233,7 +270,7 @@ async function handleToolCalls(
   }
 
   // Always store the raw tool-call payload for debugging.
-  await upsertVapiCall({ callId, rawPayload: message });
+  await upsertVapiCall({ callId, rawPayload: rawBody });
 
   if (handledLead) {
     return Response.json({
@@ -247,35 +284,36 @@ async function handleToolCalls(
 }
 
 async function handleStatusUpdate(
-  message: JsonObject,
+  view: JsonObject,
   callId: string | null,
+  rawBody: unknown,
 ): Promise<void> {
   await upsertVapiCall({
     callId,
     patch: {
-      ...identityPatch(message),
-      status:
-        cleanString(message.status) ?? cleanString(message.endedReason),
+      ...identityPatch(view),
+      status: cleanString(view.status) ?? cleanString(view.endedReason),
     },
-    rawPayload: message,
+    rawPayload: rawBody,
   });
 }
 
 async function handleTranscript(
-  message: JsonObject,
+  view: JsonObject,
   callId: string | null,
+  rawBody: unknown,
 ): Promise<void> {
   // Only persist finalized transcript snippets to avoid churn on partials.
-  const transcriptType = cleanString(message.transcriptType);
+  const transcriptType = cleanString(view.transcriptType);
   if (transcriptType && transcriptType !== "final") {
-    await upsertVapiCall({ callId, rawPayload: message });
+    await upsertVapiCall({ callId, rawPayload: rawBody });
     return;
   }
 
-  const role = cleanString(message.role);
-  const snippet = cleanString(message.transcript);
+  const role = cleanString(view.role);
+  const snippet = cleanString(view.transcript);
   const existing = (
-    await upsertVapiCall({ callId, rawPayload: message })
+    await upsertVapiCall({ callId, rawPayload: rawBody })
   ).transcript;
 
   if (!snippet) {
@@ -287,47 +325,55 @@ async function handleTranscript(
 
   await upsertVapiCall({
     callId,
-    patch: { ...identityPatch(message), transcript },
+    patch: { ...identityPatch(view), transcript },
   });
 }
 
 async function handleConversationUpdate(
-  message: JsonObject,
+  view: JsonObject,
   callId: string | null,
+  rawBody: unknown,
 ): Promise<void> {
-  const conversation = asObject(message.conversation);
+  const conversation = asObject(view.conversation);
   const rendered =
-    renderConversation(message.messages) ??
+    renderConversation(view.messages) ??
     renderConversation(conversation.messages) ??
-    cleanString(message.conversation);
+    cleanString(view.conversation);
 
   await upsertVapiCall({
     callId,
-    patch: { ...identityPatch(message), transcript: rendered },
-    rawPayload: message,
+    patch: { ...identityPatch(view), transcript: rendered },
+    rawPayload: rawBody,
   });
 }
 
 async function handleEndOfCallReport(
-  message: JsonObject,
+  view: JsonObject,
   callId: string | null,
+  rawBody: unknown,
 ): Promise<void> {
-  const artifact = asObject(message.artifact);
-  const recording = asObject(message.recording);
-  const analysis = asObject(message.analysis);
+  const call = asObject(view.call);
+  const artifact = asObject(view.artifact);
+  const recording = asObject(view.recording);
+  const artifactRecording = asObject(artifact.recording);
+  const analysis = asObject(view.analysis);
   const structured = asObject(analysis.structuredData);
 
   const recordingUrl =
-    cleanString(message.recordingUrl) ??
+    cleanString(view.recordingUrl) ??
     cleanString(recording.url) ??
+    cleanString(recording.stereoUrl) ??
+    cleanString(recording.combinedUrl) ??
     cleanString(artifact.recordingUrl) ??
-    cleanString(message.stereoRecordingUrl) ??
+    cleanString(artifactRecording.url) ??
+    cleanString(artifactRecording.combinedUrl) ??
+    cleanString(view.stereoRecordingUrl) ??
     cleanString(artifact.stereoRecordingUrl);
 
   const transcript =
-    cleanString(message.transcript) ??
+    cleanString(view.transcript) ??
     cleanString(artifact.transcript) ??
-    renderConversation(message.messages) ??
+    renderConversation(view.messages) ??
     renderConversation(artifact.messages);
 
   // End-of-call analysis may carry extracted lead fields. Merge any present.
@@ -346,16 +392,19 @@ async function handleEndOfCallReport(
   await upsertVapiCall({
     callId,
     patch: {
-      ...identityPatch(message),
+      ...identityPatch(view),
       ...extracted,
-      callSummary: cleanString(message.summary) ?? cleanString(analysis.summary),
+      callSummary:
+        cleanString(view.summary) ??
+        cleanString(analysis.summary) ??
+        cleanString(artifact.summary),
       transcript,
       recordingUrl,
-      status: cleanString(message.endedReason) ?? "ended",
-      startedAt: cleanString(message.startedAt),
-      endedAt: cleanString(message.endedAt),
+      status: cleanString(view.endedReason) ?? "ended",
+      startedAt: cleanString(view.startedAt) ?? cleanString(call.startedAt),
+      endedAt: cleanString(view.endedAt) ?? cleanString(call.endedAt),
     },
-    rawPayload: message,
+    rawPayload: rawBody,
   });
 }
 
@@ -378,44 +427,56 @@ export async function POST(request: Request): Promise<Response> {
     return Response.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const message = asObject(asObject(body).message ?? body);
-  const type = cleanString(message.type) ?? "unknown";
-  const callId = getCallId(message);
+  // Build a flattened lookup view that tolerates the data living under
+  // `message`, under `event`, or at the top level. Message-level keys win, with
+  // top-level keys as fallback. The original `body` is stored verbatim.
+  const root = asObject(body);
+  const inner = asObject(root.message ?? root.event);
+  const view: JsonObject = { ...root, ...inner };
+  const type =
+    cleanString(view.type) ?? cleanString(view.event) ?? "unknown";
+  const callId = getCallId(view);
 
   try {
     switch (type) {
       case "tool-calls":
+      case "tool-call":
       case "function-call":
-        return await handleToolCalls(message, callId);
+        return await handleToolCalls(view, callId, body);
 
       case "status-update":
-        await handleStatusUpdate(message, callId);
+        await handleStatusUpdate(view, callId, body);
         break;
 
       case "transcript":
-        await handleTranscript(message, callId);
+        await handleTranscript(view, callId, body);
         break;
 
       case "conversation-update":
-        await handleConversationUpdate(message, callId);
+        await handleConversationUpdate(view, callId, body);
         break;
 
       case "end-of-call-report":
-        await handleEndOfCallReport(message, callId);
+        await handleEndOfCallReport(view, callId, body);
         break;
 
       case "assistant-request": {
         // Acknowledge; optionally hand Vapi the configured assistant id.
         const assistantId = process.env.VAPI_ASSISTANT_ID?.trim();
-        await upsertVapiCall({ callId, rawPayload: message });
+        await upsertVapiCall({ callId, rawPayload: body });
         return assistantId
           ? Response.json({ assistantId })
           : Response.json({ received: true });
       }
 
       default:
-        // Unknown/unhandled event — record it but never fail.
-        await upsertVapiCall({ callId, rawPayload: message });
+        // Defensive fallback: if the type is missing/unrecognized but a tool
+        // call is present in the payload, still handle it.
+        if (collectToolCalls(view).length > 0) {
+          return await handleToolCalls(view, callId, body);
+        }
+        // Otherwise record the raw event but never fail.
+        await upsertVapiCall({ callId, rawPayload: body });
         break;
     }
   } catch (error) {
