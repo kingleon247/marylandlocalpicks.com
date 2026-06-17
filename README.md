@@ -198,6 +198,21 @@ storage/advertiser-intakes/{submissionId}/assets/
 * Stripe Payment Links are not integrated yet. Payment link config exists in `src/data/payment-links.ts` with null values until real links are created.
 * Online payment is not active on the site yet. `/reserve` explains the three placement packages and payment policy; CTAs route to intake or request a payment link.
 
+## Vapi AI Voice (Inbound Advertiser Calls)
+
+Backend support exists for a [Vapi](https://vapi.ai) phone assistant that answers inbound advertiser calls and captures advertiser leads from call data.
+
+* Webhook endpoint: `POST /api/vapi/webhook` (single Server URL for all Vapi events).
+* Authenticated with `VAPI_WEBHOOK_SECRET` via `Authorization: Bearer` or `x-vapi-secret`.
+* Voice calls and captured leads are stored under `storage/vapi-calls/{call-id}/call.json` (gitignored), alongside the web intake storage.
+* The assistant uses a `createAdvertiserLead` tool to save leads — the voice equivalent of `/advertiser-intake`.
+
+This phase is backend webhook + storage + docs only. The assistant is configured in the Vapi dashboard; there is no browser voice widget. Full setup, env vars, suggested assistant prompt, local testing, and the production checklist are in:
+
+```text
+_docs/vapi-voice-setup.md
+```
+
 ## Project Structure
 
 Expected structure:
