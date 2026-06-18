@@ -3,9 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import {
-  AdvertiserContact,
   ADVERTISER_PHONE_LINK,
-  ADVERTISER_PHONE_NUMERIC,
   ADVERTISER_PHONE_VANITY,
 } from "@/components/advertiser-contact";
 import { InquiryForm } from "@/components/inquiry-form";
@@ -335,7 +333,10 @@ export default function AdvertisePage() {
               Share your business and offer, and we will follow up about category
               availability and timing for the next mailing.
             </p>
-            <AdvertiserContact />
+            <p className="inquiry-phone-note">
+              Prefer to talk? Call or text{" "}
+              <a href={`tel:${ADVERTISER_PHONE_LINK}`}>{ADVERTISER_PHONE_VANITY}</a>
+            </p>
           </div>
           <InquiryForm />
         </div>

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import {
   REVIEW_ACCESS_COOKIE,
+  getRedirectUrl,
   isSiteGateEnabled,
   isValidPasscode,
   reviewAccessCookieOptions,
@@ -10,24 +11,19 @@ import {
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function productionRedirect(path: string): URL {
-  const siteUrl = process.env.SITE_URL || "https://marylandlocalpicks.com";
-  return new URL(path, siteUrl);
-}
-
 export async function POST(request: NextRequest) {
   const formData = await request.formData();
   const submittedPasscode = String(formData.get("passcode") ?? "");
 
   if (!isSiteGateEnabled()) {
-    return NextResponse.redirect(productionRedirect("/"));
+    return NextResponse.redirect(getRedirectUrl(request, "/"));
   }
 
   if (!submittedPasscode || !isValidPasscode(submittedPasscode)) {
-    return NextResponse.redirect(productionRedirect("/?preview_error=1"));
+    return NextResponse.redirect(getRedirectUrl(request, "/?preview_error=1"));
   }
 
-  const response = NextResponse.redirect(productionRedirect("/"));
+  const response = NextResponse.redirect(getRedirectUrl(request, "/"));
 
   response.cookies.set(
     REVIEW_ACCESS_COOKIE,

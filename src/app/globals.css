@@ -2283,6 +2283,19 @@ p {
   color: var(--muted);
 }
 
+.inquiry-phone-note {
+  margin-top: 20px;
+  color: var(--muted-soft);
+  font-size: 0.9rem;
+}
+
+.inquiry-phone-note a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .advertiser-contact {
   max-width: 500px;
   margin-top: 40px;
