@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import {
-  AdvertiserContact,
   ADVERTISER_PHONE_LINK,
   ADVERTISER_PHONE_NUMERIC,
   ADVERTISER_PHONE_VANITY,
@@ -201,18 +200,25 @@ export default function AdvertisePage() {
                 ) : null}
                 <h3>{pkg.name}</h3>
                 <p className="advertise-placement-tagline">{pkg.tagline}</p>
-                <p className="advertise-placement-price">{pkg.price}</p>
-                <ul className="advertise-placement-includes">
-                  {pkg.includes.map((inc) => (
-                    <li key={inc}>{inc}</li>
-                  ))}
-                </ul>
+                <div className="advertise-placement-price-block">
+                  <span className="advertise-placement-price">{pkg.price}</span>
+                  <div className="advertise-placement-price-meta">
+                    <span>flat rate</span>
+                    <span>per mailing</span>
+                  </div>
+                </div>
                 <Link
                   className="button button-primary button-wide"
                   href={`/advertiser-intake?interest=${pkg.key}`}
                 >
                   {pkg.cta}
                 </Link>
+                <p className="advertise-placement-includes-label">What&rsquo;s included:</p>
+                <ul className="advertise-placement-includes">
+                  {pkg.includes.map((inc) => (
+                    <li key={inc}>{inc}</li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
@@ -328,7 +334,10 @@ export default function AdvertisePage() {
               Share your business and offer, and we will follow up about category
               availability and timing for the next mailing.
             </p>
-            <AdvertiserContact />
+            <p className="inquiry-phone-note">
+              Prefer to talk? Call or text{" "}
+              <a href={`tel:${ADVERTISER_PHONE_LINK}`}>{ADVERTISER_PHONE_VANITY}</a>
+            </p>
           </div>
           <InquiryForm />
         </div>

@@ -50,30 +50,29 @@ function PackageCard({
     </Link>
   );
 
-  const inner = (
-    <>
+  return (
+    <article className={cardClass}>
+      {pkg.recommended && (
+        <div className="reserve-package-badge">Most popular</div>
+      )}
       <h3>{pkg.name}</h3>
       <p className="reserve-package-tagline">{pkg.tagline}</p>
-      <p className="reserve-package-price">{pkg.price}</p>
+      <div className="reserve-package-price-block">
+        <span className="reserve-package-price">{pkg.price}</span>
+        <div className="reserve-package-price-meta">
+          <span>flat rate</span>
+          <span>per mailing</span>
+        </div>
+      </div>
+      {ctaButton}
+      <p className="reserve-package-features-label">What&rsquo;s included:</p>
       <ul className="reserve-package-features">
         {pkg.includes.map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
-      {ctaButton}
-    </>
+    </article>
   );
-
-  if (pkg.recommended) {
-    return (
-      <article className={cardClass}>
-        <div className="reserve-package-badge">Most popular</div>
-        <div className="reserve-package-card-inner">{inner}</div>
-      </article>
-    );
-  }
-
-  return <article className={cardClass}>{inner}</article>;
 }
 
 export default function ReservePage() {
@@ -114,7 +113,7 @@ export default function ReservePage() {
           <SectionHeading
             eyebrow="Placement packages"
             title="Choose the visibility level that fits your business."
-            intro="After confirming fit and category availability, Maryland Local Picks sends a proof and payment link."
+            intro="Submit advertiser intake to get started. After submitting, you can pay immediately to lock in your spot — or wait to hear from us."
           />
           <div className="reserve-distribution-strip">
             <span className="eyebrow">Premium shared postcard</span>
@@ -131,7 +130,6 @@ export default function ReservePage() {
             </span>
             <span>Ad layout and design help included with every spot</span>
           </div>
-          <p className="advertise-placement-note">{MAILING_REACH_NOTE}</p>
           <div className="reserve-package-grid">
             {placementPackages.map((pkg) => (
               <PackageCard key={pkg.key} pkg={pkg} />
@@ -182,8 +180,8 @@ export default function ReservePage() {
             </p>
             <p className="contact-number-numeric">{ADVERTISER_PHONE_NUMERIC}</p>
             <p>
-              Payment links are sent after placement and category availability
-              are confirmed.
+              After submitting intake, you can pay immediately to lock in your
+              spot — or wait for us to confirm fit and follow up.
             </p>
           </div>
         </div>

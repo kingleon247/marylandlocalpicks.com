@@ -13,7 +13,6 @@ export function SiteHeader() {
         <nav className="site-nav" aria-label="Main navigation">
           <Link href="/catonsville">Catonsville</Link>
           <Link href="/advertise">Advertise</Link>
-          <Link href="/reserve">Reserve</Link>
           <Link className="nav-cta" href="/catonsville#newsletter">
             Get the picks
           </Link>

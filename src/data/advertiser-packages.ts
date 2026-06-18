@@ -52,7 +52,7 @@ export const placementPackages: PlacementPackage[] = [
       "QR code included when useful",
     ],
     price: "$350",
-    cta: "Reserve your spot",
+    cta: "Reserve this spot",
   },
   {
     key: "standardSpot",
@@ -73,7 +73,7 @@ export const placementPackages: PlacementPackage[] = [
       "QR code included when useful",
     ],
     price: "$600",
-    cta: "Reserve your spot",
+    cta: "Reserve this spot",
     recommended: true,
   },
   {
@@ -95,14 +95,12 @@ export const placementPackages: PlacementPackage[] = [
       "QR code included when useful",
     ],
     price: "$1,100",
-    cta: "Reserve your spot",
+    cta: "Reserve this spot",
   },
 ];
 
 export const paymentPolicy = [
-  "No payment, no reserved print spot.",
-  "Print placements are paid upfront.",
-  "Payment links are sent after placement and category availability are confirmed.",
-  "There is no charge before you have seen and approved your placement.",
-  "Maryland Local Picks sells local exposure and visibility — not guaranteed leads, calls, or sales.",
+  "Payment reserves your requested advertising spot for the upcoming Maryland Local Picks postcard, subject to category availability and placement approval.",
+  "If your business or category cannot be approved for this edition, your payment will be refunded.",
+  "Your spot is not considered locked until payment is received.",
 ];

@@ -1,20 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 import {
   REVIEW_ACCESS_COOKIE,
+  getRedirectUrl,
   reviewAccessCookieOptions,
 } from "@/lib/site-gate";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function productionRedirect(path: string): URL {
-  const siteUrl = process.env.SITE_URL || "https://marylandlocalpicks.com";
-  return new URL(path, siteUrl);
-}
-
-export async function GET() {
-  const response = NextResponse.redirect(productionRedirect("/"));
+export async function GET(request: NextRequest) {
+  const response = NextResponse.redirect(getRedirectUrl(request, "/"));
 
   response.cookies.set(REVIEW_ACCESS_COOKIE, "", {
     ...reviewAccessCookieOptions(),

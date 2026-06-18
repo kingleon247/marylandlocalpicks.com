@@ -76,8 +76,9 @@ export default function AdvertiserIntakePage() {
                   A real person reviews every submission.
                 </blockquote>
                 <p>
-                  We check fit and category availability, then send proof and a
-                  payment link — typically within two business days.
+                  After submitting, you can pay immediately to lock in your
+                  spot. We check fit, category availability, and send a proof —
+                  typically within two business days.
                 </p>
                 <p style={{ marginTop: "1rem" }}>{MAILING_REACH_NOTE}</p>
               </div>
