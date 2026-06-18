@@ -75,14 +75,17 @@ export function AdvertiserIntakeForm() {
         return;
       }
 
+      const placement = (formData.get("interestedPlacement") as string) ?? "";
+
       if (result.submissionId && result.submissionId !== "rejected") {
-        router.push(
-          `/advertiser-intake/thank-you?ref=${encodeURIComponent(result.submissionId)}`,
-        );
+        const params = new URLSearchParams({ ref: result.submissionId });
+        if (placement) params.set("placement", placement);
+        router.push(`/advertiser-intake/thank-you?${params}`);
         return;
       }
 
-      router.push("/advertiser-intake/thank-you");
+      const suffix = placement ? `?placement=${encodeURIComponent(placement)}` : "";
+      router.push(`/advertiser-intake/thank-you${suffix}`);
     } catch {
       setErrors({ form: "Unable to submit. Try again." });
     } finally {

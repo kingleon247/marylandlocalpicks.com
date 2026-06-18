@@ -201,18 +201,25 @@ export default function AdvertisePage() {
                 ) : null}
                 <h3>{pkg.name}</h3>
                 <p className="advertise-placement-tagline">{pkg.tagline}</p>
-                <p className="advertise-placement-price">{pkg.price}</p>
-                <ul className="advertise-placement-includes">
-                  {pkg.includes.map((inc) => (
-                    <li key={inc}>{inc}</li>
-                  ))}
-                </ul>
+                <div className="advertise-placement-price-block">
+                  <span className="advertise-placement-price">{pkg.price}</span>
+                  <div className="advertise-placement-price-meta">
+                    <span>flat rate</span>
+                    <span>per mailing</span>
+                  </div>
+                </div>
                 <Link
                   className="button button-primary button-wide"
                   href={`/advertiser-intake?interest=${pkg.key}`}
                 >
                   {pkg.cta}
                 </Link>
+                <p className="advertise-placement-includes-label">What&rsquo;s included:</p>
+                <ul className="advertise-placement-includes">
+                  {pkg.includes.map((inc) => (
+                    <li key={inc}>{inc}</li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
