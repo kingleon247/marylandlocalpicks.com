@@ -3,24 +3,19 @@
  * database. Idempotent: safe to run repeatedly.
  */
 import { createDbClient } from "@/db/client";
-import { databaseNameOf, sanitizeDbUrl } from "@/lib/env";
+import { requireDatabaseUrl, databaseNameOf, sanitizeDbUrl } from "@/lib/env";
 import { loadEnv } from "@/lib/load-env";
 import { seedInitialEdition } from "@/server/seed";
 
-const FORBIDDEN_NAME = /commission[_-]?gps/i;
 const PRODUCTION_NAME = /prod|production/i;
 
 async function main(): Promise<void> {
   loadEnv();
 
-  const url = process.env.DATABASE_URL;
-  if (!url) {
-    throw new Error("DATABASE_URL is not set. Refusing to seed.");
-  }
+  // requireDatabaseUrl: ensures DATABASE_URL is present and not CommissionGPS.
+  const url = requireDatabaseUrl();
+
   const name = databaseNameOf(url);
-  if (FORBIDDEN_NAME.test(name)) {
-    throw new Error(`Refusing to seed a CommissionGPS database ('${name}').`);
-  }
   if (PRODUCTION_NAME.test(name)) {
     throw new Error(
       `Refusing to seed a production-looking database ('${name}').`,

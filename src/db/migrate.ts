@@ -8,24 +8,18 @@
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 
 import { createDbClient } from "@/db/client";
-import { databaseNameOf, sanitizeDbUrl } from "@/lib/env";
+import { requireDatabaseUrl, databaseNameOf, sanitizeDbUrl } from "@/lib/env";
 import { loadEnv } from "@/lib/load-env";
 
-const FORBIDDEN_NAME = /commission[_-]?gps/i;
 const PRODUCTION_NAME = /prod|production/i;
 
 async function main(): Promise<void> {
   loadEnv();
 
-  const url = process.env.DATABASE_URL;
-  if (!url) {
-    throw new Error("DATABASE_URL is not set. Refusing to run migrations.");
-  }
+  // requireDatabaseUrl: ensures DATABASE_URL is present and not CommissionGPS.
+  const url = requireDatabaseUrl();
 
   const name = databaseNameOf(url);
-  if (FORBIDDEN_NAME.test(name)) {
-    throw new Error(`Refusing to migrate a CommissionGPS database ('${name}').`);
-  }
   if (PRODUCTION_NAME.test(name)) {
     throw new Error(
       `Refusing to migrate a production-looking database ('${name}'). ` +

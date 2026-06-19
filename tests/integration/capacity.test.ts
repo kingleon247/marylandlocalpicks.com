@@ -8,11 +8,13 @@
 import { and, eq } from "drizzle-orm";
 import { afterAll, beforeEach, describe, expect, it } from "vitest";
 
+import { createDbClient } from "@/db/client";
 import {
   activityEvents,
   reservationStatusHistory,
   reservations,
 } from "@/db/schema";
+import { requireTestDatabaseUrl } from "@/lib/env";
 import {
   CapacityError,
   createReservation,
@@ -204,7 +206,7 @@ describe("capacity release", () => {
 });
 
 describe("concurrency", () => {
-  it("prevents overselling when two holds race for the last standard slot", async () => {
+  it("FOR UPDATE lock: client B blocks until client A commits, then rejects on sold-out capacity", async () => {
     // Leave exactly 2 half-units (one standard spot) available: 30 - 28 = 2.
     await createReservation(db, {
       editionId,
@@ -215,29 +217,83 @@ describe("concurrency", () => {
     });
     expect((await getEditionCapacity(db, editionId)).availableHalfUnits).toBe(2);
 
-    const attempt = () =>
-      createReservation(db, {
+    // Two independent clients, each capped at one connection, so their
+    // transactions are on separate TCP connections and provably overlap.
+    const clientA = createDbClient(requireTestDatabaseUrl(), { max: 1 });
+    const clientB = createDbClient(requireTestDatabaseUrl(), { max: 1 });
+
+    // Barrier 1: A signals the moment it holds the FOR UPDATE lock.
+    let resolveLockAcquired!: () => void;
+    // Barrier 2: the test harness tells A when it may commit.
+    let resolveAllowCommit!: () => void;
+    const lockAcquired = new Promise<void>((r) => {
+      resolveLockAcquired = r;
+    });
+    const allowCommit = new Promise<void>((r) => {
+      resolveAllowCommit = r;
+    });
+
+    try {
+      // --- Transaction A (raw postgres.js for explicit lifecycle control) ---
+      // Acquires the edition-row FOR UPDATE lock (the same lock createReservation
+      // acquires), signals that it holds it, waits for the harness to say
+      // "commit now", inserts the last 2 half-units, then commits.
+      // postgres.js auto-commits when the callback resolves.
+      const txAPromise = clientA.sql.begin(async (txA) => {
+        await txA`
+          SELECT id FROM mailing_editions WHERE id = ${editionId} FOR UPDATE
+        `;
+        resolveLockAcquired(); // A holds the lock; start B now.
+        await allowCommit;     // Hold the transaction open until told to commit.
+        // Consume the last 2 half-units (capacity will be 32/32 after COMMIT).
+        await txA`
+          INSERT INTO reservations (edition_id, kind, status, half_units_consumed, source)
+          VALUES (${editionId}, 'advertiser_hold', 'held', 2, 'web_intake')
+        `;
+      });
+
+      // Wait until A definitively holds the lock before launching B.
+      await lockAcquired;
+
+      // --- Transaction B (createReservation — the service under test) ---
+      // Will issue its own SELECT ... FOR UPDATE on the same edition row and
+      // block at the Postgres server until A commits and releases the lock.
+      // After unblocking it recomputes consumed capacity, finds 32/32, and
+      // throws CapacityError (transaction rolls back automatically).
+      const txBPromise = createReservation(clientB.db, {
         editionId,
         kind: "advertiser_hold",
         status: "held",
         halfUnitsConsumed: 2,
         source: "web_intake",
         packageKey: "standard_spot",
-      })
-        .then(() => "ok" as const)
-        .catch((err) => {
-          if (err instanceof CapacityError) return "rejected" as const;
-          throw err;
-        });
+      });
 
-    // Genuinely overlapping transactions on separate pooled connections.
-    const results = (await Promise.all([attempt(), attempt()])).sort();
-    expect(results).toEqual(["ok", "rejected"]);
+      // Yield the event loop so B's BEGIN + SELECT FOR UPDATE reach the Postgres
+      // server and genuinely block before we allow A to commit.
+      await new Promise<void>((r) => setTimeout(r, 150));
 
-    const cap = await getEditionCapacity(db, editionId);
-    expect(cap.availableHalfUnits).toBe(0);
-    expect(cap.consumedHalfUnits).toBeLessThanOrEqual(cap.physicalHalfUnits);
-    expect(cap.consumedHalfUnits).toBe(32);
+      // Allow A to commit: it inserts the reservation and releases the lock.
+      // B unblocks, recomputes consumed (2 internal + 28 staff + 2 from A = 32),
+      // finds 0 available, and throws CapacityError.
+      resolveAllowCommit();
+
+      const [aResult, bResult] = await Promise.allSettled([txAPromise, txBPromise]);
+
+      expect(aResult.status).toBe("fulfilled");
+      expect(bResult.status).toBe("rejected");
+      if (bResult.status === "rejected") {
+        expect(bResult.reason).toBeInstanceOf(CapacityError);
+      }
+
+      // Total consumed: 2 (internal) + 28 (staff) + 2 (A) = 32. B rolled back.
+      const cap = await getEditionCapacity(db, editionId);
+      expect(cap.availableHalfUnits).toBe(0);
+      expect(cap.consumedHalfUnits).toBe(32);
+      expect(cap.consumedHalfUnits).toBeLessThanOrEqual(cap.physicalHalfUnits);
+    } finally {
+      await Promise.allSettled([clientA.close(), clientB.close()]);
+    }
   });
 });
 
