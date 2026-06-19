@@ -8,7 +8,9 @@ Phase 1.5 sales operations.
 
 Phase 1 public MVP is complete. Phase 1.5 adds reservation and intake flows for selling and fulfilling Catonsville placements without building the full future platform.
 
-No database connection, authentication, admin dashboard, Stripe API integration, SignalWire, or email alerts should be assumed yet.
+The Phase 1 operational backend foundation now exists on the database side: a dedicated Maryland Local Picks PostgreSQL database (Drizzle + postgres.js), the canonical `businesses` table, mailing editions, package catalog, the `reservations` capacity table, status history, activity events, and a capacity transaction service. See `_docs/09_BACKEND_PHASE_1.md`.
+
+Authentication, advertiser/admin portals, Stripe API integration, payments, digital entitlements/subscriptions, SignalWire, and email alerts should NOT be assumed yet — those are later phases.
 
 ## Private Preview Gate
 
@@ -38,8 +40,8 @@ Turn the gate off for public launch by setting `SITE_GATE_ENABLED=false`.
 - Plain global CSS
 - Static typed mock data
 - Node/server runtime
-- Local/serverful filesystem intake storage (no database)
-- Drizzle ORM table definitions prepared for future PostgreSQL
+- Local/serverful filesystem intake storage (artwork/intake bytes; not the operational DB)
+- Operational PostgreSQL (DigitalOcean managed) via Drizzle ORM + postgres.js, with reviewed migrations and real-Postgres integration tests (Phase 1 backend foundation)
 
 ## Current Routes
 
@@ -88,24 +90,24 @@ Package and payment-link config:
 - `src/data/advertiser-packages.ts`
 - `src/data/payment-links.ts`
 
-Prepared/future schema areas include:
+Operational Phase 1 tables (live, in the MLP database):
 
-- cities
-- categories
-- businesses
-- business placements
-- offers
-- picks of the week
+- `cities`, `categories` (reference data)
+- `businesses` (canonical identity + public listing)
+- `mailing_editions`, `edition_packages`
+- `reservations` (the single capacity-consuming table), `reservation_status_history`
+- `activity_events` (append-only audit log)
 
-Future Phase 2+ data areas include:
+Public-guide directory tables (`business_placements`, `offers`, `picks_of_the_week`) from the original prototype schema are deferred — they were never migrated and can be reintroduced additively later.
 
-- editions
-- placements
-- events
-- subscribers
-- leads
-- calls
-- commitments
+Future Phase 2+ data areas (NOT built yet):
+
+- payments / refunds / Stripe webhook ledger (Phase 2)
+- users / advertiser organizations / claims / checklists (Phase 3)
+- assets / proofs / digital entitlements / subscriptions / engagement (Phase 4)
+- commissions / mailing status (Phase 5)
+- CommissionGPS integration + AI tools (Phase 6)
+- telephony (Phase 7)
 
 ## Development Rule
 
