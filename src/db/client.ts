@@ -46,12 +46,15 @@ function sslOption(
 
 export function createDbClient(
   connectionString: string,
-  opts: { max?: number } = {},
+  opts: { max?: number; applicationName?: string } = {},
 ): DbClient {
   const sql = postgres(connectionString, {
     ssl: sslOption(connectionString),
     max: opts.max ?? 5,
     onnotice: () => {},
+    ...(opts.applicationName
+      ? { connection: { application_name: opts.applicationName } }
+      : {}),
   });
   const db = drizzle(sql, { schema });
   return {
